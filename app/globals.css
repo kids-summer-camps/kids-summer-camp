@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  /* Kid Explorer Camps Design System */
+  --kid-primary: #1493E8;
+  --kid-accent: #0FD3C6;
+  --kid-secondary: #01325D;
+  --kid-neutral-100: #FFFFFF;
+  --kid-neutral-200: #F5F5F5;
+  --kid-neutral-300: #D9D9D9;
+  --kid-neutral-400: #D9DBE9;
+  --kid-text-primary: #000000;
+  --kid-text-secondary: #666666;
+
+  /* Base theme */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Kid Design Tokens */
+  --color-kid-primary: var(--kid-primary);
+  --color-kid-accent: var(--kid-accent);
+  --color-kid-secondary: var(--kid-secondary);
+  --color-kid-neutral-100: var(--kid-neutral-100);
+  --color-kid-neutral-200: var(--kid-neutral-200);
+  --color-kid-neutral-300: var(--kid-neutral-300);
+  --color-kid-neutral-400: var(--kid-neutral-400);
+  --color-kid-text-primary: var(--kid-text-primary);
+  --color-kid-text-secondary: var(--kid-text-secondary);
+
+  /* Fonts - Mapped from Google Fonts in layout.tsx */
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-serif: var(--font-roboto-serif), 'Roboto Serif', Georgia, serif;
+  --font-mono: var(--font-roboto-mono), 'Roboto Mono', monospace;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility classes for design system */
+.text-kid-primary { color: var(--kid-primary); }
+.text-kid-accent { color: var(--kid-accent); }
+.text-kid-secondary { color: var(--kid-secondary); }
+.bg-kid-primary { background-color: var(--kid-primary); }
+.bg-kid-accent { background-color: var(--kid-accent); }
+.bg-kid-secondary { background-color: var(--kid-secondary); }
+
+/* Responsive typography utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  html {
+    font-size: 16px;
+  }
+}

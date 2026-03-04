@@ -1,0 +1,22 @@
+import { HeroSection } from "@/components/home/HeroSection";
+import { MissionSection } from "@/components/home/MissionSection";
+import { CampProgramGrid } from "@/components/home/CampProgramGrid";
+import { BestCampSection } from "@/components/home/BestCampSection";
+
+export default function Home() {
+  return (
+    <>
+      {/* Hero - Video or Image background, no text overlay */}
+      <HeroSection />
+
+      {/* Blue Mission Section */}
+      <MissionSection />
+
+      {/* Camp Program Grid - 8 cards */}
+      <CampProgramGrid />
+
+      {/* Best Camp Section with 3 program cards */}
+      <BestCampSection />
+    </>
+  );
+}
