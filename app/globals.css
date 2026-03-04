@@ -59,14 +59,7 @@ body {
 .bg-kid-accent { background-color: var(--kid-accent); }
 .bg-kid-secondary { background-color: var(--kid-secondary); }
 
-/* Responsive typography utilities */
-.font-serif {
-  font-family: var(--font-serif);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
+/* Responsive typography utilities - Tailwind v4 generates these from @theme */
 
 /* Mobile-first responsive adjustments */
 @media (max-width: 640px) {

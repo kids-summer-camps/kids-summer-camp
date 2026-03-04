@@ -21,7 +21,7 @@ export function Button({
   href,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-['Roboto_Serif'] font-bold rounded-lg cursor-pointer";
+    "inline-flex items-center justify-center font-serif font-bold rounded-lg cursor-pointer";
 
   const variants = {
     primary: "bg-[#0FD3C6] text-white",
