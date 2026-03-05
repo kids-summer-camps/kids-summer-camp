@@ -2,10 +2,12 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { MissionSection } from "@/components/home/MissionSection";
 import { CampProgramGrid } from "@/components/home/CampProgramGrid";
 import { BestCampSection } from "@/components/home/BestCampSection";
+import { StructuredData } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       {/* Hero - Video or Image background, no text overlay */}
       <HeroSection
         videoSrc="/videos/lack%20woman%20astronaut.MP4"

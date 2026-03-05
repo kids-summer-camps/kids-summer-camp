@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kid Explorer Camps
+
+**Where the Future Starts in the Summer**
+
+A modern, SEO-optimized website for Kid Explorer Camps - Chicago's premier summer program for kids ages 3-14, featuring STEM innovation, creative arts, sports, and outdoor exploration.
+
+🌐 **Live Site:** [kids-summer-camp.vercel.app](https://kids-summer-camp.vercel.app)
+
+## Features
+
+- 🎨 Modern, responsive design with Framer Motion animations
+- 🚀 Next.js 16 with App Router and Turbopack
+- 📱 Mobile-first, fully responsive
+- 🎯 Comprehensive SEO optimization
+- 📊 Analytics ready (GA4, GTM, Facebook Pixel)
+- 🔍 Structured data (JSON-LD) for rich search results
+- 🖼️ Open Graph images for social media
+- 🗺️ Dynamic XML sitemap
+- 🤖 Robots.txt configuration
+- ♿ Accessible UI components
+
+## Tech Stack
+
+- **Framework:** Next.js 16
+- **Styling:** Tailwind CSS 4
+- **Animations:** Framer Motion
+- **Fonts:** DM Sans, Roboto Serif, Roboto Mono, Poppins
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configure analytics and tracking in `.env.local`:
+
+```env
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_FB_PIXEL_ID=your_pixel_id
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+```
+
+See `.env.example` for all available options.
+
+## Project Structure
+
+```
+kids-summer-camp/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with metadata
+│   ├── page.tsx           # Homepage
+│   ├── robots.ts          # SEO robots.txt
+│   ├── sitemap.ts         # Dynamic sitemap
+│   ├── about/             # About page
+│   ├── programs/          # Programs and sub-programs
+│   ├── philosophy/        # Philosophy page
+│   └── faq/               # FAQ page
+├── components/            # React components
+│   ├── home/             # Homepage sections
+│   ├── programs/         # Program components
+│   ├── StructuredData.tsx # JSON-LD structured data
+│   └── Analytics.tsx     # Analytics tracking
+├── lib/                   # Utilities
+│   └── metadata.ts       # SEO metadata helpers
+├── public/               # Static assets
+│   ├── og-image.png      # Open Graph image
+│   ├── icon-*.png        # App icons
+│   ├── images/           # Images
+│   └── videos/           # Video assets
+└── SEO-SETUP.md          # SEO documentation
+```
+
+## Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint
+```
+
+## SEO Setup
+
+This website is fully optimized for search engines. See [SEO-SETUP.md](./SEO-SETUP.md) for:
+
+- Complete SEO checklist
+- Analytics setup instructions
+- Google Search Console verification
+- Social media optimization
+- Testing tools and resources
+
+### Quick SEO Checklist
+
+- ✅ Meta tags and descriptions
+- ✅ Open Graph tags
+- ✅ Twitter Cards
+- ✅ Structured data (JSON-LD)
+- ✅ XML sitemap
+- ✅ Robots.txt
+- ✅ Favicons and app icons
+- ✅ Web manifest (PWA support)
+- ✅ Analytics integration
+- ✅ Page-specific metadata
+
+## Pages
+
+- **Home** - Hero video, mission, program grid, featured programs
+- **About** - Origin story and mission
+- **Programs** - Overview of all camp programs
+  - Lil' Launchers (Ages 3-5)
+  - First Flight (Ages 5-7)
+  - Cosmic Curiosity (Ages 7-9)
+  - The Vanguard (Ages 9-11)
+  - Vision Architect (Ages 11-13)
+  - The Blueprint (Ages 13-14)
+  - Power Play (Sports & Athletics)
+- **Philosophy** - The DREME 9™ framework
+- **FAQ** - Common questions and answers
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com) with automatic deployments from the main branch.
+
+```bash
+# Deploy to production
+git push origin main
+```
+
+Vercel automatically:
+- Builds the Next.js app
+- Generates static pages
+- Optimizes images and assets
+- Configures edge caching
+- Provides preview deployments for PRs
+
+## Performance
+
+- ⚡ Static page generation where possible
+- 🖼️ Automatic image optimization
+- 📦 Code splitting and lazy loading
+- 🎬 Video optimization with posters
+- 🔄 Incremental Static Regeneration (ISR)
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Vercel Platform](https://vercel.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All rights reserved © Kid Explorer Camps
 
-## Deploy on Vercel
+## Support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For questions or support, please contact the development team.
