@@ -69,7 +69,7 @@ function ProgramCard({ card }: { card: typeof programCards[0] }) {
   return (
     <motion.a
       href={card.href}
-      className="group relative shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.333%-1rem)] min-w-0"
+      className="group relative shrink-0 w-full sm:w-[45%] lg:w-[calc(33.333%-1rem)] min-w-0"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
     >
@@ -79,7 +79,7 @@ function ProgramCard({ card }: { card: typeof programCards[0] }) {
           alt={card.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
-          sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 33vw"
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
