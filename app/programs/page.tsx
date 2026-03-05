@@ -14,6 +14,7 @@ const programs = [
     location: "Chicago",
     tagline: "This is where future visionaries take their first step. It's cool, it's bold — it's Kid Explorer Camp.",
     href: "/programs/lil-launchers",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
   },
   {
     title: "FIRST FLIGHT (Day Camp — Rising K & 1st)",
@@ -25,6 +26,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "Lift off into a summer where imagination takes flight.",
     href: "#",
+    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
   },
   {
     title: "POWER PLAY (Sports Camp — Rising K–7)",
@@ -36,6 +38,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "Run the field. Own the game. Lead the pack.",
     href: "/programs/power-play",
+    image: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=800&q=80",
   },
   {
     title: "THE BLUEPRINT (Rising 2nd–3rd)",
@@ -47,6 +50,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "They don't just imagine the future — they design it.",
     href: "/programs/the-blueprint",
+    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
   },
   {
     title: "COSMIC CURIOSITY (1st–2nd)",
@@ -58,6 +62,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "Wonder is the superpower.",
     href: "/programs/cosmic-curiosity",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
   },
   {
     title: "Vision Architect - The Plug Club (Entrepreneurship Track — Rising 4th–7th)",
@@ -69,6 +74,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "Dream it. Build it. Own it.",
     href: "/programs/vision-architect",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
   },
   {
     title: "THE VANGUARD (Leadership Training — Rising 8th)",
@@ -80,6 +86,7 @@ const programs = [
     location: "Citywide Bus Stops, Chicago",
     tagline: "Step into your power. Lead the way.",
     href: "/programs/the-vanguard",
+    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80",
   },
 ];
 
@@ -88,7 +95,7 @@ export default function ProgramsPage() {
     <div className="min-h-screen bg-white">
       {/* Video Hero Section */}
       <HeroSection
-        videoSrc="/videos/camp-hero.mp4"
+        videoSrc="/videos/White%20kid%20in%20space.MP4"
         imageSrc="/images/hero-bg.png"
         posterSrc="/images/hero-bg.png"
       />

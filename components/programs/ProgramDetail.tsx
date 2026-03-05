@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations";
 interface ProgramDetailProps {
@@ -13,6 +14,7 @@ interface ProgramDetailProps {
   location: string;
   tagline: string;
   href: string;
+  image?: string;
 }
 
 export function ProgramDetail({
@@ -24,17 +26,30 @@ export function ProgramDetail({
   location,
   tagline,
   href,
+  image,
 }: ProgramDetailProps) {
   const ImagePlaceholder = (
     <motion.div
-      className="bg-[#d9d9d9] rounded-[5px] w-full max-w-[403px] h-[300px] sm:h-[350px] md:h-[413px] flex items-center justify-center"
+      className="rounded-[5px] w-full max-w-[403px] h-[300px] sm:h-[350px] md:h-[413px] overflow-hidden relative"
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       whileHover={{ scale: 1.02 }}
     >
-      <span className="text-gray-500 font-sans text-sm">Program Image</span>
+      {image ? (
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 403px"
+        />
+      ) : (
+        <div className="w-full h-full bg-[#d9d9d9] flex items-center justify-center">
+          <span className="text-gray-500 font-sans text-sm">Program Image</span>
+        </div>
+      )}
     </motion.div>
   );
 

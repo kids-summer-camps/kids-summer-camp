@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { AnimatedHeadline } from "./AnimatedHeadline";
 
 interface HeroSectionProps {
   videoSrc?: string;
@@ -59,6 +60,39 @@ export function HeroSection({
           />
         )}
       </motion.div>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 z-1 bg-linear-to-b from-black/30 via-black/20 to-black/40" />
+
+      {/* Animated Headline Content */}
+      <div className="absolute inset-0 z-2 flex items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center"
+        >
+          <AnimatedHeadline
+            staticText="Kid Explorer Club — "
+            rotatingTexts={[
+              "Summer 2026",
+              "Family Trips",
+              "Amazing Camp",
+              "Science Lab",
+              "Power Play",
+            ]}
+            className="text-[40px] sm:text-[56px] lg:text-[72px] leading-[1.1] tracking-tight drop-shadow-lg"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-6 text-white/90 text-lg sm:text-xl font-light max-w-2xl mx-auto drop-shadow-md"
+          >
+            Unforgettable adventures await your little explorers
+          </motion.p>
+        </motion.div>
+      </div>
     </section>
   );
 }

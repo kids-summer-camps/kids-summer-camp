@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function TheBlueprintPage() {
@@ -17,12 +16,26 @@ export default function TheBlueprintPage() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Hero Section with Teal Gradient Background */}
+        {/* Hero Section with Background Video */}
         <section className="relative">
-          {/* Hero Container */}
+          {/* Hero Video Container */}
           <div className="relative h-[600px] sm:h-[700px] lg:h-[584px] overflow-hidden">
-            {/* Teal Gradient Background */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0FD3C6] to-[#1493E8]" />
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/hero-bg.png"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/Girl%20with%20robotic%20hand%202.MP4" type="video/mp4" />
+              </video>
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
 
             {/* Teal Bar at Bottom of Hero */}
             <div className="absolute bottom-0 left-0 right-0 h-14 bg-[#0FD3C6] z-10" />
@@ -135,11 +148,18 @@ export default function TheBlueprintPage() {
                   At The Blueprint, campers become architects of innovation. STEM labs, creative builds, and collaborative projects turn curiosity into real-world problem-solving. Every activity is a mini launch sequence for the future innovators ready to dream, design, and disrupt.
                 </p>
 
-                {/* Video Placeholder */}
-                <div className="w-full h-[300px] sm:h-[400px] lg:h-[480px] bg-[rgba(64,179,255,0.1)] flex items-center justify-center mb-8">
-                  <span className="font-serif font-bold text-[#01325D] text-2xl sm:text-3xl lg:text-[40px] uppercase">
-                    VIDEO HERE
-                  </span>
+                {/* Video */}
+                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/Girl%20with%20robotic%20hand%202.MP4" type="video/mp4" />
+                  </video>
                 </div>
 
                 {/* Philosophy Link */}

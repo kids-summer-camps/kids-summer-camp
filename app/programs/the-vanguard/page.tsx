@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function TheVanguardPage() {
@@ -17,19 +16,23 @@ export default function TheVanguardPage() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Hero Section with Background Image */}
+        {/* Hero Section with Background Video */}
         <section className="relative">
-          {/* Hero Image Container */}
+          {/* Hero Video Container */}
           <div className="relative h-[600px] sm:h-[700px] lg:h-[704px] overflow-hidden">
-            {/* Background Image */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/the-vanguard-hero.png"
-                alt="Teen leaders"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/the-vanguard-hero.png"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/lack%20woman%20astronaut.MP4" type="video/mp4" />
+              </video>
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/30" />
             </div>
@@ -145,14 +148,19 @@ export default function TheVanguardPage() {
                   Our advanced leadership track hones professionalism, responsibility, and high-impact skills. Campers practice decision-making, mentorship, and team dynamics — equipping them to guide with vision both on and off campus.
                 </p>
 
-                {/* Video/Image */}
-                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8">
-                  <Image
-                    src="/images/the-vanguard-video.png"
-                    alt="Leadership activities"
-                    fill
-                    className="object-cover"
-                  />
+                {/* Video */}
+                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    poster="/images/the-vanguard-video.png"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/lack%20woman%20astronaut.MP4" type="video/mp4" />
+                  </video>
                 </div>
 
                 {/* Philosophy Link */}

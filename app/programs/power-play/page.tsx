@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function PowerPlayPage() {
@@ -17,19 +16,23 @@ export default function PowerPlayPage() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Hero Section with Background Image */}
+        {/* Hero Section with Background Video */}
         <section className="relative">
-          {/* Hero Image Container */}
+          {/* Hero Video Container */}
           <div className="relative h-[600px] sm:h-[700px] lg:h-[704px] overflow-hidden">
-            {/* Background Image */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/power-play-hero.png"
-                alt="Kid at the beach"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/power-play-hero.png"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/Sport.MP4" type="video/mp4" />
+              </video>
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/20" />
             </div>
@@ -145,14 +148,19 @@ export default function PowerPlayPage() {
                   Kid Explorer Camp Sports merges athletic skill with leadership, teamwork, and grit. From fast-paced games to strategic challenges, campers push limits, crush personal records, and discover the power of discipline plus fun. Energy, skill, and confidence collide in a summer where every kid becomes a game changer.
                 </p>
 
-                {/* Video/Image */}
-                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8">
-                  <Image
-                    src="/images/power-play-video.png"
-                    alt="Kid in astronaut helmet"
-                    fill
-                    className="object-cover"
-                  />
+                {/* Video */}
+                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    poster="/images/power-play-video.png"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/Sport.MP4" type="video/mp4" />
+                  </video>
                 </div>
 
                 {/* Philosophy Link */}

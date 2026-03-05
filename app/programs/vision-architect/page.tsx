@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function VisionArchitectPage() {
@@ -17,19 +16,23 @@ export default function VisionArchitectPage() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Hero Section with Background Image */}
+        {/* Hero Section with Background Video */}
         <section className="relative">
-          {/* Hero Image Container */}
+          {/* Hero Video Container */}
           <div className="relative h-[600px] sm:h-[700px] lg:h-[704px] overflow-hidden">
-            {/* Background Image */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/vision-architect-hero.png"
-                alt="Kids in astronaut helmets"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/vision-architect-hero.png"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/Girl%20with%20robotic%20hand.MP4" type="video/mp4" />
+              </video>
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/30" />
             </div>
@@ -145,14 +148,19 @@ export default function VisionArchitectPage() {
                   Campers become mini moguls and creative disruptors. Through hands-on projects, pitch challenges, and innovation labs, they learn how to turn ideas into impact. Skills in leadership, collaboration, and problem-solving make every camper a Day One in their own story.
                 </p>
 
-                {/* Video/Image */}
-                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8">
-                  <Image
-                    src="/images/vision-architect-video.png"
-                    alt="Kids working on projects"
-                    fill
-                    className="object-cover"
-                  />
+                {/* Video */}
+                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    poster="/images/vision-architect-video.png"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/Girl%20with%20robotic%20hand.MP4" type="video/mp4" />
+                  </video>
                 </div>
 
                 {/* Philosophy Link */}

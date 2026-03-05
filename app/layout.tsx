@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Roboto_Serif, Roboto_Mono } from "next/font/google";
+import { DM_Sans, Roboto_Serif, Roboto_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
 
@@ -21,6 +21,12 @@ const robotoMono = Roboto_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   title: "Kid Explorer Camps | Summer Programs in Chicago",
   description: "Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14. Transportation across Chicago.",
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${robotoSerif.variable} ${robotoMono.variable} antialiased font-sans`}
+        className={`${dmSans.variable} ${robotoSerif.variable} ${robotoMono.variable} ${poppins.variable} antialiased font-sans`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>

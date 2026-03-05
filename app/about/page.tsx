@@ -1,7 +1,18 @@
+"use client";
+
+import { HeroSection } from "@/components/home/HeroSection";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Video Hero Section */}
+      <HeroSection
+        videoSrc="/videos/White%20kid%20in%20space.MP4"
+        imageSrc="/images/hero-bg.png"
+        posterSrc="/images/hero-bg.png"
+      />
+
+      {/* Story Section */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%]">
           {/* Main Title */}

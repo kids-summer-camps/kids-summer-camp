@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function CosmicCuriosityPage() {
@@ -17,19 +16,23 @@ export default function CosmicCuriosityPage() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Hero Section with Background Image */}
+        {/* Hero Section with Background Video */}
         <section className="relative">
-          {/* Hero Image Container */}
+          {/* Hero Video Container */}
           <div className="relative h-[600px] sm:h-[700px] lg:h-[847px] overflow-hidden">
-            {/* Background Image */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/cosmic-curiosity-hero.png"
-                alt="Kids doing science experiments"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/cosmic-curiosity-hero.png"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/girl%20in%20lab.MP4" type="video/mp4" />
+              </video>
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/20" />
             </div>
@@ -145,14 +148,19 @@ export default function CosmicCuriosityPage() {
                   At Cosmic Curiosity, science, exploration, and imagination take center stage. Campers dive into hands-on experiments, creative investigations, and mind-expanding adventures, all while building teamwork, problem-solving, and a love for discovery.
                 </p>
 
-                {/* Video/Image */}
-                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8">
-                  <Image
-                    src="/images/cosmic-curiosity-video.png"
-                    alt="Kids doing science experiments"
-                    fill
-                    className="object-cover"
-                  />
+                {/* Video */}
+                <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    poster="/images/cosmic-curiosity-video.png"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/girl%20in%20lab.MP4" type="video/mp4" />
+                  </video>
                 </div>
 
                 {/* Philosophy Link */}

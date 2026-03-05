@@ -124,7 +124,7 @@ export default function PhilosophyPage() {
     <div className="min-h-screen bg-white">
       {/* Video Hero Section */}
       <HeroSection
-        videoSrc="/videos/camp-hero.mp4"
+        videoSrc="/videos/White%20kid%20in%20space.MP4"
         imageSrc="/images/hero-bg.png"
         posterSrc="/images/hero-bg.png"
       />
