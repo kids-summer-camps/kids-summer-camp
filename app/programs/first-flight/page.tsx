@@ -28,7 +28,7 @@ export default function FirstFlightPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/first-flight-hero.png"
+                poster="/images/posters/boy-yellow-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/boy%20in%20yellow.MP4" type="video/mp4" />

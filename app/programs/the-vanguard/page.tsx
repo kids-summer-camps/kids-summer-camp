@@ -28,7 +28,7 @@ export default function TheVanguardPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/the-vanguard-hero.png"
+                poster="/images/posters/lack-woman-astronaut-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/lack%20woman%20astronaut.MP4" type="video/mp4" />

@@ -28,7 +28,7 @@ export default function LilLaunchersPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/lil-launchers-hero.png"
+                poster="/images/posters/gaming-pad-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/gaming%20pad.MP4" type="video/mp4" />

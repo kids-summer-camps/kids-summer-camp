@@ -28,7 +28,7 @@ export default function PowerPlayPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/power-play-hero.png"
+                poster="/images/posters/sport-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/Sport.MP4" type="video/mp4" />

@@ -36,16 +36,6 @@ export function HeroSection({
             className="absolute inset-0 w-full h-full object-cover scale-[1.25] -translate-x-[0.72%] -translate-y-[0.06%]"
           >
             <source src={videoSrc} type="video/mp4" />
-            {/* Fallback to image if video fails */}
-            <Image
-              src={imageSrc}
-              alt="Kids enjoying summer camp activities"
-              fill
-              className="object-cover scale-[1.25] -translate-x-[0.72%] -translate-y-[0.06%]"
-              style={{ objectPosition: 'center top' }}
-              priority
-              quality={100}
-            />
           </video>
         ) : (
           // Image Background Only

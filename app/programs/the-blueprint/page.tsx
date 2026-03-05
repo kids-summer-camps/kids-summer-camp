@@ -28,7 +28,7 @@ export default function TheBlueprintPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/hero-bg.png"
+                poster="/images/posters/girl-robotic-hand-2-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/Girl%20with%20robotic%20hand%202.MP4" type="video/mp4" />

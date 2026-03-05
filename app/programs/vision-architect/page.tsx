@@ -28,7 +28,7 @@ export default function VisionArchitectPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/vision-architect-hero.png"
+                poster="/images/posters/girl-robotic-hand-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/Girl%20with%20robotic%20hand.MP4" type="video/mp4" />

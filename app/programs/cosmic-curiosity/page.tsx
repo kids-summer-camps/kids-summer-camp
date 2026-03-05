@@ -28,7 +28,7 @@ export default function CosmicCuriosityPage() {
                 loop
                 playsInline
                 preload="auto"
-                poster="/images/cosmic-curiosity-hero.png"
+                poster="/images/posters/girl-lab-poster.jpg"
                 className="w-full h-full object-cover"
               >
                 <source src="/videos/girl%20in%20lab.MP4" type="video/mp4" />

@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero - Video or Image background, no text overlay */}
       <HeroSection
         videoSrc="/videos/lack%20woman%20astronaut.MP4"
-        posterSrc="/images/hero-bg.png"
+        posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
       />
 
       {/* Blue Mission Section */}

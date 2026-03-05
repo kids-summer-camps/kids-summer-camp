@@ -96,8 +96,7 @@ export default function ProgramsPage() {
       {/* Video Hero Section */}
       <HeroSection
         videoSrc="/videos/White%20kid%20in%20space.MP4"
-        imageSrc="/images/hero-bg.png"
-        posterSrc="/images/hero-bg.png"
+        posterSrc="/images/posters/white-kid-space-poster.jpg"
       />
 
       {/* Intro Cards Section */}
