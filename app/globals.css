@@ -36,6 +36,7 @@
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
   --font-serif: var(--font-roboto-serif), 'Roboto Serif', Georgia, serif;
   --font-mono: var(--font-roboto-mono), 'Roboto Mono', monospace;
+  --font-cinzel: var(--font-cinzel-decorative), 'Cinzel Decorative', Georgia, serif;
 }
 
 /* Base styles */
@@ -58,6 +59,11 @@ body {
 .bg-kid-primary { background-color: var(--kid-primary); }
 .bg-kid-accent { background-color: var(--kid-accent); }
 .bg-kid-secondary { background-color: var(--kid-secondary); }
+
+/* Custom font utilities */
+.font-cinzel {
+  font-family: var(--font-cinzel-decorative), 'Cinzel Decorative', Georgia, serif;
+}
 
 /* Responsive typography utilities - Tailwind v4 generates these from @theme */
 

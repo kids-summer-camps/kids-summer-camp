@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Roboto_Serif, Roboto_Mono, Poppins } from "next/font/google";
+import { DM_Sans, Roboto_Serif, Roboto_Mono, Poppins, Cinzel_Decorative } from "next/font/google";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
 import { Analytics } from "@/components/Analytics";
@@ -26,6 +26,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const cinzelDecorative = Cinzel_Decorative({
+  variable: "--font-cinzel-decorative",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -116,7 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${robotoSerif.variable} ${robotoMono.variable} ${poppins.variable} antialiased font-sans`}
+        className={`${dmSans.variable} ${robotoSerif.variable} ${robotoMono.variable} ${poppins.variable} ${cinzelDecorative.variable} antialiased font-sans`}
       >
         <Analytics />
         <ClientLayout>{children}</ClientLayout>

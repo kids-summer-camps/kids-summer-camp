@@ -54,7 +54,7 @@ export function AnimatedHeadline({
 
   return (
     <h1
-      className={`font-bold text-white ${className}`}
+      className={`font-cinzel font-bold text-white ${className}`}
     >
       {staticText && (
         <span className="elementor-headline-plain-text">{staticText}</span>
