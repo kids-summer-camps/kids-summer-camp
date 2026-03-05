@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     description: 'Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14. Transportation across Chicago.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Kid Explorer Camps - Where the Future Starts in the Summer',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kid Explorer Camps | Summer Programs in Chicago',
     description: 'Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14.',
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
     creator: '@kidexplorercamps',
   },
   robots: {

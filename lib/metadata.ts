@@ -12,7 +12,7 @@ export function generateMetadata({
   title,
   description,
   path = '',
-  image = '/og-image.png',
+  image = '/og-image.jpg',
   keywords = [],
 }: PageMetadata): Metadata {
   const url = `https://kids-summer-camp.vercel.app${path}`
