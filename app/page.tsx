@@ -1,27 +1,48 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { MissionSection } from "@/components/home/MissionSection";
-import { CampProgramGrid } from "@/components/home/CampProgramGrid";
-import { BestCampSection } from "@/components/home/BestCampSection";
+import { WelcomeSection } from "@/components/home/WelcomeSection";
+import { MissionControlSection } from "@/components/home/MissionControlSection";
+import { ProgramCubesSection } from "@/components/home/ProgramCubesSection";
+import { RecommendedMissionSection } from "@/components/home/RecommendedMissionSection";
+import { GrandPrixSection } from "@/components/home/GrandPrixSection";
+import { SummerInMotionSection } from "@/components/home/SummerInMotionSection";
+import { DemoDaySection } from "@/components/home/DemoDaySection";
+import { CTASection } from "@/components/home/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
       <StructuredData />
-      {/* Hero - Video or Image background, no text overlay */}
+      
+      {/* Hero - Clean video background */}
       <HeroSection
         videoSrc="/videos/lack%20woman%20astronaut.MP4"
         posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
       />
 
-      {/* Blue Mission Section */}
-      <MissionSection />
+      {/* Welcome Section - Cyan card overlay */}
+      <WelcomeSection />
 
-      {/* Camp Program Grid - 8 cards */}
-      <CampProgramGrid />
+      {/* Mission Control - Age & interest selection */}
+      <MissionControlSection />
 
-      {/* Best Camp Section with 3 program cards */}
-      <BestCampSection />
+      {/* Program Cubes - 3x3 grid */}
+      <ProgramCubesSection />
+
+      {/* Recommended Mission */}
+      <RecommendedMissionSection />
+
+      {/* Grand Prix Section */}
+      <GrandPrixSection />
+
+      {/* A Summer in Motion */}
+      <SummerInMotionSection />
+
+      {/* Demo Day Section */}
+      <DemoDaySection />
+
+      {/* Call to Action */}
+      <CTASection />
     </>
   );
 }

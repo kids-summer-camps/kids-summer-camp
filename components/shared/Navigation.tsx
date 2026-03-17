@@ -32,9 +32,9 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center">
-              <div className="w-[120px] h-[45px] sm:w-[150px] sm:h-[56px] relative">
+              <div className="w-[150px] h-[56px] sm:w-[190px] sm:h-[71px] relative">
                 <Image
-                  src="/images/newsletter.png"
+                  src="/images/Logo.png"
                   alt="Kid Explorer Clubs"
                   fill
                   className="object-contain"
@@ -73,7 +73,7 @@ export function Navigation() {
                 href="/contact"
                 className="font-sans font-bold text-white text-sm bg-[#0FD3C6] px-5 py-2.5 rounded-lg hover:bg-[#0DC4B8] hover:shadow-lg transition-all duration-300"
               >
-                Register Now
+                Enroll Now
               </Link>
             </motion.div>
           </div>
@@ -166,7 +166,7 @@ export function Navigation() {
                     className="font-sans font-bold text-white text-sm bg-[#0FD3C6] px-5 py-3 rounded-lg hover:bg-[#0DC4B8] transition-colors text-center mt-2 block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Register Now
+                    Enroll Now
                   </Link>
                 </motion.div>
               </motion.div>
