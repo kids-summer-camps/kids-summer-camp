@@ -32,9 +32,9 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center">
-              <div className="w-[150px] h-[56px] sm:w-[190px] sm:h-[71px] relative">
+              <div className="w-[120px] h-[45px] sm:w-[160px] sm:h-[60px] md:w-[190px] md:h-[71px] relative">
                 <Image
-                  src="/images/Logo.png"
+                  src="/images/logo.png"
                   alt="Kid Explorer Clubs"
                   fill
                   className="object-contain"
