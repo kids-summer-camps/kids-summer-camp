@@ -5,67 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValue, useAnimationControls } from "framer-motion";
 import { FadeIn } from "@/components/animations";
+import { programs, type Program } from "@/lib/programs-data";
 
-const programCards = [
-  {
-    id: "lil-launchers",
-    title: "Lil' Launchers",
-    ages: "3 – 4 years",
-    subtitle: "Welcome to Kid Explorer Camp — where the future isn't just imagined, it's built.",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-    href: "/programs/lil-launchers",
-  },
-  {
-    id: "cosmic-curiosity",
-    title: "Cosmic Curiosity",
-    ages: "1st – 2nd",
-    subtitle: "First they wonder, then they build.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-    href: "/programs/cosmic-curiosity",
-  },
-  {
-    id: "first-flight",
-    title: "First Flight",
-    ages: "Rising K & 1st",
-    subtitle: "Welcome to Kid Explorer Camp — where small steps turn into giant leaps.",
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
-    href: "/programs/first-flight",
-  },
-  {
-    id: "the-blueprint",
-    title: "The Blueprint",
-    ages: "2nd – 3rd",
-    subtitle: "Big ideas, small humans, limitless potential.",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
-    href: "/programs/the-blueprint",
-  },
-  {
-    id: "power-play",
-    title: "Power Play",
-    ages: "K – 7",
-    subtitle: "Where the field is a stage and every move is a statement.",
-    image: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=800&q=80",
-    href: "/programs/power-play",
-  },
-  {
-    id: "vision-architect",
-    title: "Vision Architect",
-    ages: "4th – 7th",
-    subtitle: "Where vision meets action.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-    href: "/programs/vision-architect",
-  },
-  {
-    id: "the-vanguard",
-    title: "The Vanguard",
-    ages: "Rising 8th",
-    subtitle: "Lead loud. Inspire always.",
-    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80",
-    href: "/programs/the-vanguard",
-  },
-];
-
-function ProgramCard({ card }: { card: typeof programCards[0] }) {
+function ProgramCard({ card }: { card: Program }) {
   return (
     <motion.a
       href={card.href}
@@ -85,7 +27,7 @@ function ProgramCard({ card }: { card: typeof programCards[0] }) {
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
 
         <div className="absolute top-4 right-4 bg-[#1493E8] text-white px-3 py-1 rounded-full text-xs font-mono font-medium">
-          {card.ages}
+          {card.gradeRange || card.ages}
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -105,6 +47,20 @@ function ProgramCard({ card }: { card: typeof programCards[0] }) {
           >
             {card.subtitle}
           </motion.p>
+          
+          {/* Action buttons overlay on hover */}
+          <div className="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Link
+              href="/contact"
+              onClick={(e) => e.stopPropagation()}
+              className="px-3 py-1.5 bg-[#0FD3C6] rounded-lg text-white font-mono text-xs font-medium hover:bg-[#0DC4B8] transition-colors"
+            >
+              Enroll
+            </Link>
+            <span className="px-3 py-1.5 bg-white/20 border border-white/50 rounded-lg text-white font-mono text-xs font-medium">
+              Learn More
+            </span>
+          </div>
         </div>
       </div>
     </motion.a>
@@ -120,7 +76,7 @@ export function BestCampSection() {
   const x = useMotionValue(0);
   const controls = useAnimationControls();
   
-  const allCards = [...programCards, ...programCards];
+  const allCards = [...programs, ...programs];
 
   const calculateCardWidth = useCallback(() => {
     if (containerRef.current) {
@@ -168,12 +124,12 @@ export function BestCampSection() {
       });
     }
 
-    if (index >= programCards.length) {
-      const resetIndex = index - programCards.length;
+    if (index >= programs.length) {
+      const resetIndex = index - programs.length;
       x.set(-resetIndex * cardWidth);
       setCurrentIndex(resetIndex);
     } else if (index < 0) {
-      const resetIndex = programCards.length + index;
+      const resetIndex = programs.length + index;
       x.set(-resetIndex * cardWidth);
       setCurrentIndex(resetIndex);
     }
@@ -244,7 +200,7 @@ export function BestCampSection() {
             >
               View all →
             </Link>
-0p          </div>
+          </div>
         </FadeIn>
 
         <FadeIn direction="up" delay={0.4}>
@@ -287,8 +243,8 @@ export function BestCampSection() {
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {programCards.map((_, index) => {
-              const normalizedIndex = ((currentIndex % programCards.length) + programCards.length) % programCards.length;
+            {programs.map((_, index) => {
+              const normalizedIndex = ((currentIndex % programs.length) + programs.length) % programs.length;
               
               return (
                 <button

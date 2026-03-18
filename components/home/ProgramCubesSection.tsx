@@ -1,112 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations";
+import { programs, type Program } from "@/lib/programs-data";
 import Link from "next/link";
 
-interface ProgramCube {
-  id: string;
-  title: string;
-  ages: string;
-  subtitle: string;
-  description: string;
-  focus: string[];
-  tagline: string;
-  href: string;
-  color: string;
-  icon: string;
-}
-
-const programs: ProgramCube[] = [
-  {
-    id: "lil-launchers",
-    title: "Lil' Launchers",
-    ages: "3 – 4 years",
-    subtitle: "Welcome to Kid Explorer Camp — where the future isn't just imagined, it's built.",
-    description: "This isn't your average day camp. It's the launchpad for your little explorer's first adventure — a space where creativity flows, confidence grows, and curiosity runs wild. Our youngest campers step into a world where art collides with innovation, STEM sparks imagination, and friendships are formed with the same energy rockets meet the sky.",
-    focus: ["Hands-on creations", "Splash-ready swim sessions", "Early leadership skills", "Art meets innovation", "STEM exploration"],
-    tagline: "This is where future visionaries take their first step.",
-    href: "/programs/lil-launchers",
-    color: "#1493E8",
-    icon: "🚀",
-  },
-  {
-    id: "first-flight",
-    title: "First Flight",
-    ages: "Rising K & 1st",
-    subtitle: "Welcome to Kid Explorer Camp — where small steps turn into giant leaps.",
-    description: "This is the launchpad for young dreamers ready to soar with curiosity. Every day is packed with creative projects, movement challenges, and discovery-driven play, building confidence and imagination along the way. Friendships form fast, creativity sparks faster, and independence grows at supersonic speed.",
-    focus: ["Creative projects", "Movement challenges", "Discovery-driven play", "Confidence building", "Imagination exploration"],
-    tagline: "Lift off into a summer where imagination takes flight.",
-    href: "/programs/first-flight",
-    color: "#0FD3C6",
-    icon: "✈️",
-  },
-  {
-    id: "cosmic-curiosity",
-    title: "Cosmic Curiosity",
-    ages: "1st – 2nd Grade",
-    subtitle: "First they wonder, then they build.",
-    description: "At Cosmic Curiosity, science, exploration, and imagination take center stage. Campers dive into hands-on experiments, creative investigations, and mind-expanding adventures, all while building teamwork, problem-solving, and a love for discovery.",
-    focus: ["Hands-on experiments", "Creative investigations", "Mind-expanding adventures", "Teamwork building", "Problem-solving skills"],
-    tagline: "Wonder is the superpower.",
-    href: "/programs/cosmic-curiosity",
-    color: "#7B61FF",
-    icon: "🔬",
-  },
-  {
-    id: "the-blueprint",
-    title: "The Blueprint",
-    ages: "2nd – 3rd Grade",
-    subtitle: "Big ideas, small humans, limitless potential.",
-    description: "At The Blueprint, campers become architects of innovation. STEM labs, creative builds, and collaborative projects turn curiosity into real-world problem-solving. Every activity is a mini launch sequence for the future innovators ready to dream, design, and disrupt.",
-    focus: ["STEM labs", "Creative builds", "Collaborative projects", "Problem-solving", "Design thinking"],
-    tagline: "They don't just imagine the future — they design it.",
-    href: "/programs/the-blueprint",
-    color: "#FF6B35",
-    icon: "📐",
-  },
-  {
-    id: "power-play",
-    title: "Power Play",
-    ages: "K – 7th Grade",
-    subtitle: "Where the field is a stage and every move is a statement.",
-    description: "Kid Explorer Camp Sports merges athletic skill with leadership, teamwork, and grit. From fast-paced games to strategic challenges, campers push limits, crush personal records, and discover the power of discipline plus fun. Energy, skill, and confidence collide in a summer where every kid becomes a game-changer.",
-    focus: ["Athletic skills", "Leadership development", "Teamwork & grit", "Strategic challenges", "Confidence building"],
-    tagline: "Run the field. Own the game. Lead the pack.",
-    href: "/programs/power-play",
-    color: "#FFD93D",
-    icon: "⚽",
-  },
-  {
-    id: "vision-architect",
-    title: "Vision Architect",
-    ages: "4th – 7th Grade",
-    subtitle: "Where vision meets action.",
-    description: "Campers become mini moguls and creative disruptors. Through hands-on projects, pitch challenges, and innovation labs, they learn how to turn ideas into impact. Skills in leadership, collaboration, and problem-solving make every camper a Day One in their own story.",
-    focus: ["Entrepreneurship", "Pitch challenges", "Innovation labs", "Leadership skills", "Creative disruption"],
-    tagline: "Dream it. Build it. Own it.",
-    href: "/programs/vision-architect",
-    color: "#FF6B9D",
-    icon: "💡",
-  },
-  {
-    id: "the-vanguard",
-    title: "The Vanguard",
-    ages: "Rising 8th Grade",
-    subtitle: "Lead loud. Inspire always.",
-    description: "Our advanced leadership track hones professionalism, responsibility, and high-impact skills. Campers practice decision-making, mentorship, and team dynamics — equipping them to guide with vision both on and off campus.",
-    focus: ["Professionalism", "Decision-making", "Mentorship", "Team dynamics", "High-impact leadership"],
-    tagline: "Step into your power. Lead the way.",
-    href: "/programs/the-vanguard",
-    color: "#2ECC71",
-    icon: "👑",
-  },
-];
-
 // Mobile accordion component
-function MobileAccordion({ program }: { program: ProgramCube }) {
+function MobileAccordion({ program }: { program: Program }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -117,17 +19,23 @@ function MobileAccordion({ program }: { program: ProgramCube }) {
       >
         <div className="flex items-center gap-3">
           <div 
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md"
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md overflow-hidden relative"
             style={{ backgroundColor: `${program.color}20` }}
           >
-            {program.icon}
+            <Image
+              src={program.image}
+              alt={program.title}
+              fill
+              className="object-cover"
+              sizes="48px"
+            />
           </div>
           <div>
             <h3 className="font-mono font-bold text-lg text-gray-900">
               {program.title}
             </h3>
             <p className="font-mono text-sm text-gray-500">
-              {program.ages}
+              {program.gradeRange || program.ages}
             </p>
           </div>
         </div>
@@ -189,13 +97,23 @@ function MobileAccordion({ program }: { program: ProgramCube }) {
             </p>
           </div>
 
-          <Link 
-            href={program.href}
-            className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm text-white transition-all hover:opacity-90"
-            style={{ backgroundColor: program.color }}
-          >
-            Learn More →
-          </Link>
+          {/* Mobile Action Buttons */}
+          <div className="flex flex-col gap-2 pt-2">
+            <Link 
+              href="/contact"
+              className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm text-white transition-all hover:opacity-90"
+              style={{ backgroundColor: program.color }}
+            >
+              Enroll Now →
+            </Link>
+            <Link 
+              href={program.href}
+              className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm transition-all hover:bg-gray-100 border-2"
+              style={{ color: program.color, borderColor: `${program.color}40` }}
+            >
+              Learn More →
+            </Link>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -203,7 +121,7 @@ function MobileAccordion({ program }: { program: ProgramCube }) {
 }
 
 // Desktop 3D Cube Component
-function Cube3D({ program }: { program: ProgramCube }) {
+function Cube3D({ program }: { program: Program }) {
   const [currentFace, setCurrentFace] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -291,17 +209,24 @@ function Cube3D({ program }: { program: ProgramCube }) {
               style={{ backgroundColor: program.color }}
             />
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              {/* Kid Image instead of emoji */}
               <div 
-                className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-4 shadow-lg"
+                className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-4 shadow-lg overflow-hidden relative"
                 style={{ backgroundColor: `${program.color}20` }}
               >
-                {program.icon}
+                <Image
+                  src={program.image}
+                  alt={program.title}
+                  fill
+                  className="object-cover"
+                  sizes="80px"
+                />
               </div>
               <h3 className="font-mono font-bold text-xl text-gray-900 mb-2">
                 {program.title}
               </h3>
               <p className="font-mono text-sm text-gray-500 mb-4">
-                {program.ages}
+                {program.gradeRange || program.ages}
               </p>
               <p className="font-mono text-xs text-gray-600 italic leading-relaxed mb-4">
                 &ldquo;{program.subtitle}&rdquo;
@@ -393,7 +318,7 @@ function Cube3D({ program }: { program: ProgramCube }) {
             </div>
           </div>
 
-          {/* Left Face - Tagline & CTA */}
+          {/* Left Face - Tagline & CTA with Buttons */}
           <div
             className="absolute inset-0 rounded-2xl shadow-xl overflow-hidden flex flex-col"
             style={{ 
@@ -409,14 +334,25 @@ function Cube3D({ program }: { program: ProgramCube }) {
               <p className="font-mono text-lg text-white font-bold leading-relaxed mb-6">
                 &ldquo;{program.tagline}&rdquo;
               </p>
-              <Link 
-                href={program.href}
-                onClick={(e) => e.stopPropagation()}
-                className="px-6 py-3 bg-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105"
-                style={{ color: program.color }}
-              >
-                Learn More →
-              </Link>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col gap-3 w-full">
+                <Link 
+                  href="/contact"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-6 py-3 bg-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105 text-center"
+                  style={{ color: program.color }}
+                >
+                  Enroll Now →
+                </Link>
+                <Link 
+                  href={program.href}
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-6 py-3 bg-white/20 border-2 border-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105 text-center text-white"
+                >
+                  Learn More →
+                </Link>
+              </div>
             </div>
             <div className="p-3 text-center bg-black/10">
               <p className="font-mono text-xs text-white/80">

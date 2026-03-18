@@ -2,62 +2,12 @@
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useMotionValue, useAnimationControls } from "framer-motion";
 import { FadeIn } from "@/components/animations";
+import { programs, type Program } from "@/lib/programs-data";
 
-const programCards = [
-  {
-    id: "lil-launchers",
-    title: "Lil' Launchers",
-    ages: "3 – 4 years",
-    subtitle: "Welcome to Kid Explorer Camp — where the future isn't just imagined, it's built.",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-  },
-  {
-    id: "cosmic-curiosity",
-    title: "Cosmic Curiosity",
-    ages: "1st – 2nd",
-    subtitle: "First they wonder, then they build.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-  },
-  {
-    id: "first-flight",
-    title: "First Flight",
-    ages: "Rising K & 1st",
-    subtitle: "Welcome to Kid Explorer Camp — where small steps turn into giant leaps.",
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
-  },
-  {
-    id: "the-blueprint",
-    title: "The Blueprint",
-    ages: "2nd – 3rd",
-    subtitle: "Big ideas, small humans, limitless potential.",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
-  },
-  {
-    id: "power-play",
-    title: "Power Play",
-    ages: "K – 7",
-    subtitle: "Where the field is a stage and every move is a statement.",
-    image: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=800&q=80",
-  },
-  {
-    id: "vision-architect",
-    title: "Vision Architect",
-    ages: "4th – 7th",
-    subtitle: "Where vision meets action.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-  },
-  {
-    id: "the-vanguard",
-    title: "The Vanguard",
-    ages: "Rising 8th",
-    subtitle: "Lead loud. Inspire always.",
-    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80",
-  },
-];
-
-function ProgramCard({ card }: { card: typeof programCards[0] }) {
+function ProgramCard({ card }: { card: Program }) {
   return (
     <div className="relative shrink-0 w-[280px] sm:w-[340px] lg:w-[406px]">
       <div className="w-full bg-[rgba(15,211,198,0.1)] rounded-[16px] sm:rounded-[20px] p-4 sm:p-5 lg:p-6 flex flex-col items-center">
@@ -72,7 +22,23 @@ function ProgramCard({ card }: { card: typeof programCards[0] }) {
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
             <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-[#1493E8] text-white px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium">
-              {card.ages}
+              {card.gradeRange || card.ages}
+            </div>
+            
+            {/* Hover overlay with buttons */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="px-4 py-2 bg-[#0FD3C6] rounded-lg text-white font-mono text-sm font-medium hover:bg-[#0DC4B8] transition-colors"
+              >
+                Enroll
+              </Link>
+              <Link
+                href={card.href}
+                className="px-4 py-2 bg-white/20 border-2 border-white rounded-lg text-white font-mono text-sm font-medium hover:bg-white/30 transition-colors"
+              >
+                Learn More
+              </Link>
             </div>
           </div>
           <div className="w-full text-center">
@@ -98,7 +64,7 @@ export function SummerInMotionSection() {
   const controls = useAnimationControls();
   const [cardWidth, setCardWidth] = useState(0);
   
-  const allCards = [...programCards, ...programCards];
+  const allCards = [...programs, ...programs];
 
   const calculateCardWidth = useCallback(() => {
     if (containerRef.current) {
@@ -145,12 +111,12 @@ export function SummerInMotionSection() {
       });
     }
 
-    if (index >= programCards.length) {
-      const resetIndex = index - programCards.length;
+    if (index >= programs.length) {
+      const resetIndex = index - programs.length;
       x.set(-resetIndex * cardWidth);
       setCurrentIndex(resetIndex);
     } else if (index < 0) {
-      const resetIndex = programCards.length + index;
+      const resetIndex = programs.length + index;
       x.set(-resetIndex * cardWidth);
       setCurrentIndex(resetIndex);
     }

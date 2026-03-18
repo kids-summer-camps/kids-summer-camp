@@ -71,11 +71,23 @@ export const programMetadata: Record<string, PageMetadata> = {
     path: '/programs/cosmic-curiosity',
     keywords: ['STEM experiments', 'ages 7-9', 'coding for kids', 'space exploration'],
   },
-  'the-vanguard': {
-    title: 'The Vanguard - Ages 9-11',
-    description: 'Advanced STEM challenges, robotics, and team-based problem solving for developing innovators.',
-    path: '/programs/the-vanguard',
-    keywords: ['robotics', 'ages 9-11', 'STEM challenges', 'problem solving'],
+  'robotics-maker': {
+    title: 'Robotics Maker Camp - Ages 8-13',
+    description: 'Build bots, code dreams, and engineer the future. Hands-on robotics, automation, and coding for young innovators.',
+    path: '/programs/robotics-maker',
+    keywords: ['robotics', 'coding', 'engineering', 'STEM', 'automation', 'ages 8-13'],
+  },
+  'engineering-maker': {
+    title: 'Engineering Maker Camp - Ages 8-13',
+    description: 'Design, build, test, repeat. Mechanical, electrical, and civil engineering through hands-on projects and 3D modeling.',
+    path: '/programs/engineering-maker',
+    keywords: ['engineering', 'maker', '3D printing', 'circuits', 'STEM', 'ages 8-13'],
+  },
+  'esports-gaming': {
+    title: 'E Sports Gaming - Ages 8-13',
+    description: 'Game with strategy, compete with integrity, lead with skill. Esports competitions and game design fundamentals.',
+    path: '/programs/esports-gaming',
+    keywords: ['esports', 'gaming', 'strategy', 'teamwork', 'digital sports', 'ages 8-13'],
   },
   'vision-architect': {
     title: 'Vision Architect - Ages 11-13',
