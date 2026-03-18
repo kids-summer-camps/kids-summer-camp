@@ -18,7 +18,7 @@ function MobileAccordion({ program }: { program: Program }) {
         className="w-full p-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <div 
+          <div
             className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md overflow-hidden relative"
             style={{ backgroundColor: `${program.color}20` }}
           >
@@ -39,10 +39,10 @@ function MobileAccordion({ program }: { program: Program }) {
             </p>
           </div>
         </div>
-        <svg 
+        <svg
           className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
-          fill="none" 
-          viewBox="0 0 24 24" 
+          fill="none"
+          viewBox="0 0 24 24"
           stroke="currentColor"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -75,10 +75,10 @@ function MobileAccordion({ program }: { program: Program }) {
             </h4>
             <div className="flex flex-wrap gap-2">
               {program.focus.map((item) => (
-                <span 
+                <span
                   key={item}
                   className="px-3 py-1 rounded-full font-mono text-xs"
-                  style={{ 
+                  style={{
                     backgroundColor: `${program.color}15`,
                     color: program.color,
                     border: `1px solid ${program.color}30`
@@ -99,14 +99,14 @@ function MobileAccordion({ program }: { program: Program }) {
 
           {/* Mobile Action Buttons */}
           <div className="flex flex-col gap-2 pt-2">
-            <Link 
+            <Link
               href="/contact"
               className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm text-white transition-all hover:opacity-90"
               style={{ backgroundColor: program.color }}
             >
               Enroll Now →
             </Link>
-            <Link 
+            <Link
               href={program.href}
               className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm transition-all hover:bg-gray-100 border-2"
               style={{ color: program.color, borderColor: `${program.color}40` }}
@@ -126,7 +126,7 @@ function Cube3D({ program }: { program: Program }) {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const cubeSize = 320; // px - increased size
+  const cubeSize = 400; // px - increased size
   const translateZ = cubeSize / 2; // 160px
 
   const faces = [
@@ -163,10 +163,10 @@ function Cube3D({ program }: { program: Program }) {
   const rotation = getRotation();
 
   return (
-    <div 
+    <div
       className="relative cursor-pointer"
-      style={{ 
-        width: cubeSize, 
+      style={{
+        width: cubeSize,
         height: cubeSize,
         perspective: "1200px",
       }}
@@ -197,20 +197,20 @@ function Cube3D({ program }: { program: Program }) {
           {/* Front Face - Title & Overview */}
           <div
             className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
-            style={{ 
+            style={{
               backgroundColor: "white",
               border: `3px solid ${program.color}`,
               transform: `rotateY(0deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
             }}
           >
-            <div 
+            <div
               className="h-2 w-full"
               style={{ backgroundColor: program.color }}
             />
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
               {/* Kid Image instead of emoji */}
-              <div 
+              <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-4 shadow-lg overflow-hidden relative"
                 style={{ backgroundColor: `${program.color}20` }}
               >
@@ -231,11 +231,11 @@ function Cube3D({ program }: { program: Program }) {
               <p className="font-mono text-xs text-gray-600 italic leading-relaxed mb-4">
                 &ldquo;{program.subtitle}&rdquo;
               </p>
-              <div 
+              <div
                 className="px-4 py-2 rounded-full"
                 style={{ backgroundColor: `${program.color}15` }}
               >
-                <span 
+                <span
                   className="font-mono text-xs font-bold"
                   style={{ color: program.color }}
                 >
@@ -248,13 +248,13 @@ function Cube3D({ program }: { program: Program }) {
           {/* Right Face - Description */}
           <div
             className="absolute inset-0 bg-gray-50 rounded-2xl shadow-xl overflow-hidden flex flex-col"
-            style={{ 
+            style={{
               border: `2px solid ${program.color}40`,
               transform: `rotateY(90deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
             }}
           >
-            <div 
+            <div
               className="p-4 border-b"
               style={{ borderColor: `${program.color}30`, backgroundColor: `${program.color}08` }}
             >
@@ -267,7 +267,7 @@ function Cube3D({ program }: { program: Program }) {
                 {program.description}
               </p>
             </div>
-            <div 
+            <div
               className="p-3 text-center"
               style={{ backgroundColor: `${program.color}10` }}
             >
@@ -280,13 +280,13 @@ function Cube3D({ program }: { program: Program }) {
           {/* Back Face - Focus Areas */}
           <div
             className="absolute inset-0 bg-gray-50 rounded-2xl shadow-xl overflow-hidden flex flex-col"
-            style={{ 
+            style={{
               border: `2px solid ${program.color}40`,
               transform: `rotateY(180deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
             }}
           >
-            <div 
+            <div
               className="p-4 border-b"
               style={{ borderColor: `${program.color}30`, backgroundColor: `${program.color}08` }}
             >
@@ -297,7 +297,7 @@ function Cube3D({ program }: { program: Program }) {
             <div className="flex-1 p-4 overflow-y-auto">
               <div className="space-y-2">
                 {program.focus.map((item, i) => (
-                  <div 
+                  <div
                     key={i}
                     className="flex items-center p-2 rounded-lg"
                     style={{ backgroundColor: `${program.color}12` }}
@@ -308,7 +308,7 @@ function Cube3D({ program }: { program: Program }) {
                 ))}
               </div>
             </div>
-            <div 
+            <div
               className="p-3 text-center"
               style={{ backgroundColor: `${program.color}10` }}
             >
@@ -321,7 +321,7 @@ function Cube3D({ program }: { program: Program }) {
           {/* Left Face - Tagline & CTA with Buttons */}
           <div
             className="absolute inset-0 rounded-2xl shadow-xl overflow-hidden flex flex-col"
-            style={{ 
+            style={{
               backgroundColor: program.color,
               transform: `rotateY(270deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
@@ -334,10 +334,10 @@ function Cube3D({ program }: { program: Program }) {
               <p className="font-mono text-lg text-white font-bold leading-relaxed mb-6">
                 &ldquo;{program.tagline}&rdquo;
               </p>
-              
+
               {/* Action Buttons */}
               <div className="flex flex-col gap-3 w-full">
-                <Link 
+                <Link
                   href="/contact"
                   onClick={(e) => e.stopPropagation()}
                   className="px-6 py-3 bg-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105 text-center"
@@ -345,7 +345,7 @@ function Cube3D({ program }: { program: Program }) {
                 >
                   Enroll Now →
                 </Link>
-                <Link 
+                <Link
                   href={program.href}
                   onClick={(e) => e.stopPropagation()}
                   className="px-6 py-3 bg-white/20 border-2 border-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105 text-center text-white"
@@ -364,7 +364,7 @@ function Cube3D({ program }: { program: Program }) {
           {/* Top Face */}
           <div
             className="absolute inset-0 rounded-2xl"
-            style={{ 
+            style={{
               background: `linear-gradient(135deg, ${program.color}30, ${program.color}10)`,
               transform: `rotateX(90deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
@@ -374,7 +374,7 @@ function Cube3D({ program }: { program: Program }) {
           {/* Bottom Face */}
           <div
             className="absolute inset-0 rounded-2xl"
-            style={{ 
+            style={{
               background: `linear-gradient(135deg, ${program.color}15, transparent)`,
               transform: `rotateX(-90deg) translateZ(${translateZ}px)`,
               backfaceVisibility: "hidden",
@@ -393,10 +393,9 @@ function Cube3D({ program }: { program: Program }) {
               e.stopPropagation();
               setCurrentFace(i);
             }}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === currentFace ? 'w-6' : 'w-2'
-            }`}
-            style={{ 
+            className={`h-2 rounded-full transition-all duration-300 ${i === currentFace ? 'w-6' : 'w-2'
+              }`}
+            style={{
               backgroundColor: i === currentFace ? program.color : `${program.color}40`,
             }}
           />
@@ -412,7 +411,7 @@ export function ProgramCubesSection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         <FadeIn direction="up" delay={0}>
           <div className="text-center mb-12 lg:mb-16">
-            <h2 
+            <h2
               className="font-serif font-medium text-[32px] sm:text-[40px] lg:text-[48px] text-gray-900 mb-4 leading-tight"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >
