@@ -127,7 +127,7 @@ export default function ESportsGamingPage() {
           <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
             WHAT CAMPERS WILL DO
           </h2>
-          
+
           <div className="flex flex-wrap justify-center gap-[24px]">
             {[
               {
@@ -308,7 +308,7 @@ Students leave ready to compete, create, and lead with confidence.`}
           className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
         >
           <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
-            <h2 
+            <h2
               className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >
