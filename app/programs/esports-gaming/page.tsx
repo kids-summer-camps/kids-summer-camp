@@ -4,270 +4,419 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getProgramById } from "@/lib/programs-data";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function EsportsGamingPage() {
-  const [activeTab, setActiveTab] = useState("overview");
+export default function ESportsGamingPage() {
   const program = getProgramById("esports-gaming");
+  const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
 
   if (!program) {
     return <div>Program not found</div>;
   }
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveTab(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const toggleSection = (section: string) => {
+    setOpenSections((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(section)) {
+        newSet.delete(section);
+      } else {
+        newSet.add(section);
+      }
+      return newSet;
+    });
   };
-
-  // Split title for display
-  const titleParts = program.title.split(" ");
-  const mainTitle = "E Sports"; // First two words
-  const subTitle = "Gaming"; // Last word
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section className="relative">
-        {/* Hero Image Container */}
-        <div className="relative h-[600px] sm:h-[700px] lg:h-[584px] overflow-hidden">
-          {/* Background Image */}
+        <div className="relative h-[600px] overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src={program.image}
+              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&q=80"
               alt={program.title}
               fill
               className="object-cover"
               priority
             />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          {/* Blue Bar at Bottom of Hero */}
-          <div className="absolute bottom-0 left-0 right-0 h-14 bg-[#1493E8] z-10" />
-
-          {/* Tab Navigation on Blue Bar */}
-          <div className="absolute bottom-0 left-0 right-0 z-20">
-            <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%] h-14 flex items-center">
-              {/* Tabs with left margin to align with content area */}
-              <div className="flex items-center gap-8 lg:gap-12 lg:ml-[320px]">
-                <button
-                  onClick={() => scrollToSection("overview")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "overview" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Overview
-                </button>
-                <button
-                  onClick={() => scrollToSection("why-different")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "why-different" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Why We&apos;re Different
-                </button>
-                <button
-                  onClick={() => scrollToSection("activities")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "activities" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Activities
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Left Sidebar Info Card - Extends below hero */}
-        <div className="absolute left-6 sm:left-12 lg:left-[89px] top-[461px] z-30 w-[239px] hidden md:block">
-          {/* Light Blue Box with Title */}
-          <div className="bg-[#40b3ff] h-[252px] w-full flex flex-col justify-end p-4">
-            <h1 className="font-serif font-bold text-[48px] text-white leading-none">{mainTitle}</h1>
-            <h2 className="font-serif font-bold text-[36px] text-white leading-none">{subTitle}</h2>
-          </div>
-
-          {/* Green CTA Button - Separate from blue box */}
-          <div className="mt-3">
-            <Link 
-              href="/contact"
-              className="bg-[#b0ff40] h-[42px] w-full flex items-center justify-center hover:brightness-110 transition-all cursor-pointer"
-            >
-              <span className="font-mono font-bold text-[#1493E8] text-[20px]">ENROLL TODAY:</span>
-            </Link>
-          </div>
-
-          {/* Info Sections with dividers */}
-          <div className="bg-white py-4 mt-3">
-            <div className="border-t border-[#d9d9d9] pt-4 mb-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">HOURS</p>
-              <p className="font-mono font-normal text-black text-[20px]">{program.schedule[0]}</p>
-            </div>
-            <div className="border-t border-[#d9d9d9] pt-4 mb-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">AGES</p>
-              <p className="font-mono font-normal text-black text-[20px]">Rising {program.gradeRange || program.ages}</p>
-            </div>
-            <div className="border-t border-[#d9d9d9] pt-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">LOCATION</p>
-              <p className="font-mono font-normal text-black text-[20px]">Percy L Julian High School</p>
-              <p className="font-mono font-normal text-black text-[20px]">10330 S Elizabeth St.</p>
-              <p className="font-mono font-normal text-black text-[20px]">Chicago, IL 60643</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mobile Info Card - Shows only on mobile */}
-      <div className="md:hidden bg-white py-6 px-6">
-        <div className="bg-[#40b3ff] p-4">
-          <h1 className="font-serif font-bold text-[48px] text-white leading-none">{mainTitle}</h1>
-          <h2 className="font-serif font-bold text-[36px] text-white leading-none">{subTitle}</h2>
-        </div>
-        <div className="mt-3">
-          <Link 
-            href="/contact"
-            className="bg-[#b0ff40] p-3 w-full block text-center hover:brightness-110 transition-all cursor-pointer"
-          >
-            <span className="font-mono font-bold text-[#1493E8] text-[16px]">ENROLL TODAY:</span>
-          </Link>
-        </div>
-        <div className="space-y-3">
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">HOURS</p>
-            <p className="font-mono font-normal text-black text-[16px]">{program.schedule[0]}</p>
-          </div>
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">AGES</p>
-            <p className="font-mono font-normal text-black text-[16px]">Rising {program.gradeRange || program.ages}</p>
-          </div>
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">LOCATION</p>
-            <p className="font-mono font-normal text-black text-[16px]">Percy L Julian High School</p>
-            <p className="font-mono font-normal text-black text-[16px]">10330 S Elizabeth St.</p>
-            <p className="font-mono font-normal text-black text-[16px]">Chicago, IL 60643</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%]">
-          {/* Desktop: Add left margin to account for sidebar */}
-          <div className="ml-0 lg:ml-[320px]">
-            {/* Overview Section */}
-            <div id="overview" className="mb-16">
-              {/* Divider */}
-              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
-
-              <h2 className="font-serif font-bold text-[#01325D] text-3xl sm:text-4xl lg:text-[40px] uppercase leading-tight mb-8">
-                {program.title}
-              </h2>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                {program.subtitle}
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                {program.description}
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                {program.tagline}
-              </p>
-
-              {/* Image */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
-                <Image
-                  src={program.image}
-                  alt={program.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Philosophy Link */}
-              <p className="font-mono font-normal text-black text-sm sm:text-base mb-4">
-                <span>Learn about the Kid Explorer Camp Philosophy </span>
-                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
-                  (click here)
-                </Link>
-              </p>
-            </div>
-
-            {/* Why We're Different Section */}
-            <div id="why-different" className="mb-16">
-              <p className="font-mono font-bold text-black text-sm sm:text-base mb-4">
-                Limitless By Nature — Kid Explorer Camp 2026
-              </p>
-
-              <h2 className="font-serif font-bold text-[#01325D] text-2xl sm:text-3xl lg:text-[32px] uppercase leading-tight mb-8">
-                WHY WE&apos;RE DIFFERENT
-              </h2>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                At Kid Explorer Camp, we don&apos;t do ordinary.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                Our E Sports Gaming camp reimagines gaming as a platform for skill-building. Through structured competitions and team-based play, campers develop strategic thinking, communication, and leadership—all while doing what they love.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                We balance screen time with physical activities, ensuring campers stay active and engaged. Our curriculum explores the esports industry, game design basics, and digital citizenship, preparing kids for opportunities in the growing gaming world.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-4">
-                We call it the Launchpad Effect—where every camper&apos;s passion becomes a pathway to growth.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed">
-                We&apos;re not raising campers. We&apos;re raising strategists, communicators, and digital citizens—future legends in the making.
-              </p>
-            </div>
-
-            {/* Activities Section */}
-            <div id="activities" className="mb-16">
-              <h2 className="font-serif font-bold text-[#01325D] text-2xl sm:text-3xl lg:text-[32px] uppercase leading-tight mb-8">
-                ACTIVITIES & SKILLS
-              </h2>
-
-              <ul className="list-disc pl-6 space-y-3 font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                <li>Team-based esports competitions with rotating game titles</li>
-                <li>Strategy sessions and post-game analysis</li>
-                <li>Communication and shot-calling skill development</li>
-                <li>Game design fundamentals and level creation</li>
-                <li>Introduction to streaming and content creation basics</li>
-                <li>Digital citizenship and online sportsmanship workshops</li>
-              </ul>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                Campers participate in daily tournaments, team-building exercises, and physical activities to maintain balance. Our experienced coaches emphasize positive gaming culture, ensuring a supportive environment for all skill levels.
-              </p>
-            </div>
-
-            {/* Notes for Parents Section */}
-            <div id="notes" className="mb-16">
-              <h3 className="font-mono font-bold text-black text-xl sm:text-2xl mb-6">
-                Notes for Parents
-              </h3>
-
-              <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                <li>All gaming equipment is provided—no need to bring personal devices.</li>
-                <li>Screen time is balanced with physical activities and team exercises.</li>
-                <li>Games are age-appropriate and selected for strategic value, not just popularity.</li>
-                <li>Emphasis on digital wellness and healthy gaming habits.</li>
-                <li>Camp concludes with a Championship Tournament open to families.</li>
-              </ul>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed">
-                Kid Explorer Camp — Chicago, IL<br />
-                They come curious. They leave legends.
-              </p>
-            </div>
-
-            {/* Enroll CTA */}
-            <div className="text-center pt-8">
-              <Link 
+          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
+            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
+              {program.title}
+            </h1>
+            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
+              {program.description}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
                 href="/contact"
-                className="inline-block bg-[#0FD3C6] text-white font-serif font-bold text-[16px] px-8 py-4 rounded-lg hover:bg-[#0DC4B8] transition-colors"
+                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
               >
-                Enroll in {program.title} →
+                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
+                  Enroll Now
+                </span>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Info Bar */}
+      <section className="bg-[#f7fbff] py-8 border-b border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center gap-[32px] sm:gap-[60px]">
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Program</p>
+            <p className="font-mono font-bold text-[#01325D] text-[16px]">Orbit III – Inventors Lab</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Age</p>
+            <p className="font-mono font-bold text-[#01325D] text-[16px]">{program.ages}</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Level</p>
+            <p className="font-mono font-bold text-[#01325D] text-[16px]">All Levels</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Activities</p>
+            <p className="font-mono font-bold text-[#01325D] text-[16px]">Gaming & Sports</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Focus</p>
+            <p className="font-mono font-bold text-[#01325D] text-[16px] text-center">Strategy, Teamwork, Competition</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Two Column Overview */}
+      <section className="py-20">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-mono font-bold text-[#0FD3C6] text-[28px] sm:text-[36px] mb-6">
+                Level Up Your Summer
+              </h2>
+              <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4">
+                <p>
+                  E Sports Gaming Camp is where competitive gaming meets strategic teamwork and personal development.
+                </p>
+                <p>
+                  Campers train in popular titles, learn professional gaming strategies, and develop critical thinking skills through intense but supportive competition.
+                </p>
+                <p>
+                  Every session includes outdoor physical activity, daily academic time, and collaborative tournaments that build sportsmanship and resilience.
+                </p>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80"
+                alt="E Sports Gaming Camp"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Campers Will Do - Matching Figma 237:2215 */}
+      <section className="bg-white py-20">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
+            WHAT CAMPERS WILL DO
+          </h2>
+          
+          <div className="flex flex-wrap justify-center gap-[24px]">
+            {[
+              {
+                title: "Strategic Gaming",
+                description: "Master competitive strategies and tactics",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&q=80"
+              },
+              {
+                title: "Team Tournaments",
+                description: "Compete in organized esports competitions",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80"
+              },
+              {
+                title: "Content Creation",
+                description: "Learn to stream and commentate like pros",
+                image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&q=80"
+              },
+            ].map((activity, index) => (
+              <div key={index} className="bg-[rgba(15,211,198,0.1)] rounded-[20px] px-[20px] py-[36px] w-[406px] h-[483px] flex flex-col items-center gap-[17px]">
+                <div className="flex flex-col gap-[24px] w-full">
+                  <div className="bg-white h-[261px] w-full rounded-[20px] relative overflow-hidden">
+                    <Image
+                      src={activity.image}
+                      alt={activity.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="font-mono font-bold text-[#01325D] text-[28px] text-center leading-normal">
+                    {activity.title}
+                  </h3>
+                </div>
+                <p className="font-mono font-normal text-[#01325D] text-[16px] text-center leading-normal w-[284px]">
+                  {activity.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bordered Dropdown Sections - Matching Figma 237:2232 */}
+      <section className="bg-white py-20">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-[120px]">
+          <div className="w-full">
+            <AccordionSection
+              title="A Day of Exploration"
+              isOpen={openSections.has("schedule")}
+              onToggle={() => toggleSection("schedule")}
+              isFirst={true}
+            >
+              <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
+                {`9:00 — Team Check-In
+9:15 — Math & Reading
+9:45 — Tournament Practice
+11:00 — Team Scrimmages
+12:00 — Lunch
+12:30 — Outdoor Sports
+1:30 — Competitive Match Play
+2:30 — Replay Analysis
+3:00 — Dismissal`}
+              </div>
+            </AccordionSection>
+
+            <AccordionSection
+              title="Skills"
+              isOpen={openSections.has("skills")}
+              onToggle={() => toggleSection("skills")}
+            >
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] space-y-4 whitespace-pre-line">
+                <p className="mb-0">
+                  <span className="leading-[24px]">Strategic Thinking</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Planning and executing competitive strategies</span>
+                </p>
+                <p className="mb-0">
+                  <span className="leading-[24px]">Team Communication</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Coordinating with teammates under pressure</span>
+                </p>
+                <p className="mb-0">
+                  <span className="leading-[24px]">Sportsmanship & Resilience</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Handling wins and losses with grace</span>
+                </p>
+                <p className="mb-0">
+                  <span className="leading-[24px]">Hand-Eye Coordination</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Developing fast reflexes and precision</span>
+                </p>
+                <p>
+                  <span className="leading-[24px]">Content Creation</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Streaming and commentating skills</span>
+                </p>
+              </div>
+            </AccordionSection>
+
+            <AccordionSection
+              title="Discipline Plan"
+              isOpen={openSections.has("discipline")}
+              onToggle={() => toggleSection("discipline")}
+            >
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
+                <p className="mb-0">
+                  <span className="leading-[24px]">Intellectual Discipline</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Daily learning builds confidence</span>
+                </p>
+                <p className="mb-0">
+                  <span className="leading-[24px]">Physical Discipline</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Sports and movement support growth</span>
+                </p>
+                <p>
+                  <span className="leading-[24px]">Competition Discipline</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">Healthy competitive mindset and teamwork</span>
+                </p>
+              </div>
+            </AccordionSection>
+
+            <AccordionSection
+              title="Beyond The Camp"
+              isOpen={openSections.has("beyond")}
+              onToggle={() => toggleSection("beyond")}
+            >
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] w-[845px]">
+                <p className="leading-[24px] whitespace-pre-wrap">
+                  {`E Sports Gaming Camp prepares students for:
+
+• Advanced Gaming Leagues
+• Content Creator Programs
+• Team Management & Leadership
+• Competitive Tournament Play
+
+Students leave ready to compete, create, and lead with confidence.`}
+                </p>
+              </div>
+            </AccordionSection>
+
+            <AccordionSection
+              title="FAQ"
+              isOpen={openSections.has("faq")}
+              onToggle={() => toggleSection("faq")}
+              isLast={true}
+            >
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
+                <p className="mb-0">
+                  <span className="leading-[24px]">What games do campers play?</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">-We focus on age-appropriate team titles like Minecraft, Rocket League, and Fortnite.</span>
+                </p>
+                <p className="leading-[24px]">&nbsp;</p>
+                <p className="mb-0">
+                  <span className="leading-[24px]">How much screen time is there?</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">-Gaming sessions are balanced with outdoor sports and breaks.</span>
+                </p>
+                <p className="leading-[24px]">&nbsp;</p>
+                <p>
+                  <span className="leading-[24px]">Do campers need their own equipment?</span>
+                  <br />
+                  <span className="font-normal leading-[24px]">-No. We provide all gaming equipment and computers.</span>
+                </p>
+              </div>
+            </AccordionSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action - Matching Home Page CTA */}
+      <section className="w-full lg:pt-16 px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
+        >
+          <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
+            <h2 
+              className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
+              style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+            >
+              Launch Their Summer Now!!!
+            </h2>
+            <p className="font-mono font-medium text-white text-base sm:text-lg lg:text-[20px] leading-relaxed">
+              Your child already has curiosity and talent. Give those sparks a place to grow.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-[33px] items-center justify-center mt-2 sm:mt-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/contact"
+                  className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
+                >
+                  <span className="font-mono font-medium text-white text-base whitespace-nowrap">
+                    Enroll Now
+                  </span>
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/programs"
+                  className="bg-white/10 border border-white h-[47px] w-full sm:w-[200px] lg:w-[232px] rounded-[10px] px-6 flex items-center justify-center"
+                >
+                  <span className="font-mono font-medium text-white text-base whitespace-nowrap">
+                    Explore Camps
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+}
+
+function AccordionSection({
+  title,
+  isOpen,
+  onToggle,
+  children,
+  isFirst = false,
+  isLast = false,
+}: {
+  title: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+  isFirst?: boolean;
+  isLast?: boolean;
+}) {
+  return (
+    <div
+      className={`
+        border-[#99adbe] border-[0.5px] border-solid overflow-hidden
+        ${isFirst ? "rounded-t-[40px]" : "border-t-0"}
+        ${isLast ? "rounded-b-[40px]" : ""}
+      `}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full px-[48px] py-[36px] flex items-center justify-between hover:bg-gray-50 transition-colors"
+      >
+        <h3 className="font-mono font-bold text-[#0FD3C6] text-[24px] leading-normal text-center whitespace-nowrap">
+          {title}
+        </h3>
+        <motion.svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="shrink-0"
+        >
+          <path
+            d="M12 6L12 18M12 6L7 11M12 6L17 11"
+            stroke="#01325D"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </motion.svg>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-[48px] pb-[36px]">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

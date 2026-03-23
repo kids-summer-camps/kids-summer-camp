@@ -1,271 +1,425 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getProgramById } from "@/lib/programs-data";
+import { motion } from "framer-motion";
 
 export default function RoboticsMakerPage() {
-  const [activeTab, setActiveTab] = useState("overview");
   const program = getProgramById("robotics-maker");
 
   if (!program) {
     return <div>Program not found</div>;
   }
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveTab(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Split title for display
-  const titleParts = program.title.split(" ");
-  const mainTitle = titleParts[0]; // "Robotics"
-  const subTitle = titleParts.slice(1).join(" "); // "Maker Camp"
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Background Image */}
       <section className="relative">
-        {/* Hero Image Container */}
-        <div className="relative h-[600px] sm:h-[700px] lg:h-[584px] overflow-hidden">
-          {/* Background Image */}
+        <div className="relative h-[767px] overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src={program.image}
+              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80"
               alt={program.title}
               fill
               className="object-cover"
               priority
             />
-            {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/30" />
           </div>
 
-          {/* Blue Bar at Bottom of Hero */}
-          <div className="absolute bottom-0 left-0 right-0 h-14 bg-[#1493E8] z-10" />
-
-          {/* Tab Navigation on Blue Bar */}
-          <div className="absolute bottom-0 left-0 right-0 z-20">
-            <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%] h-14 flex items-center">
-              {/* Tabs with left margin to align with content area */}
-              <div className="flex items-center gap-8 lg:gap-12 lg:ml-[320px]">
-                <button
-                  onClick={() => scrollToSection("overview")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "overview" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Overview
-                </button>
-                <button
-                  onClick={() => scrollToSection("why-different")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "why-different" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Why We&apos;re Different
-                </button>
-                <button
-                  onClick={() => scrollToSection("projects")}
-                  className={`font-mono font-bold text-[14px] sm:text-[16px] text-white hover:text-[#b0ff40] transition-colors ${activeTab === "projects" ? "text-[#b0ff40]" : ""}`}
-                >
-                  Projects
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Left Sidebar Info Card - Extends below hero */}
-        <div className="absolute left-6 sm:left-12 lg:left-[89px] top-[461px] z-30 w-[239px] hidden md:block">
-          {/* Light Blue Box with Title */}
-          <div className="bg-[#40b3ff] h-[252px] w-full flex flex-col justify-end p-4">
-            <h1 className="font-serif font-bold text-[48px] text-white leading-none">{mainTitle}</h1>
-            <h2 className="font-serif font-bold text-[28px] text-white leading-none">{subTitle}</h2>
-          </div>
-
-          {/* Green CTA Button - Separate from blue box */}
-          <div className="mt-3">
-            <Link 
-              href="/contact"
-              className="bg-[#b0ff40] h-[42px] w-full flex items-center justify-center hover:brightness-110 transition-all cursor-pointer"
+          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[80px]">
+            <h1 
+              className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-normal"
+              style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >
-              <span className="font-mono font-bold text-[#1493E8] text-[20px]">ENROLL TODAY:</span>
-            </Link>
-          </div>
+              Robotics & Maker Camp
+            </h1>
+            
+            <div className="font-mono font-medium text-[#0FD3C6] text-[20px] sm:text-[24px] mb-8 leading-normal whitespace-pre-line">
+              {`Orbit Level: Orbit III – Inventors Lab\nTypical Ages: 8–11`}
+            </div>
+            
+            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8 leading-normal">
+              Students design robots, build engineering prototypes, and solve real-world challenges in the Kid
+            </p>
 
-          {/* Info Sections with dividers */}
-          <div className="bg-white py-4 mt-3">
-            <div className="border-t border-[#d9d9d9] pt-4 mb-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">HOURS</p>
-              <p className="font-mono font-normal text-black text-[20px]">{program.schedule[0]}</p>
-            </div>
-            <div className="border-t border-[#d9d9d9] pt-4 mb-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">AGES</p>
-              <p className="font-mono font-normal text-black text-[20px]">Rising {program.gradeRange || program.ages}</p>
-            </div>
-            <div className="border-t border-[#d9d9d9] pt-4">
-              <p className="font-mono font-bold text-[#1493E8] text-[20px]">LOCATION</p>
-              <p className="font-mono font-normal text-black text-[20px]">Percy L Julian High School</p>
-              <p className="font-mono font-normal text-black text-[20px]">10330 S Elizabeth St.</p>
-              <p className="font-mono font-normal text-black text-[20px]">Chicago, IL 60643</p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="bg-white h-[48px] px-[21px] rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all w-[231px]"
+              >
+                <span className="font-mono font-medium text-[#0FD3C6] text-[16px] leading-normal whitespace-nowrap">
+                  Enroll Now
+                </span>
+              </Link>
+              <Link
+                href="#schedule"
+                className="border-2 border-solid border-white h-[48px] px-[21px] rounded-[14px] flex items-center justify-center hover:bg-white/10 transition-all w-[278px]"
+              >
+                <span className="font-mono font-medium text-white text-[16px] leading-normal whitespace-nowrap">
+                  View Camp Schedule
+                </span>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mobile Info Card - Shows only on mobile */}
-      <div className="md:hidden bg-white py-6 px-6">
-        <div className="bg-[#40b3ff] p-4">
-          <h1 className="font-serif font-bold text-[48px] text-white leading-none">{mainTitle}</h1>
-          <h2 className="font-serif font-bold text-[28px] text-white leading-none">{subTitle}</h2>
-        </div>
-        <div className="mt-3">
-          <Link 
-            href="/contact"
-            className="bg-[#b0ff40] p-3 w-full block text-center hover:brightness-110 transition-all cursor-pointer"
-          >
-            <span className="font-mono font-bold text-[#1493E8] text-[16px]">ENROLL TODAY:</span>
-          </Link>
-        </div>
-        <div className="space-y-3">
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">HOURS</p>
-            <p className="font-mono font-normal text-black text-[16px]">{program.schedule[0]}</p>
+      {/* Program Snapshot Bar */}
+      <section className="bg-[#f7fbff] h-[140px] relative overflow-hidden">
+        <div className="absolute left-1/2 -translate-x-1/2 top-[25px] flex gap-[60px] items-start leading-normal overflow-hidden p-[10px] whitespace-nowrap">
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Program
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              Robotics & Maker Camp
+            </p>
           </div>
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">AGES</p>
-            <p className="font-mono font-normal text-black text-[16px]">Rising {program.gradeRange || program.ages}</p>
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Orbit Level
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              Orbit II & III
+            </p>
           </div>
-          <div className="border-t border-[#d9d9d9] pt-3">
-            <p className="font-mono font-bold text-[#1493E8] text-[16px]">LOCATION</p>
-            <p className="font-mono font-normal text-black text-[16px]">Percy L Julian High School</p>
-            <p className="font-mono font-normal text-black text-[16px]">10330 S Elizabeth St.</p>
-            <p className="font-mono font-normal text-black text-[16px]">Chicago, IL 60643</p>
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Ages
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              8–11
+            </p>
+          </div>
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Camp Time
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              9 AM – 3 PM
+            </p>
+          </div>
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Skill Level
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              Beginner
+            </p>
+          </div>
+          <div className="flex flex-col gap-[6px] items-center justify-center overflow-hidden p-[10px] shrink-0">
+            <p className="font-mono font-medium text-[#7e859d] text-[14px] shrink-0 leading-normal">
+              Daily Academic Session
+            </p>
+            <p className="font-mono font-bold text-[#01325D] text-[18px] shrink-0 leading-normal">
+              30–35 min Math & Reading
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Content Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%]">
-          {/* Desktop: Add left margin to account for sidebar */}
-          <div className="ml-0 lg:ml-[320px]">
-            {/* Overview Section */}
-            <div id="overview" className="mb-16">
-              {/* Divider */}
-              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
+      {/* Program Overview */}
+      <section className="h-[420px] relative overflow-hidden">
+        <div className="absolute left-1/2 -translate-x-1/2 top-[80px] flex flex-col gap-[24px] items-center leading-normal text-center w-[822px]">
+          <p className="font-mono font-bold text-[#1493e8] text-[36px] shrink-0 leading-normal">
+            Where Young Engineers Build the Future
+          </p>
+          <div className="flex flex-col font-mono font-medium text-[16px] text-black w-[720px] shrink-0 leading-normal whitespace-pre-wrap">
+            <p className="mb-0">At Kid Explorer Robotics & Maker Camp, students move beyond simple building projects and step into real engineering challenges. </p>
+            <p className="mb-0"> </p>
+            <p className="mb-0">Campers design robots, construct mechanical inventions, and test prototypes through collaborative challenges that encourage creativity, teamwork, and problem solving. </p>
+            <p className="mb-0"> </p>
+            <p>Each day blends innovation labs, outdoor play, and focused academic reinforcement so students leave camp stronger, more confident, and inspired.</p>
+          </div>
+        </div>
+      </section>
 
-              <h2 className="font-serif font-bold text-[#01325D] text-3xl sm:text-4xl lg:text-[40px] uppercase leading-tight mb-8">
-                {program.title}
-              </h2>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                {program.subtitle}
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                {program.description}
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                {program.tagline}
-              </p>
-
-              {/* Image */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 rounded-[5px] overflow-hidden">
+      {/* What Campers Will Do - 5 Cards - Matching Figma 121:503 */}
+      <section className="bg-[#f7fbff] h-[950px] relative overflow-hidden">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[103.5px] flex flex-col font-mono font-bold justify-center leading-normal text-[#01325d] text-[36px] text-center whitespace-nowrap">
+          <p className="leading-normal">What Campers Will Do</p>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[190px] flex flex-wrap gap-[32px] items-start justify-center w-[1062px]">
+          {[
+            {
+              title: "Robotics Engineering",
+              description: "Students build and program robots that move, respond, and complete challenges.",
+              image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&q=80"
+            },
+            {
+              title: "Maker Invention Lab",
+              description: "Campers design creative prototypes and mechanical inventions.",
+              image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"
+            },
+            {
+              title: "Drone Exploration",
+              description: "Students learn the basics of drone flight and engineering.",
+              image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&q=80"
+            },
+            {
+              title: "Engineering Challenges",
+              description: "Teams compete in design competitions that test creativity and problem solving.",
+              image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&q=80"
+            },
+            {
+              title: "Daily Academic Power Sessions",
+              description: "Students build and program robots that move, respond, and complete challenges.",
+              image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80"
+            },
+          ].map((activity, index) => (
+            <div key={index} className="flex flex-col gap-[12px] items-center shrink-0 w-[260px]">
+              <div className="bg-white h-[220px] rounded-[16px] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.08)] shrink-0 w-full relative overflow-hidden">
                 <Image
-                  src={program.image}
-                  alt={program.title}
+                  src={activity.image}
+                  alt={activity.title}
                   fill
                   className="object-cover"
                 />
               </div>
-
-              {/* Philosophy Link */}
-              <p className="font-mono font-normal text-black text-sm sm:text-base mb-4">
-                <span>Learn about the Kid Explorer Camp Philosophy </span>
-                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
-                  (click here)
-                </Link>
-              </p>
+              <div className="flex flex-col font-mono font-bold justify-center leading-normal min-w-full shrink-0 text-[#01325d] text-[20px] text-center">
+                <p className="leading-normal">{activity.title}</p>
+              </div>
+              <div className="flex flex-col font-mono font-normal justify-center leading-normal shrink-0 text-[#6a6f8c] text-[14px] text-center w-[242px]">
+                <p className="leading-normal">{activity.description}</p>
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Why We're Different Section */}
-            <div id="why-different" className="mb-16">
-              <p className="font-mono font-bold text-black text-sm sm:text-base mb-4">
-                Limitless By Nature — Kid Explorer Camp 2026
-              </p>
+      {/* Daily Schedule - Static Section - Matching Figma 137:536 */}
+      <section className="bg-white h-[716px] relative overflow-hidden font-mono font-bold leading-normal text-[#01325d] text-center whitespace-nowrap">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[93.5px] flex flex-col justify-center text-[36px]">
+          <p className="leading-normal">A Day in the Innovation Lab</p>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[177px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">9:00</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Launch Circle</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[231px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">9:15</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Math & Reading Power Session</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[285px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">9:45</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Robotics Lab</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[339px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">11:00</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Engineering Challenge</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[393px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">12:00</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Lunch</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[447px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">12:30</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Outdoor Sports</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[501px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">1:30</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Maker Build Lab</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[555px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">2:30</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Innovation Showcase</p>
+          </div>
+        </div>
+        
+        <div className="absolute left-1/2 -translate-x-1/2 top-[609px] flex gap-[40px] items-start justify-center overflow-hidden px-[16px] py-[10px]">
+          <div className="flex flex-col justify-center shrink-0 text-[20px]">
+            <p className="leading-normal">3:00</p>
+          </div>
+          <div className="flex flex-col justify-center shrink-0 text-[16px]">
+            <p className="leading-normal">Innovation Showcase</p>
+          </div>
+        </div>
+      </section>
 
-              <h2 className="font-serif font-bold text-[#01325D] text-2xl sm:text-3xl lg:text-[32px] uppercase leading-tight mb-8">
-                WHY WE&apos;RE DIFFERENT
-              </h2>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                At Kid Explorer Camp, we don&apos;t do ordinary.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                Our Robotics Maker Camp combines hands-on engineering with creative problem-solving. Campers don&apos;t just follow instructions—they design, build, test, and iterate, developing the mindset of true engineers.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                Every project is a mission. From autonomous line-followers to remote-controlled arms, each challenge builds technical skills, teamwork, and the confidence to tackle real-world problems.
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-4">
-                We call it the Launchpad Effect—where every camper&apos;s &quot;what if?&quot; becomes &quot;watch this.&quot;
-              </p>
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed">
-                We&apos;re not raising campers. We&apos;re raising engineers, coders, and innovators—future legends in the making.
-              </p>
+      {/* Skills Section - Matching Figma 142:450 */}
+      <section className="bg-white h-[889px] relative overflow-hidden">
+        <div className="absolute left-1/2 -translate-x-1/2 bg-[rgba(15,211,198,0.1)] h-[795px] overflow-hidden rounded-[24px] top-[47px] w-[1280px]">
+          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[103.5px] flex flex-col font-mono font-bold justify-center leading-normal text-[#0fd3c6] text-[36px] text-center whitespace-nowrap">
+            <p className="leading-normal">Skills Campers Develop</p>
+          </div>
+          
+          {/* 6 Skill Cards in specific layout - Grid positioning to prevent overlap */}
+          <div className="absolute left-[80px] top-[179px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">🔧</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0">
+              <p className="leading-normal">Engineering thinking</p>
             </div>
-
-            {/* Projects Section */}
-            <div id="projects" className="mb-16">
-              <h2 className="font-serif font-bold text-[#01325D] text-2xl sm:text-3xl lg:text-[32px] uppercase leading-tight mb-8">
-                WHAT CAMPERS WILL BUILD
-              </h2>
-
-              <ul className="list-disc pl-6 space-y-3 font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                <li>Autonomous robots using LEGO Mindstorms and Arduino kits</li>
-                <li>Line-following robots with sensor integration</li>
-                <li>Remote-controlled robotic arms and grippers</li>
-                <li>Sumo robots for camp competitions</li>
-                <li>AI-powered projects using machine learning basics</li>
-              </ul>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-6">
-                Every camper works with real robotics components, learning coding fundamentals in Python and block-based languages. By the end of the session, they&apos;ll have built multiple working robots and developed the skills to continue exploring at home.
-              </p>
+          </div>
+          
+          <div className="absolute left-[510px] top-[179px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">🎯</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0">
+              <p className="mb-0">Problem</p>
+              <p>solving</p>
             </div>
-
-            {/* Notes for Parents Section */}
-            <div id="notes" className="mb-16">
-              <h3 className="font-mono font-bold text-black text-xl sm:text-2xl mb-6">
-                Notes for Parents
-              </h3>
-
-              <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-sm sm:text-base leading-relaxed mb-8">
-                <li>All robotics kits and materials are provided—no equipment needed from home.</li>
-                <li>Campers work in pairs and small teams to build collaboration skills.</li>
-                <li>Each session includes outdoor breaks and physical activities to balance screen time.</li>
-                <li>Progress updates are shared throughout the session with photos and project highlights.</li>
-                <li>Camp culminates in a Robotics Showcase where campers present their creations.</li>
-              </ul>
-
-              <p className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed">
-                Kid Explorer Camp — Chicago, IL<br />
-                They come curious. They leave legends.
-              </p>
+          </div>
+          
+          <div className="absolute left-[940px] top-[179px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">🏆</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0">
+              <p className="leading-normal">Team collaboration</p>
             </div>
-
-            {/* Enroll CTA */}
-            <div className="text-center pt-8">
-              <Link 
-                href="/contact"
-                className="inline-block bg-[#0FD3C6] text-white font-serif font-bold text-[16px] px-8 py-4 rounded-lg hover:bg-[#0DC4B8] transition-colors"
-              >
-                Enroll in {program.title} →
-              </Link>
+          </div>
+          
+          <div className="absolute left-[80px] top-[457px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">⚡</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0">
+              <p className="mb-0">Creativity</p>
+              <p>and design</p>
+            </div>
+          </div>
+          
+          <div className="absolute left-[510px] top-[457px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">👍</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0">
+              <p className="leading-normal">Confidence presenting ideas</p>
+            </div>
+          </div>
+          
+          <div className="absolute left-[940px] top-[457px] bg-white/60 border border-solid border-white rounded-[12px] shadow-[0px_8px_24px_4px_rgba(0,0,0,0.08)] px-[48px] py-[36px] flex flex-col gap-[9px] items-center justify-center w-[260px] h-[238px]">
+            <div className="text-[64px] shrink-0">📊</div>
+            <div className="flex flex-col font-mono font-medium justify-center leading-normal text-[#01325d] text-[16px] text-center shrink-0 w-[176px]">
+              <p className="leading-normal">Persistence through challenges</p>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Camp Environment Section */}
+      <section className="bg-white h-[500px] relative overflow-hidden">
+        <div className="absolute bg-gray-200 h-[339px] left-[730px] rounded-[24px] top-[54px] w-[522px]" />
+        <div className="absolute left-[991px] -translate-x-1/2 -translate-y-1/2 top-[439px] flex flex-col font-mono font-normal justify-center leading-normal text-[15px] text-[rgba(19,26,48,0.5)] text-center w-[522px]">
+          <p className="leading-normal">This is where kids feel safe to try, build, fail, improve, and succeed.</p>
+        </div>
+        <div className="absolute left-[297px] top-[158px] flex flex-col gap-[14px] items-start w-[410px]">
+          <div className="flex flex-col font-mono font-bold justify-center leading-normal shrink-0 text-[#0fd3c6] text-[24px] w-[305px]">
+            <p className="leading-normal">Built for Curiosity and Confidence</p>
+          </div>
+          <div className="flex flex-col font-mono font-medium justify-center leading-normal min-w-full shrink-0 text-[16px] text-black whitespace-pre-wrap">
+            <p className="mb-0">• Hands-on learning   </p>
+            <p className="mb-0">• Energetic environment   </p>
+            <p className="mb-0">• Structured but joyful   </p>
+            <p className="mb-0">• Collaborative   </p>
+            <p>• Designed for exploration</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Parent Note Section */}
+      <section className="bg-[#f7fbff] h-[403px] relative overflow-hidden">
+        <div className="absolute left-1/2 -translate-x-1/2 top-[92px] flex flex-col gap-[16px] items-center overflow-hidden p-[10px] text-center">
+          <div className="flex flex-col font-mono font-bold justify-center leading-normal shrink-0 text-[#01325d] text-[24px] whitespace-nowrap">
+            <p className="leading-normal">Knowledge Gained — Not Lost</p>
+          </div>
+          <div className="flex flex-col font-mono font-normal justify-center leading-normal shrink-0 text-[#374151] w-[850px] whitespace-pre-wrap">
+            <p className="mb-0 text-[16px]">
+              Every Kid Explorer program includes daily math and reading power sessions lasting 20–45 minutes depending on Orbit level.
+              <br />
+              <br />
+              These short, focused sessions help students maintain academic momentum while spending the rest of the day exploring robotics, invention, sports, and creativity.
+            </p>
+            <p className="mb-0 text-[16px]">&nbsp;</p>
+            <p className="font-mono font-medium text-[18px]">We call it the No Snoozing Zone.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action - Matching Home Page CTA */}
+      <section className="w-full lg:pt-16 px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
+        >
+          <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
+            <h2 
+              className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
+              style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+            >
+              Launch Their Summer Now!!!
+            </h2>
+            <p className="font-mono font-medium text-white text-base sm:text-lg lg:text-[20px] leading-relaxed">
+              Your child already has curiosity and talent. Give those sparks a place to grow.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-[33px] items-center justify-center mt-2 sm:mt-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/contact"
+                  className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
+                >
+                  <span className="font-mono font-medium text-white text-base whitespace-nowrap">
+                    Enroll Now
+                  </span>
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/programs"
+                  className="bg-white/10 border border-white h-[47px] w-full sm:w-[200px] lg:w-[232px] rounded-[10px] px-6 flex items-center justify-center"
+                >
+                  <span className="font-mono font-medium text-white text-base whitespace-nowrap">
+                    Explore Camps
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
