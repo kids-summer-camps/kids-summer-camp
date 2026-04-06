@@ -1,7 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [breakpoint]);
+  return isMobile;
+}
 
 const dreme9Cards = [
   {
@@ -60,7 +73,63 @@ const dreme9Cards = [
   },
 ];
 
-function DREME9Card({ card }: { card: (typeof dreme9Cards)[0] }) {
+function DREME9Card({
+  card,
+  isMobile,
+  isExpanded,
+  onTap,
+}: {
+  card: (typeof dreme9Cards)[0];
+  isMobile: boolean;
+  isExpanded: boolean;
+  onTap: () => void;
+}) {
+  if (isMobile) {
+    return (
+      <motion.div
+        className="p-6 flex flex-col justify-center items-center text-center cursor-pointer relative overflow-hidden"
+        style={{ backgroundColor: card.color }}
+        onClick={onTap}
+        layout
+      >
+        <motion.h3
+          className="font-serif font-bold text-white text-lg uppercase leading-tight"
+          style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+          layout="position"
+        >
+          {card.title}
+        </motion.h3>
+
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              className="overflow-hidden"
+            >
+              <p className="font-mono font-bold text-white text-sm mt-3 mb-2">
+                &ldquo;{card.quote}&rdquo;
+              </p>
+              <p className="font-mono font-normal text-white/90 text-sm">
+                {card.description}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="mt-3 flex items-center gap-1.5">
+          <span className="block w-6 h-0.5 rounded-full bg-white/40" />
+          <span className="text-white/50 text-[10px] font-mono uppercase tracking-wider">
+            {isExpanded ? "tap to close" : "tap to read"}
+          </span>
+          <span className="block w-6 h-0.5 rounded-full bg-white/40" />
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       className="p-8 min-h-[381px] flex flex-col justify-center items-center text-center cursor-pointer relative overflow-hidden"
@@ -116,6 +185,13 @@ function DREME9Card({ card }: { card: (typeof dreme9Cards)[0] }) {
 }
 
 export default function PhilosophyPage() {
+  const isMobile = useIsMobile();
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+
+  const handleCardTap = (index: number) => {
+    setExpandedCard((prev) => (prev === index ? null : index));
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <section className="py-12 sm:py-16 lg:py-20">
@@ -205,11 +281,16 @@ export default function PhilosophyPage() {
 
           <StaggerContainer
             staggerDelay={0.1}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-16"
           >
             {dreme9Cards.map((card, index) => (
               <StaggerItem key={index}>
-                <DREME9Card card={card} />
+                <DREME9Card
+                  card={card}
+                  isMobile={isMobile}
+                  isExpanded={expandedCard === index}
+                  onTap={() => handleCardTap(index)}
+                />
               </StaggerItem>
             ))}
           </StaggerContainer>
