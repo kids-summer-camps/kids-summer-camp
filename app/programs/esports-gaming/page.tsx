@@ -6,6 +6,8 @@ import Image from "next/image";
 import { getProgramById } from "@/lib/programs-data";
 import { motion, AnimatePresence } from "framer-motion";
 
+export const dynamic = "force-static";
+
 export default function ESportsGamingPage() {
   const program = getProgramById("esports-gaming");
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
@@ -29,46 +31,23 @@ export default function ESportsGamingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative">
-        <div className="relative h-[600px] overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&q=80"
-              alt={program.title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-
-          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
-            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
-              {program.title}
-            </h1>
-            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
-              {program.description}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
-              >
-                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
-                  Enroll Now
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
+      <section className="relative w-full">
+        <Image
+          src="/images/programs/esports-hero.png"
+          alt={program.title}
+          width={1440}
+          height={850}
+          className="w-full h-auto"
+          priority
+        />
       </section>
 
       {/* Program Snapshot Bar */}
-      <section className="bg-[#1493E8] py-6 sm:py-8">
+      <section className="bg-[#01325D] py-6 sm:py-8">
         <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-[24px] sm:gap-[40px]">
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Lab</p>
-            <p className="font-mono font-bold text-white text-[18px]">E Sports Gaming</p>
+            <p className="font-mono font-bold text-white text-[18px]">Esports Lab™</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
@@ -78,7 +57,7 @@ export default function ESportsGamingPage() {
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Ages</p>
-            <p className="font-mono font-bold text-white text-[18px]">9–14</p>
+            <p className="font-mono font-bold text-white text-[18px]">8–14</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
@@ -93,7 +72,7 @@ export default function ESportsGamingPage() {
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">CoreIQ</p>
-            <p className="font-mono font-medium text-white text-[16px] text-center">Strategy &amp; Teamwork</p>
+            <p className="font-mono font-medium text-white text-[16px] text-center">Strategy analysis</p>
           </div>
         </div>
       </section>
@@ -170,24 +149,24 @@ export default function ESportsGamingPage() {
                 className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase leading-tight mb-8"
                 style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
               >
-                E Sports Gaming
+                Esports Lab™
               </h2>
 
               <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
-                E Sports Gaming camp combines competitive gaming with real-world skill development. Campers learn strategic thinking, teamwork, communication, and sportsmanship through organized esports competitions.
+                Esports Lab™ is where young minds take control of the digital world—building, creating, and leading with confidence in a future powered by technology.
               </p>
 
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
                 <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
-                  (click here)
+                  (HYPERLINK CLICKABLE TO PHILOSOPHY PAGE)
                 </Link>
               </p>
 
               {/* WHY WE'RE DIFFERENT */}
               <div className="mt-12 mb-12">
                 <p className="font-mono font-bold text-black text-[16px] mb-4">
-                  Limitless By Nature — Kid Explorer Camp 2026
+                  Limitless By Nature —Kid Explorer Camp 2026
                 </p>
 
                 <h3
@@ -199,13 +178,16 @@ export default function ESportsGamingPage() {
 
                 <div className="font-mono font-normal text-black text-[16px] sm:text-[18px] leading-relaxed space-y-6">
                   <p>
-                    E Sports Gaming Camp is where competitive gaming meets strategic teamwork and personal development.
+                    At Kid Explorer Esports Lab™, students go beyond playing games—they learn how games are built, designed, and mastered.
                   </p>
                   <p>
-                    Campers train in popular titles, learn professional gaming strategies, and develop critical thinking skills through intense but supportive competition.
+                    Campers create their own game concepts, develop digital story worlds, and learn the strategies behind competitive esports.
                   </p>
                   <p>
-                    Every session includes outdoor physical activity, daily academic time, and collaborative tournaments that build sportsmanship and resilience.
+                    Through team-based challenges and tournaments, students build communication, leadership, and critical thinking skills in a structured and balanced environment.
+                  </p>
+                  <p>
+                    Each day combines digital labs, physical activity, and academic sessions to create a focused and engaging experience.
                   </p>
                 </div>
               </div>
@@ -270,15 +252,16 @@ export default function ESportsGamingPage() {
               isFirst={true}
             >
               <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                {`9:00 — Team Check-In
-9:15 — Math & Reading
-9:45 — Tournament Practice
-11:00 — Team Scrimmages
+                {`09:00 — Explore Stations
+10:00 — CoreIQ
+11:00 — Snack
+11:30 — Sports Training
 12:00 — Lunch
-12:30 — Outdoor Sports
-1:30 — Competitive Match Play
-2:30 — Replay Analysis
-3:00 — Dismissal`}
+12:30 — CoreIQ
+1:30  — Movement
+2:00  — Swimming
+2:45  — Snack
+3:00  — Dismissal`}
               </div>
             </AccordionSection>
 
@@ -287,33 +270,18 @@ export default function ESportsGamingPage() {
               isOpen={openSections.has("skills")}
               onToggle={() => toggleSection("skills")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] space-y-4 whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Strategic Thinking</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Planning and executing competitive strategies</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Team Communication</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Coordinating with teammates under pressure</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Sportsmanship &amp; Resilience</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Handling wins and losses with grace</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Hand-Eye Coordination</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Developing fast reflexes and precision</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Content Creation</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Streaming and commentating skills</span>
-                </p>
-              </div>
+              <ul className="list-disc pl-6 font-mono text-[#01325D] text-[16px] leading-[26px]">
+                <li><span className="font-bold">Strategic Thinking</span> <span className="font-normal">— decision-making, game sense, situational awareness, and adaptive play</span></li>
+                <li><span className="font-bold">Team Coordination</span> <span className="font-normal">— communication, defined roles, collaboration, and shared objectives</span></li>
+                <li><span className="font-bold">Game Design Foundations</span> <span className="font-normal">— mechanics, level design, systems thinking, and user experience</span></li>
+                <li><span className="font-bold">Story Development &amp; Narrative Writing</span> <span className="font-normal">— character creation, world-building, plot structure, dialogue, and storytelling through games</span></li>
+                <li><span className="font-bold">Creative Writing Skills</span> <span className="font-normal">— scripting scenes, descriptive language, sequencing ideas, and translating imagination into written form</span></li>
+                <li><span className="font-bold">Digital Literacy</span> <span className="font-normal">— responsible tech use, platform navigation, and technical fluency</span></li>
+                <li><span className="font-bold">Reaction &amp; Focus</span> <span className="font-normal">— hand-eye coordination, timing, attention control, and sustained concentration</span></li>
+                <li><span className="font-bold">Problem-Solving</span> <span className="font-normal">— analyzing gameplay, debugging designs, and improving performance</span></li>
+                <li><span className="font-bold">Content Creation</span> <span className="font-normal">— designing games, building concepts, and expressing ideas digitally</span></li>
+                <li><span className="font-bold">Sportsmanship &amp; Discipline</span> <span className="font-normal">— composure, accountability, respect, and competitive integrity</span></li>
+              </ul>
             </AccordionSection>
 
             <AccordionSection
@@ -321,21 +289,14 @@ export default function ESportsGamingPage() {
               isOpen={openSections.has("discipline")}
               onToggle={() => toggleSection("discipline")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Intellectual Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Daily learning builds confidence</span>
+              <div className="font-mono text-[#01325D] leading-[24px]">
+                <p className="font-bold text-[18px] mb-4">Focus, Control &amp; Creative Execution</p>
+                <p className="font-normal text-[16px] mb-6">
+                  Students learn to manage reactions, think strategically, and bring ideas to life with intention, balancing performance, creativity, and discipline.
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Physical Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Sports and movement support growth</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Competition Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Healthy competitive mindset and teamwork</span>
+                <p className="font-bold text-[18px] mb-2">Outcome</p>
+                <p className="font-normal text-[16px]">
+                  Students develop high-level focus, strategic thinking, and creative expression while gaining real exposure to both competitive gaming and game creation. They leave with the ability to design, write, and present original game concepts, combining technical skill with storytelling and communication.
                 </p>
               </div>
             </AccordionSection>
@@ -345,13 +306,13 @@ export default function ESportsGamingPage() {
               isOpen={openSections.has("continuum")}
               onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[686px]">
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[842px]">
                 <p className="mb-6">
-                  Camp is just the launch. The Continuum is Kid Explorer Club&apos;s year-round system of academic acceleration, skill development, and enrichment, delivered through after-school programs, CoreIQ™, and specialized labs—so progress never pauses and potential keeps expanding.
+                  E-Sports &amp; Game Creation™ evolves into a year-round competitive and creative pathway within Launchpad™, where students continue to compete, design games, develop narratives, and refine both technical and storytelling skills. What begins as play becomes creation, strategy, and mastery over time.
                 </p>
                 <p className="font-medium text-[#0FD3C6] underline">
                   <Link href="/contact" className="text-[#0FD3C6] hover:brightness-110">
-                    Join Now — Learn More!
+                    Join Now  Learn More!
                   </Link>
                 </p>
               </div>
@@ -363,24 +324,18 @@ export default function ESportsGamingPage() {
               onToggle={() => toggleSection("faq")}
               isLast={true}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">What games do campers play?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-We focus on age-appropriate team titles like Minecraft, Rocket League, and Fortnite.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">How much screen time is there?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Gaming sessions are balanced with outdoor sports and breaks.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p>
-                  <span className="leading-[24px]">Do campers need their own equipment?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-No. We provide all gaming equipment and computers.</span>
-                </p>
+              <div className="font-mono text-[#01325D] leading-normal">
+                <p className="font-bold text-[16px] mb-1">What is the E-Sports &amp; Game Creation™ Summer Camp?</p>
+                <p className="font-normal text-[12px] mb-4">It&apos;s a structured program combining competitive gaming, game design, and storytelling, where students learn strategy, teamwork, and how games—and the stories behind them—are created.</p>
+
+                <p className="font-bold text-[16px] mb-1">Is this just playing video games all day?</p>
+                <p className="font-normal text-[12px] mb-4">No. Students engage in guided gameplay, strategy sessions, writing and story development, and hands-on game creation, ensuring a balanced and purposeful experience.</p>
+
+                <p className="font-bold text-[16px] mb-1">Will my child learn how to create and write their own games?</p>
+                <p className="font-normal text-[12px] mb-4">Yes. Students explore game design, character development, story writing, and basic development concepts, giving them the tools to create and express original ideas.</p>
+
+                <p className="font-bold text-[16px] mb-1">What makes this program valuable beyond gaming?</p>
+                <p className="font-normal text-[12px]">Students develop focus, strategy, teamwork, and writing skills</p>
               </div>
             </AccordionSection>
           </div>

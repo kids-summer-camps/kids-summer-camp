@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'cosmic-curiosity',
     'the-vanguard',
     'first-flight',
-    'vision-architect',
     'the-blueprint',
     'power-play',
     'esports-gaming',

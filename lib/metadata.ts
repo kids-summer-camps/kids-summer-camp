@@ -84,16 +84,10 @@ export const programMetadata: Record<string, PageMetadata> = {
     keywords: ['engineering', 'maker', '3D printing', 'circuits', 'STEM', 'ages 8-13'],
   },
   'esports-gaming': {
-    title: 'E Sports Gaming - Ages 8-13',
-    description: 'Game with strategy, compete with integrity, lead with skill. Esports competitions and game design fundamentals.',
+    title: 'Esports Lab™ - Ages 8-14',
+    description: 'Where young minds take control of the digital world—building, creating, and leading with confidence in a future powered by technology.',
     path: '/programs/esports-gaming',
-    keywords: ['esports', 'gaming', 'strategy', 'teamwork', 'digital sports', 'ages 8-13'],
-  },
-  'vision-architect': {
-    title: 'Vision Architect - Ages 11-13',
-    description: 'Design thinking, engineering projects, and leadership development for aspiring architects of change.',
-    path: '/programs/vision-architect',
-    keywords: ['design thinking', 'ages 11-13', 'engineering', 'leadership'],
+    keywords: ['esports', 'gaming', 'game design', 'strategy', 'teamwork', 'digital literacy', 'ages 8-14'],
   },
   'the-blueprint': {
     title: 'The Blueprint - Ages 13-14',

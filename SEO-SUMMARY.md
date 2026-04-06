@@ -54,7 +54,6 @@ Each icon features a playful rocket design in your brand colors.
 - ✅ First Flight (/programs/first-flight)
 - ✅ Cosmic Curiosity (/programs/cosmic-curiosity)
 - ✅ The Vanguard (/programs/the-vanguard)
-- ✅ Vision Architect (/programs/vision-architect)
 - ✅ The Blueprint (/programs/the-blueprint)
 - ✅ Power Play (/programs/power-play)
 

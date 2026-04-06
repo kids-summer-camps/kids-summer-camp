@@ -229,7 +229,6 @@ app/
 │   ├── first-flight/layout.tsx (new)
 │   ├── cosmic-curiosity/layout.tsx (new)
 │   ├── the-vanguard/layout.tsx (new)
-│   ├── vision-architect/layout.tsx (new)
 │   ├── the-blueprint/layout.tsx (new)
 │   └── power-play/layout.tsx (new)
 └── faq/layout.tsx (new)

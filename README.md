@@ -133,7 +133,6 @@ This website is fully optimized for search engines. See [SEO-SETUP.md](./SEO-SET
   - First Flight (Ages 5-7)
   - Cosmic Curiosity (Ages 7-9)
   - The Vanguard (Ages 9-11)
-  - Vision Architect (Ages 11-13)
   - The Blueprint (Ages 13-14)
   - Power Play (Sports & Athletics)
 - **Philosophy** - The DREME 9™ framework
