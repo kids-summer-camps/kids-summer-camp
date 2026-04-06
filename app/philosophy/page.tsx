@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
 function useIsMobile(breakpoint = 768) {
@@ -86,38 +86,33 @@ function DREME9Card({
 }) {
   if (isMobile) {
     return (
-      <motion.div
-        className="p-6 flex flex-col justify-center items-center text-center cursor-pointer relative overflow-hidden"
+      <div
+        className="p-6 flex flex-col items-center text-center cursor-pointer overflow-hidden"
         style={{ backgroundColor: card.color }}
         onClick={onTap}
-        layout
       >
-        <motion.h3
+        <h3
           className="font-serif font-bold text-white text-lg uppercase leading-tight"
           style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
-          layout="position"
         >
           {card.title}
-        </motion.h3>
+        </h3>
 
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-              className="overflow-hidden"
-            >
-              <p className="font-mono font-bold text-white text-sm mt-3 mb-2">
-                &ldquo;{card.quote}&rdquo;
-              </p>
-              <p className="font-mono font-normal text-white/90 text-sm">
-                {card.description}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+          style={{
+            gridTemplateRows: isExpanded ? "1fr" : "0fr",
+          }}
+        >
+          <div className="overflow-hidden">
+            <p className="font-mono font-bold text-white text-sm mt-3 mb-2">
+              &ldquo;{card.quote}&rdquo;
+            </p>
+            <p className="font-mono font-normal text-white/90 text-sm">
+              {card.description}
+            </p>
+          </div>
+        </div>
 
         <div className="mt-3 flex items-center gap-1.5">
           <span className="block w-6 h-0.5 rounded-full bg-white/40" />
@@ -126,7 +121,7 @@ function DREME9Card({
           </span>
           <span className="block w-6 h-0.5 rounded-full bg-white/40" />
         </div>
-      </motion.div>
+      </div>
     );
   }
 
