@@ -165,6 +165,19 @@ export default function TheVanguardPage() {
                 Our advanced leadership track hones professionalism, responsibility, and high-impact skills. Campers practice decision-making, mentorship, and team dynamics — equipping them to guide with vision both on and off campus.
               </p>
 
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/lack%20woman%20astronaut.MP4" type="video/mp4" />
+                </video>
+              </div>
+
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
                 <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">

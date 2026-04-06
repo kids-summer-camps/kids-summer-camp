@@ -144,14 +144,17 @@ export default function TheBlueprintPage() {
                 At IdeaForge™, science, exploration, and imagination take center stage. Campers dive into hands-on experiments, creative investigations, and mind-expanding adventures, all while building teamwork, problem-solving, and a love for discovery.
               </p>
 
-              {/* Video Placeholder */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] bg-[#01325D] rounded-lg flex items-center justify-center mb-8">
-                <h3
-                  className="font-serif font-bold text-white text-2xl sm:text-3xl lg:text-[40px] uppercase"
-                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
                 >
-                  VIDEO HERE
-                </h3>
+                  <source src="/videos/girl%20in%20lab.MP4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Philosophy Link */}

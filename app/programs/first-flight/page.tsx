@@ -156,11 +156,17 @@ export default function FirstFlightPage() {
                 This is the Launchpad™ for young dreamers ready to soar with curiosity. Every day is packed with creative projects, movement challenges, and discovery-driven play, building confidence and imagination along the way. Friendships form fast, creativity sparks faster, and independence grows at supersonic speed.
               </p>
 
-              {/* Video Placeholder */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] bg-[#01325D]/10 rounded-[8px] mb-8 flex items-center justify-center overflow-hidden">
-                <p className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase">
-                  VIDEO HERE
-                </p>
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/boy%20in%20yellow.MP4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Philosophy Link */}

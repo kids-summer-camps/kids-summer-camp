@@ -154,6 +154,19 @@ export default function LilLaunchersPage() {
                 The journey doesn&apos;t end at summer. Kid Explorer Club continues with after-school, academic CoreIQ™, enrichment labs, and advanced pathways throughout the school year—ensuring students build momentum, deepen skills, and stay ahead. From daily academic support to STEM, sports, and entrepreneurship labs, your child continues developing with purpose, structure, and consistency.
               </p>
 
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/boy%20in%20yellow.MP4" type="video/mp4" />
+                </video>
+              </div>
+
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
                 <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">

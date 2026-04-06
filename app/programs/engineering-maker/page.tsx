@@ -156,14 +156,17 @@ export default function EngineeringMakerPage() {
                 This is where innovation meets velocity. Young engineers design powerful machines, test their limits, and compete with purpose. Every build is intentional, every race is earned, and confidence is forged at full speed.
               </p>
 
-              {/* Side Image */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-10">
-                <Image
-                  src="/images/programs/mechanica-side.png"
-                  alt="Mechanica™ engineering activities"
-                  fill
-                  className="object-cover"
-                />
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-10 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/Girl%20with%20robotic%20hand%202.MP4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Philosophy Link */}

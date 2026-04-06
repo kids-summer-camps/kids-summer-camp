@@ -140,14 +140,17 @@ export default function CosmicCuriosityPage() {
                 where every kid becomes a game changer.
               </p>
 
-              {/* Video / Image Placeholder */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 bg-gray-100">
-                <Image
-                  src="/images/programs/zero-hero.png"
-                  alt="ZERO™ camp activities"
-                  fill
-                  className="object-cover"
-                />
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/White%20kid%20in%20space.MP4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Philosophy Link */}

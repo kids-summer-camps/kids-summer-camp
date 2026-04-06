@@ -164,14 +164,17 @@ export default function RoboticsMakerPage() {
                 This is where builders become engineers and ideas come to life. Students design, program, and battle-test robots through hands-on challenges that push creativity, precision, and problem-solving to the next level.
               </p>
 
-              {/* Video/Image Placeholder */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 bg-gray-200 overflow-hidden">
-                <Image
-                  src="/images/programs/robox-hero.png"
-                  alt="ROBOX™ activities"
-                  fill
-                  className="object-cover"
-                />
+              {/* Video */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/Girl%20with%20robotic%20hand.MP4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Philosophy Link */}

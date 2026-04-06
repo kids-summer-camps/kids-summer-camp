@@ -126,13 +126,16 @@ export default function PowerPlayPage() {
                 This is where strength is built, grit is tested, and confidence takes shape. Every day blends structured training, team competition, and nonstop movement, pushing students to grow stronger and perform better. Momentum builds fast, resilience grows deeper, and every challenge fuels progress.
               </p>
 
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[444px] mb-8 overflow-hidden">
-                <Image
-                  src={program.image}
-                  alt={program.title}
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 overflow-hidden rounded-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/Sport.MP4" type="video/mp4" />
+                </video>
               </div>
 
               <p className="font-mono font-bold text-black text-sm sm:text-base mb-2">
