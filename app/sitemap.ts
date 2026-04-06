@@ -11,6 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'vision-architect',
     'the-blueprint',
     'power-play',
+    'esports-gaming',
+    'engineering-maker',
+    'robotics-maker',
   ]
 
   const staticPages = [
@@ -34,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/philosophy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/experience`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,

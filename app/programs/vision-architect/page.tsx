@@ -63,118 +63,205 @@ export default function VisionArchitectPage() {
         </div>
       </section>
 
-      {/* Info Bar */}
-      <section className="bg-[#f7fbff] py-8 border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center gap-[32px] sm:gap-[60px]">
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Program</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Orbit III – Leaders</p>
+      {/* Program Snapshot Bar */}
+      <section className="bg-[#1493E8] py-6 sm:py-8">
+        <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-[24px] sm:gap-[40px]">
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Lab</p>
+            <p className="font-mono font-bold text-white text-[18px]">Vision Architect</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Age</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">{program.ages}</p>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Orbit Level</p>
+            <p className="font-mono font-bold text-white text-[18px]">Orbit IV</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Level</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Advanced</p>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Ages</p>
+            <p className="font-mono font-bold text-white text-[18px]">9–14</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Aquatics</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Yes</p>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Camp Hours</p>
+            <p className="font-mono font-bold text-white text-[18px]">9 AM – 6 PM</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Focus</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px] text-center">Entrepreneurship, Leadership</p>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Aquatics</p>
+            <p className="font-mono font-bold text-white text-[18px]">Swimming</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] p-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">CoreIQ</p>
+            <p className="font-mono font-medium text-white text-[16px] text-center">Leadership</p>
           </div>
         </div>
       </section>
 
-      {/* Two Column Overview */}
-      <section className="py-20">
+      {/* Sidebar + Main Content */}
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-mono font-bold text-[#0FD3C6] text-[28px] sm:text-[36px] mb-6">
-                Dream It. Build It. Own It.
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+            {/* Left Sidebar */}
+            <div className="w-full lg:w-[294px] shrink-0 flex flex-col gap-[26px]">
+              <Link
+                href="/contact"
+                className="bg-[#b0ff40] h-[48px] w-full max-w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
+              >
+                <span className="font-mono font-bold text-[#1493E8] text-[20px]">
+                  ENROLL TODAY:
+                </span>
+              </Link>
+
+              <Link
+                href="/programs"
+                className="border border-[#1493E8] h-[48px] w-full max-w-[239px] rounded-[12px] flex items-center justify-center hover:bg-[#1493E8]/5 transition-all"
+              >
+                <span className="font-mono font-bold text-[#1493E8] text-[16px]">
+                  View Camp Schedule
+                </span>
+              </Link>
+
+              <div className="w-full max-w-[260px]">
+                <p className="font-mono font-bold text-[#1493E8] text-[20px] leading-[21px] mb-3">
+                  SESSIONS
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (I)9am – 3pm (II)3pm - 6pm
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (III)12pm - 6pm
+                </p>
+              </div>
+
+              <div className="w-full max-w-[294px] h-px bg-[#d9d9d9]" />
+
+              <div>
+                <p className="font-mono font-bold text-[#1493E8] text-[20px] leading-[21px] mb-3">
+                  AGES
+                </p>
+                <p className="font-mono font-medium text-black text-[16px] leading-[24px]">
+                  Rising Grades 4-7
+                </p>
+              </div>
+
+              <div className="w-full max-w-[294px] h-px bg-[#d9d9d9]" />
+
+              <div className="w-full max-w-[277px]">
+                <p className="font-mono font-bold text-[#1493E8] text-[20px] leading-[21px] mb-3">
+                  TRANSPORTATION
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[21px]">
+                  City wide and Suburban Bus Stops
+                </p>
+              </div>
+
+              <div className="w-full max-w-[294px] h-px bg-[#d9d9d9]" />
+            </div>
+
+            {/* Right Main Content */}
+            <div className="flex-1 min-w-0">
+              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
+
+              <h2
+                className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase leading-tight mb-8"
+                style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+              >
+                VISION ARCHITECT
               </h2>
-              <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4">
-                <p>
-                  {program.subtitle}
-                </p>
-                <p>
-                  {program.description}
-                </p>
-                <p>
-                  Every camper becomes a visionary, ready to lead and innovate in their own right.
-                </p>
-              </div>
-            </div>
-            <div className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
-              <Image
-                src={program.image}
-                alt={program.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* What Campers Will Do - Matching Figma 237:2215 */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
-            WHAT CAMPERS WILL DO
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-[24px]">
-            {[
-              {
-                title: "Pitch Challenges",
-                description: "Developing and presenting innovative ideas",
-                image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&q=80"
-              },
-              {
-                title: "Innovation Labs",
-                description: "Building products and solving real problems",
-                image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
-              },
-              {
-                title: "Leadership Projects",
-                description: "Leading teams and managing initiatives",
-                image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&q=80"
-              },
-            ].map((activity, index) => (
-              <div key={index} className="bg-[rgba(15,211,198,0.1)] rounded-[20px] px-[20px] py-[36px] w-[406px] h-[483px] flex flex-col items-center gap-[17px]">
-                <div className="flex flex-col gap-[24px] w-full">
-                  <div className="bg-white h-[261px] w-full rounded-[20px] relative overflow-hidden">
-                    <Image
-                      src={activity.image}
-                      alt={activity.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="font-mono font-bold text-[#01325D] text-[28px] text-center leading-normal">
-                    {activity.title}
-                  </h3>
+              <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
+                {program.description}
+              </p>
+
+              <p className="font-mono font-bold text-black text-[16px] mb-4">
+                <span>Learn about the Kid Explorer Camp Philosophy </span>
+                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                  (click here)
+                </Link>
+              </p>
+
+              {/* WHY WE'RE DIFFERENT */}
+              <div className="mt-12 mb-12">
+                <p className="font-mono font-bold text-black text-[16px] mb-4">
+                  Limitless By Nature — Kid Explorer Camp 2026
+                </p>
+
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[24px] sm:text-[32px] uppercase leading-tight mb-8"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  WHY WE&apos;RE DIFFERENT
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[16px] sm:text-[18px] leading-relaxed space-y-6">
+                  <p>
+                    Campers become mini moguls and creative disruptors. Through hands-on projects, pitch challenges, and innovation labs, they learn how to turn ideas into impact.
+                  </p>
+                  <p>
+                    Skills in leadership, collaboration, and problem-solving make every camper a Day One in their own story.
+                  </p>
+                  <p>
+                    Vision Architect builds the next generation of founders, leaders, and changemakers.
+                  </p>
                 </div>
-                <p className="font-mono font-normal text-[#01325D] text-[16px] text-center leading-normal w-[284px]">
-                  {activity.description}
+              </div>
+
+              {/* SWIM & WATER PLAY */}
+              <div className="mb-12">
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[24px] sm:text-[32px] uppercase leading-tight mb-8"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  SWIM &amp; WATER PLAY
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-6">
+                  <p>
+                    Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.
+                  </p>
+                  <p>
+                    Every camper in Chicago, IL gets the chance to cool off and level up with daily water play and instructional swim sessions built for confidence, safety, and skill.
+                  </p>
+                  <p>
+                    From first-time floaters to mini Olympians, our trained staff keep a 3:1 camper-to-coach ratio in the pool, ensuring every child gets the attention, feedback, and encouragement they deserve. Parents receive progress updates that celebrate every dive, every kick, every brave jump into the deep end.
+                  </p>
+                  <p>
+                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy all while keeping our explorers cool under the Chicago summer sun.
+                  </p>
+                </div>
+              </div>
+
+              {/* Notes for Parents */}
+              <div className="mb-12">
+                <h3 className="font-mono font-bold text-black text-[24px] mb-6">
+                  Notes for Parents
+                </h3>
+
+                <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
+                  <li>Each age group follows a unique daily schedule built around their developmental rhythm.</li>
+                  <li>Lunch times, water breaks, and bathroom breaks are structured and always supervised.</li>
+                  <li>Sunscreen is applied throughout the day — because safety is part of our design.</li>
+                  <li>Quiet moments are woven into our day for reflection, reset, and rest.</li>
+                  <li>Our staff are trained to create a balance of high energy, high learning, and high care — the perfect trio for a transformative summer.</li>
+                </ul>
+
+                <p className="font-mono font-normal text-black text-[16px] leading-relaxed">
+                  Kid Explorer Camp — Chicago, IL<br />
+                  They come curious. They leave legends.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bordered Dropdown Sections - Matching Figma 237:2232 */}
+      {/* Bordered Dropdown Sections */}
       <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-[120px]">
           <div className="w-full">
             <AccordionSection
-              title="A Day of Vision"
+              title="Daily Schedule Example"
               isOpen={openSections.has("schedule")}
               onToggle={() => toggleSection("schedule")}
               isFirst={true}
@@ -204,7 +291,7 @@ export default function VisionArchitectPage() {
                   <span className="font-normal leading-[24px]">Turning ideas into action</span>
                 </p>
                 <p className="mb-0">
-                  <span className="leading-[24px]">Leadership & Management</span>
+                  <span className="leading-[24px]">Leadership &amp; Management</span>
                   <br />
                   <span className="font-normal leading-[24px]">Leading teams and projects</span>
                 </p>
@@ -214,12 +301,12 @@ export default function VisionArchitectPage() {
                   <span className="font-normal leading-[24px]">Innovation through design thinking</span>
                 </p>
                 <p className="mb-0">
-                  <span className="leading-[24px]">Presentation & Pitch Skills</span>
+                  <span className="leading-[24px]">Presentation &amp; Pitch Skills</span>
                   <br />
                   <span className="font-normal leading-[24px]">Communicating vision effectively</span>
                 </p>
                 <p>
-                  <span className="leading-[24px]">Collaboration & Networking</span>
+                  <span className="leading-[24px]">Collaboration &amp; Networking</span>
                   <br />
                   <span className="font-normal leading-[24px]">Building partnerships and teams</span>
                 </p>
@@ -227,7 +314,7 @@ export default function VisionArchitectPage() {
             </AccordionSection>
 
             <AccordionSection
-              title="Discipline Plan"
+              title="The Discipline"
               isOpen={openSections.has("discipline")}
               onToggle={() => toggleSection("discipline")}
             >
@@ -251,20 +338,18 @@ export default function VisionArchitectPage() {
             </AccordionSection>
 
             <AccordionSection
-              title="Beyond The Camp"
-              isOpen={openSections.has("beyond")}
-              onToggle={() => toggleSection("beyond")}
+              title="The Continuum"
+              isOpen={openSections.has("continuum")}
+              onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] w-[845px]">
-                <p className="leading-[24px] whitespace-pre-wrap">
-                  {`Vision Architect prepares students for:
-
-• Entrepreneurship Ventures
-• Student Leadership Roles
-• Business & Innovation Programs
-• Young Founder Opportunities
-
-Students leave ready to lead, innovate, and build their vision with confidence.`}
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[686px]">
+                <p className="mb-6">
+                  Camp is just the launch. The Continuum is Kid Explorer Club&apos;s year-round system of academic acceleration, skill development, and enrichment, delivered through after-school programs, CoreIQ™, and specialized labs—so progress never pauses and potential keeps expanding.
+                </p>
+                <p className="font-medium text-[#0FD3C6] underline">
+                  <Link href="/contact" className="text-[#0FD3C6] hover:brightness-110">
+                    Join Now — Learn More!
+                  </Link>
                 </p>
               </div>
             </AccordionSection>
@@ -299,7 +384,7 @@ Students leave ready to lead, innovate, and build their vision with confidence.`
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

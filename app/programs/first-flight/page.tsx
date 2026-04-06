@@ -29,166 +29,247 @@ export default function FirstFlightPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative">
-        <div className="relative h-[600px] overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1920&q=80"
-              alt={program.title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
+      <section className="relative w-full">
+        <Image
+          src="/images/programs/launchpad-hero.png"
+          alt={program.title}
+          width={1440}
+          height={600}
+          className="w-full h-auto"
+          priority
+        />
+      </section>
 
-          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
-            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
-              {program.title}
-            </h1>
-            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
-              {program.description}
+      {/* Program Snapshot Bar */}
+      <section className="bg-[#1493E8]">
+        <div className="max-w-[1440px] mx-auto px-6 py-6 sm:py-8 flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-[40px] text-white">
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">Lab</p>
+            <p className="font-mono font-bold text-[18px] uppercase">
+              Launchpad<span className="text-[11.6px]">TM</span>
             </p>
-            <div className="flex flex-wrap gap-4">
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">Orbit Level</p>
+            <p className="font-mono font-bold text-[18px]">Orbit II</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">Ages</p>
+            <p className="font-mono font-bold text-[18px]">5–6</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">Camp Hours</p>
+            <p className="font-mono font-bold text-[18px]">9 AM – 6 PM</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">Aquatics</p>
+            <p className="font-mono font-bold text-[18px]">Swimming</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-[14px]">CoreIQ</p>
+            <p className="font-mono font-bold text-[18px]">Strengthen Skills</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sidebar + Main Content */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[83px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[294px_1fr] gap-10 lg:gap-16">
+            {/* Sidebar */}
+            <div className="flex flex-col gap-[26px]">
               <Link
                 href="/contact"
-                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
+                className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
               >
-                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
-                  Enroll Now
+                <span className="font-mono font-bold text-[#1493E8] text-[20px]">
+                  ENROLL TODAY:
                 </span>
               </Link>
+
+              <Link
+                href="/schedule"
+                className="border border-[#1493E8] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:bg-[#1493E8]/5 transition-all"
+              >
+                <span className="font-mono font-bold text-[#1493E8] text-[16px]">
+                  View Camp Schedule
+                </span>
+              </Link>
+
+              <div>
+                <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-2">
+                  SESSIONS
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (I)9am – 3pm (II)3pm - 6pm
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (III)12pm - 6pm
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
+
+              <div>
+                <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-2">
+                  AGES
+                </p>
+                <p className="font-mono font-medium text-black text-[20px] leading-[21px]">
+                  Rising Grades:
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[21px]">
+                  K &amp; 1st
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
+
+              <div>
+                <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-2">
+                  TRANSPORTATION
+                </p>
+                <p className="font-mono font-normal text-black text-[20px] leading-[21px]">
+                  City wide and Suburban Bus Stops
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Info Bar */}
-      <section className="bg-[#f7fbff] py-8 border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center gap-[32px] sm:gap-[60px]">
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Program</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Orbit I – First Explorers</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Age</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">{program.ages}</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Level</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Beginner</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Aquatics</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Yes</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Focus</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px] text-center">Creative, Discovery, Play</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Two Column Overview */}
-      <section className="py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Main Content */}
             <div>
-              <h2 className="font-mono font-bold text-[#0FD3C6] text-[28px] sm:text-[36px] mb-6">
-                Small Steps. Giant Leaps.
+              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
+
+              <h2
+                className="font-serif font-bold text-[#01325D] text-[36px] sm:text-[40px] uppercase leading-tight mb-6"
+                style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+              >
+                Launchpad<span className="font-semibold text-[25.8px]">™</span>
               </h2>
-              <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4">
-                <p>
-                  {program.subtitle}
-                </p>
-                <p>
-                  {program.description}
-                </p>
-                <p>
-                  Every day is a balance of structure and spontaneity, learning and laughter.
+
+              <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8 max-w-[929px]">
+                This is the Launchpad™ for young dreamers ready to soar with curiosity. Every day is packed with creative projects, movement challenges, and discovery-driven play, building confidence and imagination along the way. Friendships form fast, creativity sparks faster, and independence grows at supersonic speed.
+              </p>
+
+              {/* Video Placeholder */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] bg-[#01325D]/10 rounded-[8px] mb-8 flex items-center justify-center overflow-hidden">
+                <p className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase">
+                  VIDEO HERE
                 </p>
               </div>
-            </div>
-            <div className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
-              <Image
-                src={program.image}
-                alt={program.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* What Campers Will Do - Matching Figma 237:2215 */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
-            WHAT CAMPERS WILL DO
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-[24px]">
-            {[
-              {
-                title: "STEM Discovery Lab",
-                description: "Hands-on experiments that spark curiosity",
-                image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80"
-              },
-              {
-                title: "Beginner Engineering Builds",
-                description: "Creating simple machines and structures",
-                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"
-              },
-              {
-                title: "Problem Solving Challenges",
-                description: "Fun team-based design challenges",
-                image: "https://images.unsplash.com/photo-1581092583537-20d51876a1f3?w=400&q=80"
-              },
-            ].map((activity, index) => (
-              <div key={index} className="bg-[rgba(15,211,198,0.1)] rounded-[20px] px-[20px] py-[36px] w-[406px] h-[483px] flex flex-col items-center gap-[17px]">
-                <div className="flex flex-col gap-[24px] w-full">
-                  <div className="bg-white h-[261px] w-full rounded-[20px] relative overflow-hidden">
-                    <Image
-                      src={activity.image}
-                      alt={activity.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="font-mono font-bold text-[#01325D] text-[28px] text-center leading-normal">
-                    {activity.title}
-                  </h3>
+              {/* Philosophy Link */}
+              <p className="font-mono font-bold text-black text-[16px] mb-12">
+                Learn about the Kid Explorer Camp Philosophy{" "}
+                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                  (click here)
+                </Link>
+              </p>
+
+              {/* WHY WE'RE DIFFERENT */}
+              <div className="mb-12">
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[28px] sm:text-[32px] uppercase leading-tight mb-6"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  WHY WE&apos;RE DIFFERENT
+                </h3>
+
+                <p className="font-mono font-bold text-black text-[16px] leading-relaxed mb-4">
+                  Limitless By Nature — Kid Explorer Camp 2026
+                </p>
+
+                <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4 max-w-[897px]">
+                  <p>
+                    At Kid Explorer Launchpad™, is where students begin discovering how ideas turn into real creations.
+                  </p>
+                  <p>
+                    Through hands-on STEM exploration, building challenges, and collaborative activities, campers learn how to observe, experiment, and solve problems.
+                  </p>
+                  <p>
+                    Each day blends science discovery, creative building, outdoor play, swimming, and academic sessions—helping children grow in confidence and curiosity.
+                  </p>
+                  <p>
+                    Launchpad™ prepares students for Blueprint and future engineering-based programs.
+                  </p>
                 </div>
-                <p className="font-mono font-normal text-[#01325D] text-[16px] text-center leading-normal w-[284px]">
-                  {activity.description}
+              </div>
+
+              {/* SWIM & WATER PLAY */}
+              <div className="mb-12">
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[28px] sm:text-[32px] uppercase leading-tight mb-6"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  SWIM &amp; WATER PLAY
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4 max-w-[897px]">
+                  <p>
+                    Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.
+                  </p>
+                  <p>
+                    Every camper in Chicago, IL gets the chance to cool off and level up with daily water play and instructional swim sessions built for confidence, safety, and skill.
+                  </p>
+                  <p>
+                    From first-time floaters to mini Olympians, our trained staff keep a 3:1 camper-to-coach ratio in the pool, ensuring every child gets the attention, feedback, and encouragement they deserve. Parents receive progress updates that celebrate every dive, every kick, every brave jump into the deep end.
+                  </p>
+                  <p>
+                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy all while keeping our explorers cool under the Chicago summer sun.
+                  </p>
+                </div>
+              </div>
+
+              {/* Notes for Parents */}
+              <div className="mb-8">
+                <h3 className="font-mono font-bold text-black text-[24px] mb-4">
+                  Notes for Parents
+                </h3>
+
+                <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-[16px] leading-relaxed mb-6 max-w-[897px]">
+                  <li>Each age group follows a unique daily schedule built around their developmental rhythm.</li>
+                  <li>Lunch times, water breaks, and bathroom breaks are structured and always supervised.</li>
+                  <li>Sunscreen is applied throughout the day — because safety is part of our design.</li>
+                  <li>Quiet moments are woven into our day for reflection, reset, and rest.</li>
+                  <li>Our staff are trained to create a balance of high energy, high learning, and high care — the perfect trio for a transformative summer.</li>
+                </ul>
+
+                <p className="font-mono font-normal text-black text-[16px] leading-relaxed">
+                  Kid Explorer Camp — Chicago, IL<br />
+                  They come curious. They leave legends.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bordered Dropdown Sections - Matching Figma 237:2232 */}
+      {/* Accordion Sections */}
       <section className="bg-white py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[120px]">
           <div className="w-full">
             <AccordionSection
-              title="A Day of Exploration"
+              title="Daily Schedule Example"
               isOpen={openSections.has("schedule")}
               onToggle={() => toggleSection("schedule")}
               isFirst={true}
             >
               <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                {`9:00 — Launch Circle
-9:15 — Math & Reading
-9:45 — STEM Lab
-11:00 — Build Challenge
+                {`09:00 — Explore Stations
+10:00 — CoreIQ
+11:00 — Snack
+11:30 — Sports Training
 12:00 — Lunch
-12:30 — Swimming & Sports
-1:30 — Creative Lab
-2:30 — Explorer Showcase
-3:00 — Dismissal`}
+12:30 — CoreIQ
+1:30  — Movement
+2:00  — Swimming
+2:45  — Snack
+3:00  — Dismissal`}
               </div>
             </AccordionSection>
 
@@ -197,75 +278,65 @@ export default function FirstFlightPage() {
               isOpen={openSections.has("skills")}
               onToggle={() => toggleSection("skills")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] space-y-4 whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Curiosity & Discovery</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Encouraging exploration and questioning</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Early Engineering Thinking</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Understanding how things are built</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Teamwork & Communication</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Working together and sharing ideas</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Creative Problem Solving</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Finding solutions through building and play</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Confidence Exploring Ideas</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Trying new things without fear</span>
-                </p>
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[26px]">
+                <ul className="list-disc space-y-1">
+                  <li className="ms-[24px]">
+                    Advanced Literacy{" "}
+                    <span className="font-normal">— reading comprehension, writing fluency, grammar, and structured expression</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Mathematical Fluency{" "}
+                    <span className="font-normal">— number operations, problem-solving, logic, and real-world application</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Critical Thinking{" "}
+                    <span className="font-normal">— analysis, reasoning, and solution-based thinking</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Executive Function{" "}
+                    <span className="font-normal">— focus, organization, time management, and task completion</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Communication Mastery{" "}
+                    <span className="font-normal">— speaking clearly, presenting ideas, and active listening</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Academic Confidence{" "}
+                    <span className="font-normal">— independence, persistence, and ownership of learning</span>
+                  </li>
+                </ul>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="Discipline Plan"
+              title="The Discipline"
               isOpen={openSections.has("discipline")}
               onToggle={() => toggleSection("discipline")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Intellectual Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Daily learning builds confidence</span>
+              <div className="font-mono text-[#01325D] text-[16px] leading-[24px] max-w-[759px]">
+                <p className="font-bold text-[18px] mb-1">Consistency &amp; Accountability</p>
+                <p className="font-normal mb-6">
+                  Students learn to show up prepared, stay focused, complete tasks with intention, and take ownership of their progress—building habits that translate into academic and life success.
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Physical Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Swimming and sports support growth</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Innovation Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Swimming and sports support growth</span>
+                <p className="font-bold text-[18px] mb-1">Outcome</p>
+                <p className="font-normal">
+                  Students build measurable academic progress, stronger learning habits, and elevated confidence, consistently performing at or above grade level while developing the discipline and mindset required for long-term success.
                 </p>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="Beyond The Camp"
-              isOpen={openSections.has("beyond")}
-              onToggle={() => toggleSection("beyond")}
+              title="The Continuum"
+              isOpen={openSections.has("continuum")}
+              onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] w-[845px]">
-                <p className="leading-[24px] whitespace-pre-wrap">
-                  {`First Flight prepares students for:
-
-• Blueprint Innovation Camp
-• Robotics Engineering
-• Maker Grand Prix
-• Entrepreneurship Lab
-
-Students leave ready to build, explore, and innovate with confidence.`}
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[686px]">
+                <p className="mb-6">
+                  Launchpad™ is not a reset—it&apos;s the continuation. After summer, students transition seamlessly into a structured, year-round system of academic acceleration and enrichment, ensuring progress never pauses. With CoreIQ™, labs, sports, and skill-building integrated into every week, students stay ahead, build momentum, and continue evolving with purpose.
                 </p>
+                <Link href="/contact" className="font-medium text-[#0FD3C6] underline hover:brightness-110">
+                  Join Now — Learn More!
+                </Link>
               </div>
             </AccordionSection>
 
@@ -275,31 +346,38 @@ Students leave ready to build, explore, and innovate with confidence.`}
               onToggle={() => toggleSection("faq")}
               isLast={true}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Do students need STEM experience?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-No. All activities are beginner-friendly.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Will students build real projects?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Campers create hands-on builds.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p>
-                  <span className="leading-[24px]">Is there physical activity?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Daily sports and swimming are included.</span>
-                </p>
+              <div className="font-mono text-[#01325D] text-[16px] leading-relaxed max-w-[870px] space-y-5">
+                <div>
+                  <p className="font-bold mb-1">How is Launchpad™ different from regular after-school programs?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    Launchpad™ is not childcare—it&apos;s a structured academic and enrichment system. Every day includes CoreIQ™ academics (reading, math, writing) combined with STEM labs, entrepreneurship, and sports, ensuring your child is consistently learning, building skills, and moving ahead.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold mb-1">Will this help my child improve academically?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    Yes. Launchpad™ is designed for measurable academic progress. Through daily targeted instruction and guided practice, students strengthen reading comprehension, math fluency, and critical thinking, helping them perform at or above grade level.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold mb-1">Is Launchpad™ only for advanced students?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    No. Launchpad™ supports all learners—whether your child needs reinforcement or acceleration. Our approach builds confidence, strong foundations, and advanced skills, meeting each student where they are and helping them grow.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold mb-1">How does this fit into my child&apos;s school schedule?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    Launchpad™ operates after school, providing a seamless extension of your child&apos;s day. It reinforces what they learn in school while introducing higher-level thinking, structure, and enrichment—without overwhelming them.
+                  </p>
+                </div>
               </div>
             </AccordionSection>
           </div>
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

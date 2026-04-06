@@ -3,16 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getProgramById } from "@/lib/programs-data";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CosmicCuriosityPage() {
-  const program = getProgramById("cosmic-curiosity");
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
-
-  if (!program) {
-    return <div>Program not found</div>;
-  }
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => {
@@ -29,166 +23,240 @@ export default function CosmicCuriosityPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative">
-        <div className="relative h-[600px] overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
-              alt={program.title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
+      <section className="relative w-full">
+        <Image
+          src="/images/programs/zero-hero.png"
+          alt="ZERO™ Summer Camp"
+          width={1440}
+          height={600}
+          className="w-full h-auto"
+          priority
+        />
+      </section>
 
-          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
-            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
-              {program.title}
-            </h1>
-            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
-              {program.description}
-            </p>
-            <div className="flex flex-wrap gap-4">
+      {/* Snapshot Bar */}
+      <section className="bg-[#1493E8]">
+        <div className="max-w-[1440px] mx-auto px-6 py-6 flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-[40px] text-white">
+          {[
+            { label: "Lab", value: "ZERO™" },
+            { label: "Orbit Level", value: "Orbit III" },
+            { label: "Ages", value: "7-8" },
+            { label: "Camp Hours", value: "9 AM – 6 PM" },
+            { label: "Aquatics", value: "Swimming" },
+            { label: "CoreIQ", value: "Strengthen Skills" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className={`flex flex-col items-center gap-[6px] px-[10px] py-[10px] ${
+                i < 5 ? "border-r border-white/30 pr-10" : ""
+              }`}
+            >
+              <p className="font-mono font-medium text-[14px]">{item.label}</p>
+              <p className="font-mono font-bold text-[18px]">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Sidebar + Main Content */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-[89px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[294px_1fr] gap-10 lg:gap-16">
+            {/* Sidebar */}
+            <div className="flex flex-col gap-[26px]">
               <Link
                 href="/contact"
-                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
+                className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
               >
-                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
-                  Enroll Now
+                <span className="font-mono font-bold text-[#01325D] text-[20px]">
+                  ENROLL TODAY:
                 </span>
               </Link>
+
+              <Link
+                href="/schedule"
+                className="border border-[#01325D] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:bg-gray-50 transition-all"
+              >
+                <span className="font-mono font-bold text-[#01325D] text-[16px]">
+                  View Camp Schedule
+                </span>
+              </Link>
+
+              <div>
+                <p className="font-mono font-bold text-[#01325D] text-[20px] leading-[21px] mb-2">
+                  SESSIONS
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (I)9am – 3pm (II)3pm - 6pm
+                </p>
+                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                  (III)12pm - 6pm
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
+
+              <div>
+                <p className="font-mono font-bold text-[#01325D] text-[20px] leading-[21px] mb-2">
+                  AGES
+                </p>
+                <p className="font-mono font-medium text-black text-[20px] leading-[21px]">
+                  Rising Grades:
+                </p>
+                <p className="font-mono font-normal text-black text-[20px] leading-[21px]">
+                  TV &amp; 1-2
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
+
+              <div>
+                <p className="font-mono font-bold text-[#01325D] text-[20px] leading-[21px] mb-2">
+                  TRANSPORTATION
+                </p>
+                <p className="font-mono font-normal text-black text-[20px] leading-[21px]">
+                  City wide and Suburban Bus Stops
+                </p>
+              </div>
+
+              <div className="w-full h-px bg-[#d9d9d9]" />
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Info Bar */}
-      <section className="bg-[#f7fbff] py-8 border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center gap-[32px] sm:gap-[60px]">
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Program</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Orbit II – Young Inventors</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Age</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">{program.ages}</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Level</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Beginner</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Aquatics</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Yes</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Focus</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px] text-center">Science, Exploration, STEM</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Two Column Overview */}
-      <section className="py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Main Content */}
             <div>
-              <h2 className="font-mono font-bold text-[#0FD3C6] text-[28px] sm:text-[36px] mb-6">
-                Wonder is the Superpower
+              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
+
+              <h2
+                className="font-serif font-bold text-[#01325D] text-[40px] uppercase leading-tight mb-6"
+                style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+              >
+                ZERO<span className="font-serif font-semibold text-[26px] align-super">TM</span>
               </h2>
-              <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4">
-                <p>
-                  {program.subtitle}
-                </p>
-                <p>
-                  {program.description}
-                </p>
-                <p>
-                  Every day is filled with discovery, adventure, and the kind of curiosity that changes the world.
-                </p>
-              </div>
-            </div>
-            <div className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
-              <Image
-                src={program.image}
-                alt={program.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* What Campers Will Do - Matching Figma 237:2215 */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
-            WHAT CAMPERS WILL DO
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-[24px]">
-            {[
-              {
-                title: "Science Experiments",
-                description: "Hands-on labs that bring wonder to life",
-                image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&q=80"
-              },
-              {
-                title: "Creative Investigations",
-                description: "Exploring through art, building, and discovery",
-                image: "https://images.unsplash.com/photo-1596496050827-8299e0220de1?w=400&q=80"
-              },
-              {
-                title: "Team Adventures",
-                description: "Collaborative challenges and group projects",
-                image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&q=80"
-              },
-            ].map((activity, index) => (
-              <div key={index} className="bg-[rgba(15,211,198,0.1)] rounded-[20px] px-[20px] py-[36px] w-[406px] h-[483px] flex flex-col items-center gap-[17px]">
-                <div className="flex flex-col gap-[24px] w-full">
-                  <div className="bg-white h-[261px] w-full rounded-[20px] relative overflow-hidden">
-                    <Image
-                      src={activity.image}
-                      alt={activity.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="font-mono font-bold text-[#01325D] text-[28px] text-center leading-normal">
-                    {activity.title}
-                  </h3>
+              <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8 max-w-[897px]">
+                ZERO™ merges athletic skill with leadership, teamwork, and grit. From
+                fast-paced games to strategic challenges, campers push limits, crush personal records, and
+                discover the power of discipline plus fun. Energy, skill, and confidence collide in a summer
+                where every kid becomes a game changer.
+              </p>
+
+              {/* Video / Image Placeholder */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-8 bg-gray-100">
+                <Image
+                  src="/images/programs/zero-hero.png"
+                  alt="ZERO™ camp activities"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Philosophy Link */}
+              <p className="font-mono font-bold text-black text-[16px] mb-2">
+                <span>Learn about the Kid Explorer Camp Philosophy </span>
+                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                  (CLICK HERE)
+                </Link>
+              </p>
+
+              {/* WHY WE'RE DIFFERENT */}
+              <div className="mt-12 mb-12">
+                <p className="font-mono font-bold text-black text-[16px] mb-2">
+                  Limitless By Nature —Kid Explorer Camp 2026
+                </p>
+
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[32px] uppercase leading-tight mb-6"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  WHY WE&apos;RE DIFFERENT
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[18px] leading-relaxed max-w-[897px] space-y-4">
+                  <p>
+                    At Kid Explorer ZERO→EVERYTHING™, students begin learning how ideas become real inventions.
+                  </p>
+                  <p>
+                    Campers explore STEM concepts through hands-on building, creative challenges, and collaborative problem solving.
+                  </p>
+                  <p>
+                    Each day blends innovation labs, swimming and outdoor movement, and focused academic sessions—helping students build confidence and strong foundational thinking skills.
+                  </p>
+                  <p>
+                    ZERO→EVERYTHING™ prepares students for advanced programs such as Robotics Engineering, Game Creation, and Maker Grand Prix
+                  </p>
                 </div>
-                <p className="font-mono font-normal text-[#01325D] text-[16px] text-center leading-normal w-[284px]">
-                  {activity.description}
+              </div>
+
+              {/* SWIM & WATER PLAY */}
+              <div className="mb-12">
+                <h3
+                  className="font-serif font-bold text-[#01325D] text-[32px] uppercase leading-tight mb-6"
+                  style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
+                >
+                  SWIM &amp; WATER PLAY
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[16px] leading-relaxed max-w-[897px] space-y-4">
+                  <p>
+                    Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.
+                  </p>
+                  <p>
+                    Every camper in Chicago, IL gets the chance to cool off and level up with daily water play and instructional swim sessions built for confidence, safety, and skill.
+                  </p>
+                  <p>
+                    From first-time floaters to mini Olympians, our trained staff keep a 3:1 camper-to-coach ratio in the pool, ensuring every child gets the attention, feedback, and encouragement they deserve. Parents receive progress updates that celebrate every dive, every kick, every brave jump into the deep end.
+                  </p>
+                  <p>
+                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy all while keeping our explorers cool under the Chicago summer sun.
+                  </p>
+                </div>
+              </div>
+
+              {/* Notes for Parents */}
+              <div className="mb-8">
+                <h3 className="font-mono font-bold text-black text-[24px] mb-4">
+                  Notes for Parents
+                </h3>
+
+                <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-[16px] leading-relaxed mb-6 max-w-[897px]">
+                  <li>Each age group follows a unique daily schedule built around their developmental rhythm.</li>
+                  <li>Lunch times, water breaks, and bathroom breaks are structured and always supervised.</li>
+                  <li>Sunscreen is applied throughout the day — because safety is part of our design.</li>
+                  <li>Quiet moments are woven into our day for reflection, reset, and rest.</li>
+                  <li>Our staff are trained to create a balance of high energy, high learning, and high care — the perfect trio for a transformative summer.</li>
+                </ul>
+
+                <p className="font-mono font-normal text-black text-[16px] leading-relaxed">
+                  Kid Explorer Camp — Chicago, IL<br />
+                  They come curious. They leave legends.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bordered Dropdown Sections - Matching Figma 237:2232 */}
+      {/* Accordion Sections */}
       <section className="bg-white py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-[120px]">
           <div className="w-full">
             <AccordionSection
-              title="A Day of Wonder"
+              title="Daily Schedule Example"
               isOpen={openSections.has("schedule")}
               onToggle={() => toggleSection("schedule")}
               isFirst={true}
             >
               <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                {`9:00 — Wonder Circle
-9:15 — Math & Reading
-9:45 — Science Lab
-11:00 — Discovery Challenge
+                {`09:00 — Explore Stations
+10:00 — CoreIQ
+11:00 — Snack
+11:30 — Sports Training
 12:00 — Lunch
-12:30 — Swimming & Sports
-1:30 — Creative Projects
-2:30 — Curiosity Showcase
-3:00 — Dismissal`}
+12:30 — CoreIQ
+1:30  — Movement
+2:00  — Swimming
+2:45  — Snack
+3:00  — Dismissal`}
               </div>
             </AccordionSection>
 
@@ -197,75 +265,69 @@ export default function CosmicCuriosityPage() {
               isOpen={openSections.has("skills")}
               onToggle={() => toggleSection("skills")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] space-y-4 whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Scientific Thinking</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Asking questions and testing ideas</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Problem Solving</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Finding creative solutions</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Teamwork & Sharing</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Collaborating on investigations</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Creative Expression</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Art meets science exploration</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Wonder & Curiosity</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Never stopping the questions</span>
-                </p>
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[26px]">
+                <ul className="list-disc">
+                  <li className="ms-[24px] mb-1">
+                    Reading Mastery
+                    <span className="font-normal"> — fluency, comprehension, vocabulary expansion, and written responses</span>
+                  </li>
+                  <li className="ms-[24px] mb-1">
+                    Mathematical Confidence{" "}
+                    <span className="font-normal">— addition, subtraction, early multiplication concepts, problem-solving, and number reasoning</span>
+                  </li>
+                  <li className="ms-[24px] mb-1">
+                    Analytical Thinking{" "}
+                    <span className="font-normal">— logic, pattern recognition, and multi-step problem solving</span>
+                  </li>
+                  <li className="ms-[24px] mb-1">
+                    Written Expression{" "}
+                    <span className="font-normal">— sentence structure, paragraph development, and idea organization</span>
+                  </li>
+                  <li className="ms-[24px] mb-1">
+                    Executive Function{" "}
+                    <span className="font-normal">— focus, time-on-task, organization, and task completion</span>
+                  </li>
+                  <li className="ms-[24px] mb-1">
+                    Communication &amp; Collaboration{" "}
+                    <span className="font-normal">— explaining thinking, working in teams, and active listening</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Independent Learning{" "}
+                    <span className="font-normal">— ownership, persistence, and confidence in tackling challenges</span>
+                  </li>
+                </ul>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="Discipline Plan"
+              title="The Discipline"
               isOpen={openSections.has("discipline")}
               onToggle={() => toggleSection("discipline")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Intellectual Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Daily learning builds confidence</span>
+              <div className="font-mono text-[#01325D] max-w-[759px]">
+                <p className="font-bold text-[18px] leading-[24px] mb-1">Focus &amp; Follow-Through</p>
+                <p className="font-normal text-[16px] leading-[24px] mb-6">
+                  Students learn to stay on task, complete work with intention, and push through challenges, building the discipline required for academic growth and accountability.
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Physical Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Swimming and sports support growth</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Exploration Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Discovery through structured wonder</span>
+                <p className="font-bold text-[18px] leading-[24px] mb-1">Outcome</p>
+                <p className="font-normal text-[16px] leading-[24px]">
+                  Students build strong academic fluency, sharper thinking skills, and increased independence, positioning them to perform at or above grade level while developing the habits needed for long-term success.
                 </p>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="Beyond The Camp"
-              isOpen={openSections.has("beyond")}
-              onToggle={() => toggleSection("beyond")}
+              title="The Continuum"
+              isOpen={openSections.has("continuum")}
+              onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] w-[845px]">
-                <p className="leading-[24px] whitespace-pre-wrap">
-                  {`Cosmic Curiosity prepares students for:
-
-• The Blueprint Innovation Camp
-• Advanced STEM Programs
-• Science Leadership Tracks
-• Creative Problem Solving
-
-Students leave ready to question, explore, and discover with confidence.`}
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[686px]">
+                <p className="mb-4">
+                  ZERO™ evolves into a year-round system of growth. After summer, students transition into Launchpad™ After-School, where CoreIQ™, labs, and enrichment continue to reinforce and accelerate learning, ensuring progress never pauses.
                 </p>
+                <Link href="/contact" className="font-mono font-medium text-[#0FD3C6] text-[16px] leading-[24px] underline">
+                  Join Now — Learn More!
+                </Link>
               </div>
             </AccordionSection>
 
@@ -275,31 +337,46 @@ Students leave ready to question, explore, and discover with confidence.`}
               onToggle={() => toggleSection("faq")}
               isLast={true}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Is this camp right for my first grader?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Perfect for Rising 1st-2nd graders.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Are experiments safe?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Absolutely. All activities are age-appropriate and supervised.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p>
-                  <span className="leading-[24px]">Is there swimming?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Daily water play and swim lessons included.</span>
-                </p>
+              <div className="font-mono text-[#01325D] max-w-[870px] space-y-4">
+                <div>
+                  <p className="font-bold text-[16px] leading-normal mb-1">
+                    What is ZERO™ Summer Camp for Grades 2–3?
+                  </p>
+                  <p className="font-normal text-[12px] leading-normal">
+                    ZERO™ is a structured academic and enrichment summer experience designed to strengthen reading, math, and thinking skills while building confidence and independence.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-normal mb-1">
+                    Will my child be learning or just staying active?
+                  </p>
+                  <p className="font-normal text-[12px] leading-normal">
+                    Both. Students engage in daily CoreIQ™ academic sessions along with STEM labs, creative problem-solving, sports, and recreation, creating a balanced experience.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-normal mb-1">
+                    Is transportation available for summer camp?
+                  </p>
+                  <p className="font-normal text-[12px] leading-normal">
+                    Yes. Transportation options are available through licensed and insured third-party providers, including pickup from designated locations and partner schools within a 10-mile radius, where applicable.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-normal mb-1">
+                    What makes ZERO™ different for this age group?
+                  </p>
+                  <p className="font-normal text-[12px] leading-normal">
+                    ZERO™ focuses on helping students move from basic understanding to fluency, confidence, and independent thinking, giving them a strong academic and personal edge going into the next school year.
+                  </p>
+                </div>
               </div>
             </AccordionSection>
           </div>
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -308,7 +385,7 @@ Students leave ready to question, explore, and discover with confidence.`}
           className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
         >
           <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
-            <h2 
+            <h2
               className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >

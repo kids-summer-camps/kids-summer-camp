@@ -29,166 +29,241 @@ export default function EngineeringMakerPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative">
-        <div className="relative h-[600px] overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80"
-              alt={program.title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
+      <section className="relative w-full">
+        <Image
+          src="/images/programs/mechanica-hero.png"
+          alt="Mechanica™ Engineering Camp"
+          width={1440}
+          height={600}
+          className="w-full h-auto"
+          priority
+        />
+      </section>
 
-          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
-            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
-              {program.title}
-            </h1>
-            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
-              {program.description}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
-              >
-                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
-                  Enroll Now
-                </span>
-              </Link>
-            </div>
+      {/* Snapshot Bar */}
+      <section className="bg-[#1493E8] py-6 sm:py-8">
+        <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-6 sm:gap-10">
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Lab</p>
+            <p className="font-mono font-bold text-white text-[18px]">Mechanica™</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Orbit</p>
+            <p className="font-mono font-bold text-white text-[18px]">Orbit IV</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Ages</p>
+            <p className="font-mono font-bold text-white text-[18px]">9–14</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Camp Hours</p>
+            <p className="font-mono font-bold text-white text-[18px]">9 AM – 6 PM</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">Aquatics</p>
+            <p className="font-mono font-bold text-white text-[18px]">Swimming</p>
+          </div>
+          <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
+          <div className="flex flex-col items-center gap-[6px] px-[10px] py-[10px]">
+            <p className="font-mono font-medium text-white text-[14px]">CoreIQ</p>
+            <p className="font-mono font-bold text-white text-[18px]">Problem-solving</p>
           </div>
         </div>
       </section>
 
-      {/* Info Bar */}
-      <section className="bg-[#f7fbff] py-8 border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center gap-[32px] sm:gap-[60px]">
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Program</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Orbit III – Inventors Lab</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Age</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">{program.ages}</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Level</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">Beginner-Intermediate</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Aquatics</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px]">No</p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono font-medium text-[#7e859d] text-[14px] uppercase">Focus</p>
-            <p className="font-mono font-bold text-[#01325D] text-[16px] text-center">Engineering, Robotics, Making</p>
-          </div>
-        </div>
-      </section>
+      {/* Sidebar + Content Layout */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[80px]">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+            {/* Sidebar */}
+            <div className="w-full lg:w-[294px] shrink-0">
+              <div className="flex flex-col gap-[26px] lg:sticky lg:top-24">
+                <Link
+                  href="/contact"
+                  className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
+                >
+                  <span className="font-mono font-bold text-[#0FD3C6] text-[20px]">
+                    ENROLL TODAY:
+                  </span>
+                </Link>
 
-      {/* Two Column Overview */}
-      <section className="py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-mono font-bold text-[#0FD3C6] text-[28px] sm:text-[36px] mb-6">
-                Where Innovation Meets Engineering
-              </h2>
-              <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-4">
-                <p>
-                  Engineering Maker Camp is designed for curious builders who want to go beyond basic projects and step into the world of real engineering.
-                </p>
-                <p>
-                  Students design machines, construct prototypes, experiment with circuitry, and test their creations in hands-on challenges.
-                </p>
-                <p>
-                  Every day includes outdoor play, collaborative teamwork, and brief academic sessions to keep learning sharp all summer long.
-                </p>
-              </div>
-            </div>
-            <div className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
-                alt="Engineering Maker Camp"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+                <Link
+                  href="/programs"
+                  className="border border-[#0FD3C6] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:bg-[#0FD3C6]/5 transition-all"
+                >
+                  <span className="font-mono font-bold text-[#0FD3C6] text-[16px]">
+                    View Camp Schedule
+                  </span>
+                </Link>
 
-      {/* What Campers Will Do - Matching Figma 237:2215 */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <h2 className="font-mono font-bold text-[#01325D] text-[36px] text-center mb-12 whitespace-nowrap leading-normal">
-            WHAT CAMPERS WILL DO
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-[24px]">
-            {[
-              {
-                title: "STEM Discovery Lab",
-                description: "Hands-on experiments that spark curiosity",
-                image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80"
-              },
-              {
-                title: "Beginner Engineering Builds",
-                description: "Creating simple machines and structures",
-                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"
-              },
-              {
-                title: "Problem Solving Challenges",
-                description: "Fun team-based design challenges",
-                image: "https://images.unsplash.com/photo-1581092583537-20d51876a1f3?w=400&q=80"
-              },
-            ].map((activity, index) => (
-              <div key={index} className="bg-[rgba(15,211,198,0.1)] rounded-[20px] px-[20px] py-[36px] w-[406px] h-[483px] flex flex-col items-center gap-[17px]">
-                <div className="flex flex-col gap-[24px] w-full">
-                  <div className="bg-white h-[261px] w-full rounded-[20px] relative overflow-hidden">
-                    <Image
-                      src={activity.image}
-                      alt={activity.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="font-mono font-bold text-[#01325D] text-[28px] text-center leading-normal">
-                    {activity.title}
-                  </h3>
+                <div>
+                  <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-4">
+                    SESSIONS
+                  </p>
+                  <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                    (I)9am – 3pm (II)3pm - 6pm
+                  </p>
+                  <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
+                    (III)12pm - 6pm
+                  </p>
                 </div>
-                <p className="font-mono font-normal text-[#01325D] text-[16px] text-center leading-normal w-[284px]">
-                  {activity.description}
+
+                <div className="w-full h-px bg-[#d9d9d9]" />
+
+                <div>
+                  <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-4">
+                    AGES
+                  </p>
+                  <p className="font-mono font-medium text-black text-[20px] leading-[21px]">
+                    Rising Grades:
+                  </p>
+                  <p className="font-mono font-normal text-black text-[16px] leading-[21px]">
+                    4–8
+                  </p>
+                </div>
+
+                <div className="w-full h-px bg-[#d9d9d9]" />
+
+                <div>
+                  <p className="font-mono font-bold text-[#0FD3C6] text-[20px] leading-[21px] mb-4">
+                    TRANSPORTATION
+                  </p>
+                  <p className="font-mono font-normal text-black text-[20px] leading-[21px]">
+                    City wide and Suburban Bus Stops
+                  </p>
+                </div>
+
+                <div className="w-full h-px bg-[#d9d9d9]" />
+              </div>
+            </div>
+
+            {/* Content Area */}
+            <div className="flex-1 min-w-0">
+              {/* Divider */}
+              <div className="w-full h-px bg-[#d9d9d9] mb-8" />
+
+              {/* Title */}
+              <h2 className="font-serif font-bold text-[#01325D] text-[36px] sm:text-[40px] uppercase leading-tight mb-6">
+                Mechanica™
+              </h2>
+
+              {/* Description */}
+              <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-10">
+                This is where innovation meets velocity. Young engineers design powerful machines, test their limits, and compete with purpose. Every build is intentional, every race is earned, and confidence is forged at full speed.
+              </p>
+
+              {/* Side Image */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] mb-10">
+                <Image
+                  src="/images/programs/mechanica-side.png"
+                  alt="Mechanica™ engineering activities"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Philosophy Link */}
+              <p className="font-mono font-bold text-black text-[16px] mb-2">
+                <span>Learn about the Kid Explorer Camp Philosophy </span>
+                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                  (HYPERLINK CLICKABLE TO PHILOSOPHY PAGE)
+                </Link>
+              </p>
+
+              {/* WHY WE'RE DIFFERENT */}
+              <div className="mt-12 mb-12">
+                <p className="font-mono font-bold text-black text-[16px] mb-4">
+                  Limitless By Nature —Kid Explorer Camp 2026
+                </p>
+
+                <h3 className="font-serif font-bold text-[#01325D] text-[28px] sm:text-[32px] uppercase leading-tight mb-8">
+                  WHY WE&apos;RE DIFFERENT
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[18px] leading-relaxed space-y-6">
+                  <p>
+                    At Engineering Lab™, students step into the world of real automotive design and racing.
+                  </p>
+                  <p>
+                    Campers engineer race car bodies, explore aerodynamics, and test performance on the track. Through hands-on building and team collaboration, students learn how design decisions impact speed, stability, and performance.
+                  </p>
+                  <p>
+                    Each day combines engineering labs, physical activity, and competitive challenges to create an exciting and structured experience.
+                  </p>
+                </div>
+              </div>
+
+              {/* SWIM & WATER PLAY */}
+              <div className="mb-12">
+                <h3 className="font-serif font-bold text-[#01325D] text-[28px] sm:text-[32px] uppercase leading-tight mb-8">
+                  SWIM & WATER PLAY
+                </h3>
+
+                <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-6">
+                  <p>
+                    Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.
+                  </p>
+                  <p>
+                    Every camper in Chicago, IL gets the chance to cool off and level up with daily water play and instructional swim sessions built for confidence, safety, and skill.
+                  </p>
+                  <p>
+                    From first-time floaters to mini Olympians, our trained staff keep a 3:1 camper-to-coach ratio in the pool, ensuring every child gets the attention, feedback, and encouragement they deserve. Parents receive progress updates that celebrate every dive, every kick, every brave jump into the deep end.
+                  </p>
+                  <p>
+                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy all while keeping our explorers cool under the Chicago summer sun.
+                  </p>
+                </div>
+              </div>
+
+              {/* Notes for Parents */}
+              <div className="mb-12">
+                <h3 className="font-mono font-bold text-black text-[24px] mb-6">
+                  Notes for Parents
+                </h3>
+
+                <ul className="list-disc pl-6 space-y-2 font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
+                  <li>Each age group follows a unique daily schedule built around their developmental rhythm.</li>
+                  <li>Lunch times, water breaks, and bathroom breaks are structured and always supervised.</li>
+                  <li>Sunscreen is applied throughout the day — because safety is part of our design.</li>
+                  <li>Quiet moments are woven into our day for reflection, reset, and rest.</li>
+                  <li>Our staff are trained to create a balance of high energy, high learning, and high care — the perfect trio for a transformative summer.</li>
+                </ul>
+
+                <p className="font-mono font-normal text-black text-[16px] leading-relaxed">
+                  Kid Explorer Camp — Chicago, IL<br />
+                  They come curious. They leave legends.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bordered Dropdown Sections - Matching Figma 237:2232 */}
+      {/* Accordion Sections */}
       <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-[120px]">
           <div className="w-full">
             <AccordionSection
-              title="A Day of Exploration"
+              title="Daily Schedule Example"
               isOpen={openSections.has("schedule")}
               onToggle={() => toggleSection("schedule")}
               isFirst={true}
             >
               <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                {`9:00 — Launch Circle
-9:15 — Math & Reading
-9:45 — STEM Lab
-11:00 — Build Challenge
+                {`09:00 — Explore Stations
+10:00 — CoreIQ
+11:00 — Snack
+11:30 — Sports Training
 12:00 — Lunch
-12:30 — Swimming & Sports
-1:30 — Creative Lab
-2:30 — Explorer Showcase
-3:00 — Dismissal`}
+12:30 — CoreIQ
+1:30  — Movement
+2:00  — Swimming
+2:45  — Snack
+3:00  — Dismissal`}
               </div>
             </AccordionSection>
 
@@ -197,74 +272,86 @@ export default function EngineeringMakerPage() {
               isOpen={openSections.has("skills")}
               onToggle={() => toggleSection("skills")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] space-y-4 whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Curiosity & Discovery</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Encouraging exploration and questioning</span>
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[26px]">
+                <ul className="list-disc space-y-1">
+                  <li className="ms-[24px]">
+                    Engineering Thinking{" "}
+                    <span className="font-normal">— understanding how things work, systems, structures, and mechanical design</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Hands-On Building{" "}
+                    <span className="font-normal">— constructing models, machines, and functional prototypes using real tools and materials</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Physics in Action{" "}
+                    <span className="font-normal">— force, motion, energy, balance, and stability applied through builds</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Problem-Solving & Troubleshooting{" "}
+                    <span className="font-normal">— testing, identifying issues, and improving designs through iteration</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Design & Structural Logic{" "}
+                    <span className="font-normal">— planning, blueprint reading, measurement, and precision</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Maker Skills{" "}
+                    <span className="font-normal">— tools, materials, assembly, and safe lab practices</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Critical Thinking{" "}
+                    <span className="font-normal">— analyzing outcomes, refining builds, and optimizing performance</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Collaboration & Execution{" "}
+                    <span className="font-normal">— working in teams, assigning roles, and completing projects</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Spatial Awareness{" "}
+                    <span className="font-normal">— understanding dimensions, movement, and real-world application of design</span>
+                  </li>
+                </ul>
+              </div>
+            </AccordionSection>
+
+            <AccordionSection
+              title="The Simulation"
+              isOpen={openSections.has("simulation")}
+              onToggle={() => toggleSection("simulation")}
+            >
+              <div className="font-mono text-[#01325D] whitespace-pre-wrap">
+                <p className="font-bold text-[18px] leading-[24px] mb-1">
+                  Precision & Execution
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Early Engineering Thinking</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Understanding how things are built</span>
+                <p className="font-normal text-[16px] leading-[24px] mb-6">
+                  Students learn to measure carefully, build intentionally, and follow through on designs, understanding that quality comes from focus, accuracy, and iteration.
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Teamwork & Communication</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Working together and sharing ideas</span>
+                <p className="font-bold text-[18px] leading-[24px] mb-1">
+                  Outcome
                 </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Creative Problem Solving</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Finding solutions through building and play</span>
-                </p>
-                <p>
-                  <span className="leading-[24px]">Confidence Exploring Ideas</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Trying new things without fear</span>
+                <p className="font-normal text-[16px] leading-[24px]">
+                  Students develop the ability to design, build, and understand real-world systems, gaining confidence in engineering concepts and hands-on creation. They leave with practical skills, stronger problem-solving abilities, and the mindset to build and improve anything they encounter.
                 </p>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="Discipline Plan"
-              isOpen={openSections.has("discipline")}
-              onToggle={() => toggleSection("discipline")}
+              title="The Continuum"
+              isOpen={openSections.has("continuum")}
+              onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Intellectual Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Daily learning builds confidence</span>
-                </p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Physical Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Swimming and sports support growth</span>
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[842px] whitespace-pre-wrap">
+                <p className="mb-6">
+                  Mechanica™ extends into a year-round engineering pathway within Launchpad™, where students continue to build advanced projects, deepen technical skills, and explore complex systems and design challenges. What begins as hands-on building evolves into engineering fluency and real-world capability.
                 </p>
                 <p>
-                  <span className="leading-[24px]">Innovation Discipline</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">Swimming and sports support growth</span>
-                </p>
-              </div>
-            </AccordionSection>
-
-            <AccordionSection
-              title="Beyond The Camp"
-              isOpen={openSections.has("beyond")}
-              onToggle={() => toggleSection("beyond")}
-            >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] w-[845px]">
-                <p className="leading-[24px] whitespace-pre-wrap">
-                  {`First Flight prepares students for:
-
-• Blueprint Innovation Camp
-• Robotics Engineering
-• Maker Grand Prix
-• Entrepreneurship Lab
-
-Students leave ready to build, explore, and innovate with confidence.`}
+                  <Link href="/contact" className="font-mono font-medium text-[#0FD3C6] underline">
+                    Join Now
+                  </Link>
+                  {"  "}
+                  <Link href="/programs" className="font-mono font-medium text-[#0FD3C6] underline">
+                    Learn More!
+                  </Link>
                 </p>
               </div>
             </AccordionSection>
@@ -275,31 +362,46 @@ Students leave ready to build, explore, and innovate with confidence.`}
               onToggle={() => toggleSection("faq")}
               isLast={true}
             >
-              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                <p className="mb-0">
-                  <span className="leading-[24px]">Do students need STEM experience?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-No. All activities are beginner-friendly.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p className="mb-0">
-                  <span className="leading-[24px]">Will students build real projects?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Campers create hands-on builds.</span>
-                </p>
-                <p className="leading-[24px]">&nbsp;</p>
-                <p>
-                  <span className="leading-[24px]">Is there physical activity?</span>
-                  <br />
-                  <span className="font-normal leading-[24px]">-Yes. Daily sports and swimming are included.</span>
-                </p>
+              <div className="font-mono text-[#01325D] whitespace-pre-wrap space-y-6">
+                <div>
+                  <p className="font-bold text-[16px] leading-relaxed">
+                    What is Mechanica™ Summer Camp?
+                  </p>
+                  <p className="font-normal text-[12px] leading-relaxed">
+                    Mechanica™ is a hands-on engineering and building experience where students explore how things work by designing, constructing, and testing real projects.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-relaxed">
+                    What kinds of projects will students build?
+                  </p>
+                  <p className="font-normal text-[12px] leading-relaxed">
+                    Students may create structures, simple machines, mechanical systems, vehicles, or functional prototypes, all designed to apply engineering and physics concepts.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-relaxed">
+                    Is this too advanced for younger students (K–2)?
+                  </p>
+                  <p className="font-normal text-[12px] leading-relaxed">
+                    No. Projects are age-differentiated, with younger students focusing on basic building and exploration, while older students engage in more complex design and problem-solving.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-[16px] leading-relaxed">
+                    What makes Mechanica™ valuable for my child?
+                  </p>
+                  <p className="font-normal text-[12px] leading-relaxed">
+                    Students develop engineering thinking, problem-solving skills, precision, and confidence, giving them a strong foundation for future STEM learning and real-world application.
+                  </p>
+                </div>
               </div>
             </AccordionSection>
           </div>
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

@@ -3,16 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getProgramById } from "@/lib/programs-data";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function LilLaunchersPage() {
-  const program = getProgramById("lil-launchers");
+export default function TheVanguardPage() {
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
-
-  if (!program) {
-    return <div>Program not found</div>;
-  }
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => {
@@ -29,15 +23,38 @@ export default function LilLaunchersPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full">
-        <Image
-          src="/images/programs/prelude-hero.png"
-          alt={program.title}
-          width={1440}
-          height={600}
-          className="w-full h-auto"
-          priority
-        />
+      <section className="relative">
+        <div className="relative h-[600px] overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/the-vanguard-hero.png"
+              alt="The Vanguard — Advanced Leadership Track"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+
+          <div className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-[120px]">
+            <h1 className="font-serif font-semibold text-white text-[48px] sm:text-[56px] lg:text-[64px] mb-6 leading-tight">
+              The Vanguard™
+            </h1>
+            <p className="font-mono font-normal text-white text-[16px] sm:text-[20px] max-w-[758px] mb-8">
+              Our advanced leadership track hones professionalism, responsibility, and high-impact skills.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="bg-white h-[48px] px-6 rounded-[14px] flex items-center justify-center hover:shadow-lg transition-all"
+              >
+                <span className="font-mono font-medium text-[#0FD3C6] text-[16px]">
+                  Enroll Now
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Program Snapshot Bar */}
@@ -45,32 +62,32 @@ export default function LilLaunchersPage() {
         <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-[24px] sm:gap-[40px]">
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Lab</p>
-            <p className="font-mono font-bold text-white text-[18px]">Prelude™</p>
+            <p className="font-mono font-bold text-white text-[18px]">The Vanguard™</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Orbit Level</p>
-            <p className="font-mono font-bold text-white text-[18px]">Orbit I</p>
+            <p className="font-mono font-bold text-white text-[18px]">Orbit V</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Ages</p>
-            <p className="font-mono font-bold text-white text-[18px]">3–4</p>
+            <p className="font-mono font-bold text-white text-[18px]">13+</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Camp Hours</p>
-            <p className="font-mono font-bold text-white text-[18px]">9 AM – 6 PM</p>
+            <p className="font-mono font-bold text-white text-[18px]">9 AM – 3 PM</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Aquatics</p>
-            <p className="font-mono font-bold text-white text-[18px]">Swim Development</p>
+            <p className="font-mono font-bold text-white text-[18px]">Swimming</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">CoreIQ</p>
-            <p className="font-mono font-medium text-white text-[16px] text-center">Build foundation</p>
+            <p className="font-mono font-medium text-white text-[16px] text-center">Leadership &amp; Mentorship</p>
           </div>
         </div>
       </section>
@@ -104,10 +121,7 @@ export default function LilLaunchersPage() {
                   SESSIONS
                 </p>
                 <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
-                  (I)9am – 3pm (II)3pm - 6pm
-                </p>
-                <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
-                  (III)12pm - 6pm
+                  (I)9am – 3pm
                 </p>
               </div>
 
@@ -117,11 +131,8 @@ export default function LilLaunchersPage() {
                 <p className="font-mono font-bold text-[#1493E8] text-[20px] leading-[21px] mb-3">
                   AGES
                 </p>
-                <p className="font-mono font-medium text-black text-[16px] leading-[24px]">
-                  Rising Grades:
-                </p>
                 <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
-                  Pre-K 3 &amp; Pre-K 4
+                  Rising 8th
                 </p>
               </div>
 
@@ -147,11 +158,11 @@ export default function LilLaunchersPage() {
                 className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase leading-tight mb-8"
                 style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
               >
-                Prelude™
+                THE VANGUARD
               </h2>
 
               <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
-                The journey doesn&apos;t end at summer. Kid Explorer Club continues with after-school, academic CoreIQ™, enrichment labs, and advanced pathways throughout the school year—ensuring students build momentum, deepen skills, and stay ahead. From daily academic support to STEM, sports, and entrepreneurship labs, your child continues developing with purpose, structure, and consistency.
+                Our advanced leadership track hones professionalism, responsibility, and high-impact skills. Campers practice decision-making, mentorship, and team dynamics — equipping them to guide with vision both on and off campus.
               </p>
 
               <p className="font-mono font-bold text-black text-[16px] mb-4">
@@ -175,14 +186,18 @@ export default function LilLaunchersPage() {
                 </h3>
 
                 <div className="font-mono font-normal text-black text-[16px] sm:text-[18px] leading-relaxed space-y-6">
+                  <p>At Kid Explorer Camp, we don&apos;t do ordinary.</p>
                   <p>
-                    At Prelude™, our youngest explorers discover the world through guided play, creativity, and movement.
+                    Every week is a mission, not a routine — a hands-on storyline where imagination drives learning and curiosity sparks confidence. Whether it&apos;s oceans or outer space, dinosaurs or design thinking, every theme becomes an immersive world campers step into, not just learn about.
                   </p>
                   <p>
-                    Children build confidence, communication, and early problem-solving skills through hands-on activities, storytelling, and exploration.
+                    Here, art meets science, teamwork fuels discovery, and every challenge builds emotional intelligence — grit, optimism, and the ability to bounce back stronger.
                   </p>
                   <p>
-                    Each day blends discovery labs, outdoor play, water experiences, and early academic foundations—creating a joyful environment where learning feels natural and exciting.
+                    We call it the Launchpad Effect — where every camper&apos;s &quot;what if?&quot; becomes &quot;watch this&quot;.
+                  </p>
+                  <p>
+                    We&apos;re not raising campers. We&apos;re raising thinkers, doers, and builders — future legends in the making.
                   </p>
                 </div>
               </div>
@@ -197,9 +212,7 @@ export default function LilLaunchersPage() {
                 </h3>
 
                 <div className="font-mono font-normal text-black text-[16px] leading-relaxed space-y-6">
-                  <p>
-                    Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.
-                  </p>
+                  <p>Some days, it&apos;s splashdowns. Other days, it&apos;s small victories that feel cosmic.</p>
                   <p>
                     Every camper in Chicago, IL gets the chance to cool off and level up with daily water play and instructional swim sessions built for confidence, safety, and skill.
                   </p>
@@ -207,7 +220,7 @@ export default function LilLaunchersPage() {
                     From first-time floaters to mini Olympians, our trained staff keep a 3:1 camper-to-coach ratio in the pool, ensuring every child gets the attention, feedback, and encouragement they deserve. Parents receive progress updates that celebrate every dive, every kick, every brave jump into the deep end.
                   </p>
                   <p>
-                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy all while keeping our explorers cool under the Chicago summer sun.
+                    And when it&apos;s not swim time? We turn up the fun with water play zones, splash games, and creative challenges that bring the same energy and joy — all while keeping our explorers cool under the Chicago summer sun.
                   </p>
                 </div>
               </div>
@@ -247,15 +260,14 @@ export default function LilLaunchersPage() {
               isFirst={true}
             >
               <div className="font-mono font-medium text-[#01325D] text-[16px] leading-[24px] whitespace-pre-line">
-                {`09:00 — Explore Stations
-10:00 — CoreIQ
-11:00 — Snack
-11:30 — Sports Training
+                {`9:00  — Leadership Circle
+9:30  — Academic Session
+10:30 — Mentorship Lab
+11:30 — Leadership Challenge
 12:00 — Lunch
-12:30 — CoreIQ
-1:30  — Movement
-2:00  — Swimming
-2:45  — Snack
+12:30 — Swimming & Sports
+1:30  — Team Project
+2:30  — Reflection & Debrief
 3:00  — Dismissal`}
               </div>
             </AccordionSection>
@@ -268,56 +280,53 @@ export default function LilLaunchersPage() {
               <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[26px]">
                 <ul className="list-disc space-y-1">
                   <li className="ms-[24px]">
-                    Early Literacy Mastery —<span className="font-normal"> letter recognition, phonemic awareness, vocabulary building, storytelling, and early reading readiness</span>
+                    Leadership &amp; Decision Making
                   </li>
                   <li className="ms-[24px]">
-                    Numeracy Foundations — <span className="font-normal">counting, number sense, pattern recognition, sorting, sequencing, and basic problem-solving</span>
+                    Mentorship &amp; Coaching
                   </li>
                   <li className="ms-[24px]">
-                    Language &amp; Communication — <span className="font-normal">expressive speaking, listening comprehension, sentence formation, and confidence in communication</span>
+                    Public Speaking &amp; Communication
                   </li>
                   <li className="ms-[24px]">
-                    Executive Function Skills — <span className="font-normal">focus, memory, self-regulation, following directions, and multi-step thinking</span>
+                    Team Management
                   </li>
                   <li className="ms-[24px]">
-                    Cognitive Development — <span className="font-normal">critical thinking, reasoning, curiosity, and pattern identification</span>
-                  </li>
-                  <li className="ms-[24px]">
-                    Fine Motor Precision — <span className="font-normal">writing readiness, pencil grip, tracing, cutting, and hand-eye coordination</span>
-                  </li>
-                  <li className="ms-[24px]">
-                    Social Intelligence — <span className="font-normal">collaboration, turn-taking, emotional awareness, and respectful interaction</span>
-                  </li>
-                  <li className="ms-[24px]">
-                    Independence &amp; Confidence — <span className="font-normal">task initiation, persistence, responsibility, and self-guided learning habits</span>
+                    Professional Development
                   </li>
                 </ul>
               </div>
             </AccordionSection>
 
             <AccordionSection
-              title="The Simulation"
-              isOpen={openSections.has("simulation")}
-              onToggle={() => toggleSection("simulation")}
+              title="The Discipline"
+              isOpen={openSections.has("discipline")}
+              onToggle={() => toggleSection("discipline")}
             >
               <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px]">
-                <p className="text-[18px] mb-4">Patience &amp; Self-Regulation</p>
+                <p className="text-[18px] mb-4">Leadership Discipline</p>
                 <ul className="list-disc mb-6">
-                  <li className="ms-[24px] font-medium">The Power of Patience</li>
-                  <li className="ms-[24px] font-medium">Learning to Wait</li>
-                  <li className="ms-[24px] font-medium">Self-Control in Action</li>
-                  <li className="ms-[24px] font-medium">Calm, Focus, Wait</li>
-                  <li className="ms-[24px] font-medium">Growing Patience</li>
-                  <li className="ms-[24px] font-medium">Ready, Set… Wait</li>
-                  <li className="ms-[24px] font-medium">Self Regulation</li>
-                  <li className="ms-[24px] font-medium">Pause &amp; Think</li>
+                  <li className="ms-[24px] font-medium">Strategic Thinking</li>
+                  <li className="ms-[24px] font-medium">Decision Under Pressure</li>
+                  <li className="ms-[24px] font-medium">Accountability &amp; Ownership</li>
+                  <li className="ms-[24px] font-medium">Conflict Resolution</li>
                 </ul>
 
-                <p className="text-[18px] mb-2">Outcome</p>
-                <p className="font-medium text-[16px] leading-[24px]">Self-Regulation</p>
-                <p className="font-medium text-[16px] leading-[24px]">Impulse Control</p>
-                <p className="font-medium text-[16px] leading-[24px]">Turn-Taking Discipline</p>
-                <p className="font-medium text-[16px] leading-[24px]">Executive Control</p>
+                <p className="text-[18px] mb-4">Physical Discipline</p>
+                <ul className="list-disc mb-6">
+                  <li className="ms-[24px] font-medium">Endurance &amp; Fitness</li>
+                  <li className="ms-[24px] font-medium">Sports Performance</li>
+                  <li className="ms-[24px] font-medium">Competitive Mindset</li>
+                  <li className="ms-[24px] font-medium">Body &amp; Mind Alignment</li>
+                </ul>
+
+                <p className="text-[18px] mb-4">Service Discipline</p>
+                <ul className="list-disc">
+                  <li className="ms-[24px] font-medium">Community Impact Projects</li>
+                  <li className="ms-[24px] font-medium">Mentoring Younger Campers</li>
+                  <li className="ms-[24px] font-medium">Civic Responsibility</li>
+                  <li className="ms-[24px] font-medium">Service Leadership</li>
+                </ul>
               </div>
             </AccordionSection>
 
@@ -345,38 +354,38 @@ export default function LilLaunchersPage() {
               isLast={true}
             >
               <div className="font-mono text-[#01325D] leading-[24px] space-y-4">
-                <p className="font-bold text-[16px] mb-4">Prelude™ After-School (Pre-K 3–4) — Parent FAQs</p>
+                <p className="font-bold text-[16px] mb-4">The Vanguard™ (Ages 13+) — Parent FAQs</p>
 
                 <div>
-                  <p className="font-bold text-[16px]">What is Prelude™ After-School?</p>
+                  <p className="font-bold text-[16px]">What is The Vanguard™?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
-                    Prelude™ After-School is a structured early learning extension of the school day for ages 3–4, blending COREIQ™ foundations with guided play, social development, and routine-building. It supports children in developing confidence, independence, and school readiness in a nurturing, high-quality environment.
+                    The Vanguard™ is our advanced leadership track for teens ages 13 and up. It hones professionalism, responsibility, and high-impact skills through mentorship, decision-making exercises, and real-world team dynamics.
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-[16px]">What will my child be learning after school?</p>
+                  <p className="font-bold text-[16px]">What will my teen be learning?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
-                    Children participate in COREIQ™ early learning activities, including letters, sounds, numbers, communication, and structured play, along with movement, creative exploration, and social interaction—all designed for this age group.
+                    Campers engage in leadership circles, academic sessions, mentorship labs, and team projects—developing public speaking, coaching skills, strategic thinking, and professional development throughout the summer.
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-[16px]">Is this too much for a 3–4-year-old after a school day?</p>
+                  <p className="font-bold text-[16px]">How is The Vanguard™ different from other programs?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
-                    No. The program is intentionally designed with a balanced rhythm of learning, play, and rest, ensuring children stay engaged without feeling overwhelmed.
+                    Unlike traditional camp programs, The Vanguard™ is designed for mature teens ready to take on leadership roles. They mentor younger campers, lead projects, and build skills that translate directly into academic and professional success.
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-[16px]">How do you support young children emotionally and socially?</p>
+                  <p className="font-bold text-[16px]">Is there swimming and sports included?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
-                    We focus on patience, routine, and positive reinforcement, helping children develop self-regulation, turn-taking, and confidence in a supportive environment.
+                    Yes. Every Vanguard camper participates in daily swimming and sports sessions, balancing physical discipline with leadership training for a well-rounded experience.
                   </p>
                 </div>
 
                 <p className="font-bold text-[16px]">
-                  Parent Takeaway: A smooth day from school to after-school—safe, structured, and designed for your child to grow.
+                  Parent Takeaway: A transformative leadership experience—where your teen builds the skills, confidence, and vision to lead.
                 </p>
               </div>
             </AccordionSection>
@@ -384,7 +393,7 @@ export default function LilLaunchersPage() {
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -393,7 +402,7 @@ export default function LilLaunchersPage() {
           className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
         >
           <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
-            <h2 
+            <h2
               className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >
