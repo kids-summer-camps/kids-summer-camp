@@ -116,7 +116,7 @@ export default function TheBlueprintPage() {
               </div>
               <div>
                 <p className="font-mono font-bold text-[#1493E8] text-[16px]">AGES</p>
-                <p className="font-mono font-normal text-black text-[14px]">Grades 4–8</p>
+                <p className="font-mono font-normal text-black text-[14px]">Rising Grades 4–8</p>
               </div>
             </div>
             <div className="border-t border-[#d9d9d9] pt-3">
@@ -461,7 +461,7 @@ function AccordionSection({
         onClick={onToggle}
         className="w-full px-[48px] py-[36px] flex items-center justify-between hover:bg-gray-50 transition-colors"
       >
-        <h3 className="font-mono font-bold text-[#0FD3C6] text-[24px] leading-normal text-center whitespace-nowrap">
+        <h3 className={`font-mono font-bold text-[24px] leading-normal text-center whitespace-nowrap ${isOpen ? "text-[#0FD3C6]" : "text-[#01325D]"}`}>
           {title}
         </h3>
         <motion.svg

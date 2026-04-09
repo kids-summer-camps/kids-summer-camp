@@ -172,7 +172,7 @@ export default function ESportsGamingPage() {
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
                 <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
-                  (HYPERLINK CLICKABLE TO PHILOSOPHY PAGE)
+                  (CLICK HERE)
                 </Link>
               </p>
 
@@ -435,7 +435,7 @@ function AccordionSection({
         onClick={onToggle}
         className="w-full px-[48px] py-[36px] flex items-center justify-between hover:bg-gray-50 transition-colors"
       >
-        <h3 className="font-mono font-bold text-[#0FD3C6] text-[24px] leading-normal text-center whitespace-nowrap">
+        <h3 className={`font-mono font-bold text-[24px] leading-normal text-center whitespace-nowrap ${isOpen ? "text-[#0FD3C6]" : "text-[#01325D]"}`}>
           {title}
         </h3>
         <motion.svg

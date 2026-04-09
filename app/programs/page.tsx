@@ -121,36 +121,6 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <FadeIn direction="up" delay={0.1}>
-              <div
-                className="rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:flex-[0.376] min-h-[220px] flex items-center"
-                style={{ background: "linear-gradient(200.642deg, rgb(36, 167, 255) 16.679%, rgb(2, 107, 177) 92.778%)" }}
-              >
-                <p className="font-mono font-medium text-white text-[14px] sm:text-[15px] leading-relaxed">
-                  Summertime is where our campers build more than memories — they build mindsets.
-                  From science to sport, from imagination to leadership, every program at Kid Explorer Camp is a blueprint for becoming.
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn direction="up" delay={0.2}>
-              <div className="rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:flex-[0.624] min-h-[220px] flex items-center bg-[#F8FAFE] border border-[#E8EFF8]">
-                <p className="font-mono font-medium text-[#01325D] text-[14px] sm:text-[15px] leading-relaxed">
-                  Every camper leaves with more than memories — they leave with skills, mindset, and vision.
-                  Sports, STEM, leadership labs, and creative challenges all become launchpads for life.
-                  <br /><br />
-                  At Kid Explorer Camps, summer isn&apos;t a pause. It&apos;s a launch sequence, and every child is a Day One.
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
       {/* Program Grid */}
       <section id="programs" className="pb-16 sm:pb-20 lg:pb-24 bg-[#F8FAFE] scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">

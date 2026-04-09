@@ -16,7 +16,7 @@ export default function Home() {
       
       {/* Hero - Clean video background */}
       <HeroSection
-        videoSrc="/videos/Prelude.mp4"
+        videoSrc="/videos/homepage-header.mp4"
         posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
       />
 
