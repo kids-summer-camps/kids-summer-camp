@@ -31,7 +31,7 @@ export function CTASection() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

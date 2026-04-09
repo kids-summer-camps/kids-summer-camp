@@ -64,7 +64,7 @@ export default function TheBlueprintPage() {
         {/* Desktop Sidebar */}
         <div className="absolute left-6 sm:left-12 lg:left-[89px] top-0 z-30 w-[239px] hidden md:block">
           <div className="flex flex-col gap-[26px] pt-10">
-            <Link href="/contact" className="bg-[#b0ff40] h-[48px] w-full rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all">
+            <Link href="/enroll" className="bg-[#b0ff40] h-[48px] w-full rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all">
               <span className="font-mono font-bold text-[#1493E8] text-[20px]">ENROLL TODAY:</span>
             </Link>
 
@@ -101,7 +101,7 @@ export default function TheBlueprintPage() {
         {/* Mobile Sidebar */}
         <div className="md:hidden bg-white py-6 px-6">
           <div className="flex flex-col gap-4">
-            <Link href="/contact" className="bg-[#b0ff40] h-[48px] w-full rounded-[12px] flex items-center justify-center">
+            <Link href="/enroll" className="bg-[#b0ff40] h-[48px] w-full rounded-[12px] flex items-center justify-center">
               <span className="font-mono font-bold text-[#1493E8] text-[18px]">ENROLL TODAY:</span>
             </Link>
             <Link href="/schedule" className="border border-[#1493E8] h-[48px] w-full rounded-[12px] flex items-center justify-center">
@@ -153,7 +153,7 @@ export default function TheBlueprintPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/girl%20in%20lab.MP4" type="video/mp4" />
+                  <source src="/videos/Idealforge.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -339,7 +339,7 @@ export default function TheBlueprintPage() {
                   IdeaForge™ becomes a year-round innovation track within Launchpad™, where students continue to develop products, deepen business understanding, and engage in advanced Maker Lab builds and pitch opportunities. Skills compound, ideas evolve, and students grow into capable creators and thinkers.
                 </p>
                 <p>
-                  <Link href="/contact" className="font-medium text-[#0FD3C6] underline hover:brightness-110">
+                  <Link href="/enroll" className="font-medium text-[#0FD3C6] underline hover:brightness-110">
                     Join Now
                   </Link>
                   {"  "}
@@ -405,7 +405,7 @@ export default function TheBlueprintPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

@@ -17,7 +17,7 @@ function ProgramCard({ card }: { card: Program }) {
     >
       <div className="relative h-[321px] rounded-[15px] overflow-hidden cursor-pointer">
         <Image
-          src={card.image}
+          src={card.cardImage}
           alt={card.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -51,7 +51,7 @@ function ProgramCard({ card }: { card: Program }) {
           {/* Action buttons overlay on hover */}
           <div className="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <Link
-              href="/contact"
+              href="/enroll"
               onClick={(e) => e.stopPropagation()}
               className="px-3 py-1.5 bg-[#0FD3C6] rounded-lg text-white font-mono text-xs font-medium hover:bg-[#0DC4B8] transition-colors"
             >

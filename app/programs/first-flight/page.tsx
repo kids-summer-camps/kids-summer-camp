@@ -84,7 +84,7 @@ export default function FirstFlightPage() {
             {/* Sidebar */}
             <div className="flex flex-col gap-[26px]">
               <Link
-                href="/contact"
+                href="/enroll"
                 className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
               >
                 <span className="font-mono font-bold text-[#1493E8] text-[20px]">
@@ -165,7 +165,7 @@ export default function FirstFlightPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/boy%20in%20yellow.MP4" type="video/mp4" />
+                  <source src="/videos/Launchpad.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -340,7 +340,7 @@ export default function FirstFlightPage() {
                 <p className="mb-6">
                   Launchpad™ is not a reset—it&apos;s the continuation. After summer, students transition seamlessly into a structured, year-round system of academic acceleration and enrichment, ensuring progress never pauses. With CoreIQ™, labs, sports, and skill-building integrated into every week, students stay ahead, build momentum, and continue evolving with purpose.
                 </p>
-                <Link href="/contact" className="font-medium text-[#0FD3C6] underline hover:brightness-110">
+                <Link href="/enroll" className="font-medium text-[#0FD3C6] underline hover:brightness-110">
                   Join Now — Learn More!
                 </Link>
               </div>
@@ -407,7 +407,7 @@ export default function FirstFlightPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

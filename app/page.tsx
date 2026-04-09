@@ -6,7 +6,6 @@ import { ProgramCubesSection } from "@/components/home/ProgramCubesSection";
 import { RecommendedMissionSection } from "@/components/home/RecommendedMissionSection";
 import { GrandPrixSection } from "@/components/home/GrandPrixSection";
 import { SummerInMotionSection } from "@/components/home/SummerInMotionSection";
-import { DemoDaySection } from "@/components/home/DemoDaySection";
 import { CTASection } from "@/components/home/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 
@@ -17,7 +16,7 @@ export default function Home() {
       
       {/* Hero - Clean video background */}
       <HeroSection
-        videoSrc="/videos/lack%20woman%20astronaut.MP4"
+        videoSrc="/videos/Prelude.mp4"
         posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
       />
 
@@ -40,9 +39,6 @@ export default function Home() {
 
       {/* A Summer in Motion */}
       <SummerInMotionSection />
-
-      {/* Demo Day Section */}
-      <DemoDaySection />
 
       {/* Call to Action */}
       <CTASection />

@@ -33,7 +33,7 @@ export function RecommendedMissionSection() {
               <div className="w-full lg:w-[300px] shrink-0">
                 <div className="relative aspect-4/3 rounded-[16px] overflow-hidden">
                   <Image
-                    src={topMatch.image}
+                    src={topMatch.cardImage}
                     alt={topMatch.title}
                     fill
                     className="object-cover"
@@ -112,7 +112,7 @@ export function RecommendedMissionSection() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link
-                    href="/contact"
+                    href="/enroll"
                     className="rounded-[10px] px-6 py-3 h-12 flex items-center justify-center cursor-pointer w-full font-mono font-medium text-white text-[15px] transition-all"
                     style={{ backgroundColor: topMatch.color }}
                   >

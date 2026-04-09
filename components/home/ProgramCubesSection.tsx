@@ -23,7 +23,7 @@ function MobileAccordion({ program }: { program: Program }) {
             style={{ backgroundColor: `${program.color}20` }}
           >
             <Image
-              src={program.image}
+              src={program.cardImage}
               alt={program.title}
               fill
               className="object-cover"
@@ -100,7 +100,7 @@ function MobileAccordion({ program }: { program: Program }) {
           {/* Mobile Action Buttons */}
           <div className="flex flex-col gap-2 pt-2">
             <Link
-              href="/contact"
+              href="/enroll"
               className="block w-full py-3 px-4 rounded-xl text-center font-mono font-bold text-sm text-white transition-all hover:opacity-90"
               style={{ backgroundColor: program.color }}
             >
@@ -215,7 +215,7 @@ function Cube3D({ program }: { program: Program }) {
                 style={{ backgroundColor: `${program.color}20` }}
               >
                 <Image
-                  src={program.image}
+                  src={program.cardImage}
                   alt={program.title}
                   fill
                   className="object-cover"
@@ -338,7 +338,7 @@ function Cube3D({ program }: { program: Program }) {
               {/* Action Buttons */}
               <div className="flex flex-col gap-3 w-full">
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   onClick={(e) => e.stopPropagation()}
                   className="px-6 py-3 bg-white rounded-xl font-mono font-bold text-sm transition-all hover:scale-105 text-center"
                   style={{ color: program.color }}

@@ -71,7 +71,7 @@ export function Navigation() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="/contact"
+                href="/enroll"
                 className="font-sans font-bold text-white text-sm bg-[#0FD3C6] px-5 py-2.5 rounded-lg hover:bg-[#0DC4B8] hover:shadow-lg transition-all duration-300"
               >
                 Enroll Now
@@ -163,7 +163,7 @@ export function Navigation() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact"
+                    href="/enroll"
                     className="font-sans font-bold text-white text-sm bg-[#0FD3C6] px-5 py-3 rounded-lg hover:bg-[#0DC4B8] transition-colors text-center mt-2 block"
                     onClick={() => setMobileMenuOpen(false)}
                   >

@@ -83,7 +83,7 @@ export default function EngineeringMakerPage() {
             <div className="w-full lg:w-[294px] shrink-0">
               <div className="flex flex-col gap-[26px] lg:sticky lg:top-24">
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
                 >
                   <span className="font-mono font-bold text-[#0FD3C6] text-[20px]">
@@ -165,7 +165,7 @@ export default function EngineeringMakerPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/Girl%20with%20robotic%20hand%202.MP4" type="video/mp4" />
+                  <source src="/videos/Mechanica.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -348,7 +348,7 @@ export default function EngineeringMakerPage() {
                   Mechanica™ extends into a year-round engineering pathway within Launchpad™, where students continue to build advanced projects, deepen technical skills, and explore complex systems and design challenges. What begins as hands-on building evolves into engineering fluency and real-world capability.
                 </p>
                 <p>
-                  <Link href="/contact" className="font-mono font-medium text-[#0FD3C6] underline">
+                  <Link href="/enroll" className="font-mono font-medium text-[#0FD3C6] underline">
                     Join Now
                   </Link>
                   {"  "}
@@ -428,7 +428,7 @@ export default function EngineeringMakerPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

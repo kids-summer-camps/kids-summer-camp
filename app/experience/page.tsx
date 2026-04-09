@@ -242,7 +242,7 @@ export default function ExperiencePage() {
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="/contact"
+                href="/enroll"
                 className="bg-[#0FD3C6] h-[54px] w-full sm:w-[320px] lg:w-[386px] rounded-[12px] px-6 flex items-center justify-center"
               >
                 <span className="font-mono font-medium text-white text-base whitespace-nowrap">

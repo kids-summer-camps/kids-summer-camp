@@ -102,7 +102,7 @@ export default function RoboticsMakerPage() {
             <div className="w-full lg:w-[294px] shrink-0">
               <div className="lg:sticky lg:top-8 flex flex-col gap-[26px]">
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center"
                 >
                   <span className="font-mono font-bold text-[#01325D] text-[20px]">
@@ -173,7 +173,7 @@ export default function RoboticsMakerPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/Girl%20with%20robotic%20hand.MP4" type="video/mp4" />
+                  <source src="/videos/ROBOX.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -358,7 +358,7 @@ export default function RoboticsMakerPage() {
                   ROBOX™ evolves into a year-round robotics and automation pathway within Launchpad™, where students continue advancing into more complex builds, coding challenges, and competitive robotics opportunities. Skills compound into real technical capability and future-ready expertise.
                 </p>
                 <p>
-                  <Link href="/contact" className="font-medium text-[#0FD3C6] underline">
+                  <Link href="/enroll" className="font-medium text-[#0FD3C6] underline">
                     Join Now  Learn More!
                   </Link>
                 </p>
@@ -418,7 +418,7 @@ export default function RoboticsMakerPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

@@ -38,15 +38,16 @@ compress_video() {
 # Source videos from Downloads
 SOURCE_DIR="$HOME/Downloads"
 
-# List of videos to compress (May 6 - May 19)
+# Brand program videos (see compress-videos.sh for the canonical list)
 declare -a videos=(
-    "boy in yellow.MP4"
-    "Girl with robotic hand 2.MP4"
-    "Girl with robotic hand.MP4"
-    "girl in lab.MP4"
-    "gaming pad.MP4"
-    "lack woman astronaut.MP4"
-    "Sport.MP4"
+    "Prelude.mp4"
+    "Launchpad.mp4"
+    "ZERO1.mp4"
+    "Idealforge.mp4"
+    "Apex.mp4"
+    "ROBOX.mp4"
+    "Mechanica.mp4"
+    "Esport.mp4"
     "White kid in space.MP4"
 )
 
@@ -73,4 +74,4 @@ echo "Compression complete!"
 echo "==================================="
 echo ""
 echo "Video sizes:"
-ls -lh "$VIDEOS_DIR"/*.MP4 2>/dev/null || echo "No videos found"
+ls -lh "$VIDEOS_DIR"/*.mp4 "$VIDEOS_DIR"/*.MP4 2>/dev/null || echo "No videos found"

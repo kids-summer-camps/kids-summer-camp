@@ -126,7 +126,7 @@ export default function FAQPage() {
     <div className="min-h-screen bg-white">
       {/* Video Hero Section */}
       <HeroSection
-        videoSrc="/videos/White%20kid%20in%20space.MP4"
+        videoSrc="/videos/ZERO1.mp4"
         posterSrc="/images/posters/white-kid-space-poster.jpg"
       />
 

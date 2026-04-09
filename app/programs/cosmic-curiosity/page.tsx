@@ -65,7 +65,7 @@ export default function CosmicCuriosityPage() {
             {/* Sidebar */}
             <div className="flex flex-col gap-[26px]">
               <Link
-                href="/contact"
+                href="/enroll"
                 className="bg-[#b0ff40] h-[48px] w-[239px] rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all"
               >
                 <span className="font-mono font-bold text-[#01325D] text-[20px]">
@@ -149,7 +149,7 @@ export default function CosmicCuriosityPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/White%20kid%20in%20space.MP4" type="video/mp4" />
+                  <source src="/videos/ZERO1.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -328,7 +328,7 @@ export default function CosmicCuriosityPage() {
                 <p className="mb-4">
                   ZERO™ evolves into a year-round system of growth. After summer, students transition into Launchpad™ After-School, where CoreIQ™, labs, and enrichment continue to reinforce and accelerate learning, ensuring progress never pauses.
                 </p>
-                <Link href="/contact" className="font-mono font-medium text-[#0FD3C6] text-[16px] leading-[24px] underline">
+                <Link href="/enroll" className="font-mono font-medium text-[#0FD3C6] text-[16px] leading-[24px] underline">
                   Join Now — Learn More!
                 </Link>
               </div>
@@ -403,7 +403,7 @@ export default function CosmicCuriosityPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">

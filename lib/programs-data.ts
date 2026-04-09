@@ -16,7 +16,8 @@ export interface Program {
   tagline: string;
   href: string;
   color: string;
-  image: string; // Image URL instead of emoji
+  image: string; // Hero image for detail pages
+  cardImage: string; // Card image for grid/carousel views
   interests: string[]; // For matching with selected interests
   schedule: string[]; // Available schedules (e.g., ["Full Day", "Half Day"])
   category: string; // Program category
@@ -70,6 +71,7 @@ export const programs: Program[] = [
     href: "/programs/lil-launchers",
     color: "#1493E8",
     image: "/images/programs/prelude-hero.png",
+    cardImage: "/images/programs/prelude-card.png",
     interests: ["Exploration", "STEM"],
     schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Early Childhood",
@@ -87,6 +89,7 @@ export const programs: Program[] = [
     href: "/programs/first-flight",
     color: "#0FD3C6",
     image: "/images/programs/launchpad-hero.png",
+    cardImage: "/images/programs/launchpad-card.png",
     interests: ["Exploration", "STEM", "Sports"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Early Elementary",
@@ -104,6 +107,7 @@ export const programs: Program[] = [
     href: "/programs/cosmic-curiosity",
     color: "#1284D1",
     image: "/images/programs/zero-hero.png",
+    cardImage: "/images/programs/zero-card.png",
     interests: ["Science", "Exploration", "STEM"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Elementary",
@@ -121,6 +125,7 @@ export const programs: Program[] = [
     href: "/programs/the-blueprint",
     color: "#10B8A8",
     image: "/images/programs/ideaforge-hero.png",
+    cardImage: "/images/programs/ideaforge-card.png",
     interests: ["Building & Engineering", "STEM", "Entrepreneurship"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Innovation & Entrepreneurship",
@@ -138,6 +143,7 @@ export const programs: Program[] = [
     href: "/programs/power-play",
     color: "#0DC4B8",
     image: "/images/programs/apex-hero.png",
+    cardImage: "/images/programs/apex-card.png",
     interests: ["Sports", "Leadership"],
     schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Sports",
@@ -155,6 +161,7 @@ export const programs: Program[] = [
     href: "/programs/robotics-maker",
     color: "#1493E8",
     image: "/images/programs/robox-hero.png",
+    cardImage: "/images/programs/robox-card.png",
     interests: ["Robots & Technology", "Building & Engineering", "STEM"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "STEM & Technology",
@@ -172,6 +179,7 @@ export const programs: Program[] = [
     href: "/programs/engineering-maker",
     color: "#0FD3C6",
     image: "/images/programs/mechanica-hero.png",
+    cardImage: "/images/programs/mechanica-card.png",
     interests: ["Building & Engineering", "STEM", "Science"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "STEM & Engineering",
@@ -189,6 +197,7 @@ export const programs: Program[] = [
     href: "/programs/esports-gaming",
     color: "#0DC4B8",
     image: "/images/programs/esports-hero.png",
+    cardImage: "/images/programs/esports-card.png",
     interests: ["Video Games", "Gaming & Esports", "Leadership"],
     schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
     category: "Gaming & Technology",

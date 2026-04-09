@@ -3,19 +3,38 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, useMotionValue, useAnimationControls } from "framer-motion";
 import { FadeIn } from "@/components/animations";
 import { programs, type Program } from "@/lib/programs-data";
 
 function ProgramCard({ card }: { card: Program }) {
+  const router = useRouter();
+
+  const goToProgram = () => {
+    router.push(card.href);
+  };
+
   return (
-    <div className="relative shrink-0 w-[280px] sm:w-[340px] lg:w-[406px]">
+    <div
+      className="relative shrink-0 w-[280px] sm:w-[340px] lg:w-[406px] cursor-pointer"
+      role="link"
+      tabIndex={0}
+      aria-label={`${card.title}: view program details`}
+      onClick={goToProgram}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          goToProgram();
+        }
+      }}
+    >
       <div className="w-full bg-[rgba(15,211,198,0.1)] rounded-[16px] sm:rounded-[20px] p-4 sm:p-5 lg:p-6 flex flex-col items-center">
         <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 items-start w-full">
           <div className="w-full aspect-366/261 bg-white rounded-[16px] sm:rounded-[20px] overflow-hidden relative group">
             <Image
-              src={card.image}
-              alt={card.title}
+              src={card.cardImage}
+              alt=""
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
               sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 406px"
@@ -28,14 +47,16 @@ function ProgramCard({ card }: { card: Program }) {
             {/* Hover overlay with buttons */}
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
               <Link
-                href="/contact"
+                href="/enroll"
                 className="px-4 py-2 bg-[#0FD3C6] rounded-lg text-white font-mono text-sm font-medium hover:bg-[#0DC4B8] transition-colors"
+                onClick={(e) => e.stopPropagation()}
               >
                 Enroll
               </Link>
               <Link
                 href={card.href}
                 className="px-4 py-2 bg-white/20 border-2 border-white rounded-lg text-white font-mono text-sm font-medium hover:bg-white/30 transition-colors"
+                onClick={(e) => e.stopPropagation()}
               >
                 Learn More
               </Link>

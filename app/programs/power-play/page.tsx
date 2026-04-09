@@ -78,7 +78,7 @@ export default function PowerPlayPage() {
       {/* Mobile Sidebar Info */}
       <div className="md:hidden bg-white py-6 px-6">
         <Link
-          href="/contact"
+          href="/enroll"
           className="bg-[#b0ff40] h-[48px] w-full rounded-[12px] flex items-center justify-center hover:brightness-110 transition-all mb-4"
         >
           <span className="font-mono font-bold text-[#1493E8] text-[18px]">ENROLL TODAY:</span>
@@ -134,7 +134,7 @@ export default function PowerPlayPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/Sport.MP4" type="video/mp4" />
+                  <source src="/videos/Apex.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -384,7 +384,7 @@ export default function PowerPlayPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enroll"
                   className="bg-[#1493E8] h-12 w-full sm:w-[200px] lg:w-[231px] rounded-[12px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">
