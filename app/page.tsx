@@ -8,11 +8,13 @@ import { GrandPrixSection } from "@/components/home/GrandPrixSection";
 import { SummerInMotionSection } from "@/components/home/SummerInMotionSection";
 import { CTASection } from "@/components/home/CTASection";
 import { StructuredData } from "@/components/StructuredData";
+import { HomeWelcomePopup } from "@/components/home/HomeWelcomePopup";
 
 export default function Home() {
   return (
     <>
       <StructuredData />
+      <HomeWelcomePopup />
       
       {/* Hero - Clean video background */}
       <HeroSection
