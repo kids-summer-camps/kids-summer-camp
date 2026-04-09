@@ -16,7 +16,7 @@ export function HeroSection({
   posterSrc = "/images/hero-bg.png",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full h-[500px] sm:h-[650px] lg:h-[774px] overflow-hidden rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl-[40px] sm:rounded-br-[40px] lg:rounded-bl-[48px] lg:rounded-br-[48px] max-w-[1445px] mx-auto">
+    <section className="relative w-full aspect-video sm:aspect-auto sm:h-[650px] lg:h-[774px] overflow-hidden rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl-[40px] sm:rounded-br-[40px] lg:rounded-bl-[48px] lg:rounded-br-[48px] max-w-[1445px] mx-auto bg-black">
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -30,7 +30,7 @@ export function HeroSection({
             loop
             playsInline
             poster={posterSrc}
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover"
             controlsList="nodownload"
           >
             <source src={videoSrc} type="video/mp4" />
