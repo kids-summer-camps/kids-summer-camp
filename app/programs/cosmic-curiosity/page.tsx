@@ -451,15 +451,15 @@ function AccordionSection({
     <div
       className={`
         border-[#99adbe] border-[0.5px] border-solid overflow-hidden
-        ${isFirst ? "rounded-t-[40px]" : "border-t-0"}
-        ${isLast ? "rounded-b-[40px]" : ""}
+        ${isFirst ? "rounded-t-[24px] sm:rounded-t-[40px]" : "border-t-0"}
+        ${isLast ? "rounded-b-[24px] sm:rounded-b-[40px]" : ""}
       `}
     >
       <button
         onClick={onToggle}
-        className="w-full px-[48px] py-[36px] flex items-center justify-between hover:bg-gray-50 transition-colors"
+        className="w-full px-5 py-5 sm:px-[48px] sm:py-[36px] flex items-center justify-between hover:bg-gray-50 transition-colors"
       >
-        <h3 className={`font-mono font-bold text-[24px] leading-normal text-center whitespace-nowrap ${isOpen ? "text-[#0FD3C6]" : "text-[#01325D]"}`}>
+        <h3 className={`font-mono font-bold text-[16px] sm:text-[24px] leading-normal ${isOpen ? "text-[#0FD3C6]" : "text-[#01325D]"}`}>
           {title}
         </h3>
         <motion.svg
@@ -491,7 +491,7 @@ function AccordionSection({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-[48px] pb-[36px]">
+            <div className="px-5 pb-5 sm:px-[48px] sm:pb-[36px]">
               {children}
             </div>
           </motion.div>
