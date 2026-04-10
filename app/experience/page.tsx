@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations";
@@ -147,15 +146,18 @@ export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full">
-        <Image
-          src="/images/experience-hero.png"
-          alt="Be Do Play — A System Built for Focus, Execution, and Confidence"
-          width={1440}
-          height={839}
+      <section className="relative w-full bg-black">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/experience-hero.png"
           className="w-full h-auto"
-          priority
-        />
+          controlsList="nodownload"
+        >
+          <source src="/videos/experience-hero.mp4" type="video/mp4" />
+        </video>
       </section>
 
       {/* Content Sections: Be Ready, Do the work, Play Energy */}

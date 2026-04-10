@@ -48,7 +48,7 @@ declare -a videos=(
     "ROBOX.mp4"
     "Mechanica.mp4"
     "Esport.mp4"
-    "White kid in space.MP4"
+    "0410.mp4"
 )
 
 # Compress each video

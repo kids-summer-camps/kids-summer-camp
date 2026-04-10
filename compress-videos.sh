@@ -1,5 +1,5 @@
 #!/bin/bash
-# Compress brand program videos + Programs page hero (White kid in space) from ~/Downloads into public/videos.
+# Compress brand program videos + Programs page hero (0410 boy in space) from ~/Downloads into public/videos.
 # Uses the same settings as compress-small.sh (~720p CRF 28, no audio).
 
 set -euo pipefail
@@ -45,7 +45,7 @@ declare -a videos=(
     "ROBOX.mp4"
     "Mechanica.mp4"
     "Esport.mp4"
-    "White kid in space.MP4"
+    "0410.mp4"
 )
 
 echo "==================================="
