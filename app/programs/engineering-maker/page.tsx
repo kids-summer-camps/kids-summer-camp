@@ -165,7 +165,7 @@ export default function EngineeringMakerPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src={program.videoSrc} type="video/mp4" />
+                  <source src="/videos/Mechanica.mp4" type="video/mp4" />
                 </video>
               </div>
 
