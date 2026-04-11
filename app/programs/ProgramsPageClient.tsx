@@ -1,11 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type MutableRefObject, useEffect, useRef, useState } from "react";
 import { ProgramCard } from "@/components/programs/ProgramDetail";
 import { programs } from "@/lib/programs-data";
 import { FadeIn } from "@/components/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";
+
+async function playPreferSound(
+  video: HTMLVideoElement,
+  setMuted: (m: boolean) => void,
+  mutedRef: MutableRefObject<boolean>
+) {
+  try {
+    video.muted = false;
+    await video.play();
+    setMuted(false);
+    mutedRef.current = false;
+  } catch {
+    video.muted = true;
+    setMuted(true);
+    mutedRef.current = true;
+    await video.play().catch(() => {});
+  }
+}
 
 export function ProgramsPageClient() {
   const heroSectionRef = useRef<HTMLElement>(null);
@@ -20,25 +38,12 @@ export function ProgramsPageClient() {
     const v = heroVideoRef.current;
     if (!v) return;
 
-    const attemptAutoplayPreferSound = async () => {
-      try {
-        v.muted = false;
-        await v.play();
-        setMuted(false);
-        mutedRef.current = false;
-      } catch {
-        v.muted = true;
-        setMuted(true);
-        mutedRef.current = true;
-        await v.play().catch(() => {});
-      }
-    };
-
-    void attemptAutoplayPreferSound();
-    v.addEventListener("canplay", attemptAutoplayPreferSound, { once: true });
+    const onCanPlay = () => void playPreferSound(v, setMuted, mutedRef);
+    void playPreferSound(v, setMuted, mutedRef);
+    v.addEventListener("canplay", onCanPlay, { once: true });
 
     return () => {
-      v.removeEventListener("canplay", attemptAutoplayPreferSound);
+      v.removeEventListener("canplay", onCanPlay);
     };
   }, []);
 
@@ -50,8 +55,7 @@ export function ProgramsPageClient() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          v.muted = mutedRef.current;
-          v.play().catch(() => {});
+          void playPreferSound(v, setMuted, mutedRef);
         } else {
           v.pause();
         }
@@ -62,10 +66,37 @@ export function ProgramsPageClient() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const v = heroVideoRef.current;
+    if (!v) return;
+
+    const heroInView = () => {
+      const el = heroSectionRef.current;
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight;
+    };
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        v.pause();
+        return;
+      }
+      if (!heroInView()) return;
+      void playPreferSound(v, setMuted, mutedRef);
+    };
+
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
   const ctaPrimaryClass =
     "inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#0FD3C6] px-5 font-mono text-[14px] font-bold text-[#01325D] shadow-sm transition-all hover:bg-[#0DC4B8] active:scale-[0.98] sm:min-w-[200px] sm:flex-none sm:px-8 sm:text-[15px]";
   const ctaSecondaryClass =
     "inline-flex min-h-12 flex-1 items-center justify-center rounded-full border-2 border-[#01325D]/25 bg-white px-5 font-mono text-[14px] font-bold text-[#01325D] shadow-sm transition-all hover:border-[#01325D]/40 hover:bg-[#f8fafc] active:scale-[0.98] sm:min-w-[200px] sm:flex-none sm:px-8 sm:text-[15px]";
+  /** Desktop hero overlay: teal outline, no white fill/text */
+  const ctaSecondaryDesktopClass =
+    "inline-flex min-h-12 min-w-[200px] items-center justify-center rounded-full border-2 border-[#0FD3C6] bg-transparent px-8 font-mono text-[15px] font-bold text-[#0FD3C6] shadow-sm transition-all hover:bg-[#0FD3C6]/15 active:scale-[0.98]";
 
   return (
     <div className="min-h-screen w-full max-w-none overflow-x-hidden bg-white">
@@ -103,13 +134,8 @@ export function ProgramsPageClient() {
             <button
               type="button"
               onClick={() => {
-                setMuted(false);
                 const el = heroVideoRef.current;
-                if (el) {
-                  el.muted = false;
-                  mutedRef.current = false;
-                  el.play().catch(() => {});
-                }
+                if (el) void playPreferSound(el, setMuted, mutedRef);
               }}
               className="absolute right-3 top-3 z-20 rounded-full border border-white/35 bg-black/45 px-3 py-1.5 font-mono text-[11px] font-medium text-white backdrop-blur-sm transition-colors hover:bg-black/60 md:right-6 md:top-[calc(4.75rem+env(safe-area-inset-top))] md:text-xs"
             >
@@ -122,17 +148,17 @@ export function ProgramsPageClient() {
             className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[46%] max-h-[360px] bg-linear-to-t from-[#01325D]/90 to-transparent md:block"
             aria-hidden
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden justify-end pb-10 pt-24 md:flex md:px-10 md:pb-12">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden flex-col items-center justify-end pb-10 pt-24 md:flex md:px-10 md:pb-12">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.15 }}
-              className="pointer-events-auto flex w-full max-w-2xl flex-row justify-center gap-4"
+              className="pointer-events-auto flex w-full max-w-2xl flex-row flex-wrap items-center justify-center gap-4"
             >
               <Link href="#programs" className={ctaPrimaryClass}>
                 Explore Programs
               </Link>
-              <Link href="/enroll" className={`${ctaSecondaryClass} border-white/45 bg-black/20 text-white backdrop-blur-sm hover:bg-black/35`}>
+              <Link href="/enroll" className={ctaSecondaryDesktopClass}>
                 Enroll Now
               </Link>
             </motion.div>
