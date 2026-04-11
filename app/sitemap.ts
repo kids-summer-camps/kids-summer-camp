@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://kids-summer-camp.vercel.app'
-  
+
   const programs = [
     'lil-launchers',
     'cosmic-curiosity',
@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/summer-plan`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
     },
   ]
 

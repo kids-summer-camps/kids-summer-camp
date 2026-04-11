@@ -83,7 +83,7 @@ function MissionControlContent() {
   return (
     <section
       id="mission-control"
-      className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 flex justify-center"
+      className="scroll-mt-20 sm:scroll-mt-24 w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 flex justify-center"
     >
       <div 
         className="max-w-[1285px] w-full rounded-[32px] sm:rounded-[48px] lg:rounded-[68px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20 flex flex-col gap-8 sm:gap-10 lg:gap-14 items-center"

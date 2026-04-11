@@ -34,10 +34,10 @@ export default function Home() {
 
         {/* Program Cubes - 3x3 grid with images and action buttons */}
         <ProgramCubesSection />
-      </MissionControlProvider>
 
-      {/* Grand Prix Section */}
-      <GrandPrixSection />
+        {/* Ascension — CTA & imagery follow Mission Control match (default: Mechanica™) */}
+        <GrandPrixSection />
+      </MissionControlProvider>
 
       {/* A Summer in Motion */}
       <SummerInMotionSection />
