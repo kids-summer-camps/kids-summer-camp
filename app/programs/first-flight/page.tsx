@@ -172,7 +172,7 @@ export default function FirstFlightPage() {
               {/* Philosophy Link */}
               <p className="font-mono font-bold text-black text-[16px] mb-12">
                 Learn about the Kid Explorer Camp Philosophy{" "}
-                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                <Link href="/experience#dreme-9" className="text-[#0FD3C6] hover:underline">
                   (click here)
                 </Link>
               </p>

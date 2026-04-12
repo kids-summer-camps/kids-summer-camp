@@ -8,10 +8,9 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
-  { label: "About", href: "/about" },
+  { label: "Programs", href: "/programs" },
+  { label: "Experience", href: "/experience" },
   { label: "Contact us", href: "/contact" },
-  { label: "Blog", href: "/blog" },
 ];
 
 const socialLinks = [

@@ -180,7 +180,7 @@ export default function RoboticsMakerPage() {
               {/* Philosophy Link */}
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
-                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                <Link href="/experience#dreme-9" className="text-[#0FD3C6] hover:underline">
                   (CLICK HERE)
                 </Link>
               </p>

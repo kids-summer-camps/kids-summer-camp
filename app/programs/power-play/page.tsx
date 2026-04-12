@@ -140,7 +140,7 @@ export default function PowerPlayPage() {
 
               <p className="font-mono font-bold text-black text-sm sm:text-base mb-2">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
-                <Link href="/philosophy" className="text-[#0FD3C6] hover:underline">
+                <Link href="/experience#dreme-9" className="text-[#0FD3C6] hover:underline">
                   (CLICK HERE)
                 </Link>
               </p>
