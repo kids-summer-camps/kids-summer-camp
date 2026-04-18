@@ -20,7 +20,7 @@ export function CTASection() {
               className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >
-              Launch Their Summer Now!!!
+              Launch Curiosity™
             </h2>
             <p className="font-mono font-medium text-white text-base sm:text-lg lg:text-[20px] leading-relaxed">
               Your child already has curiosity and talent. Give those sparks a place to grow.

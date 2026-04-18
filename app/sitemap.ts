@@ -4,10 +4,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://kids-summer-camp.vercel.app'
 
   const programs = [
-    'lil-launchers',
-    'cosmic-curiosity',
-    'the-vanguard',
+    'prelude-i',
+    'prelude-ii',
     'first-flight',
+    'cosmic-curiosity',
     'the-blueprint',
     'power-play',
     'esports-gaming',
@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/enrollment-policies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     },
   ]
 

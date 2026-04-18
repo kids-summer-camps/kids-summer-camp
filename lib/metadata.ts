@@ -53,11 +53,17 @@ export function generateMetadata({
 }
 
 export const programMetadata: Record<string, PageMetadata> = {
-  'lil-launchers': {
-    title: "Lil' Launchers - Ages 3-5",
-    description: "Playful STEM exploration for preschoolers. Hands-on discovery, sensory activities, and early learning adventures.",
-    path: '/programs/lil-launchers',
-    keywords: ['preschool STEM', 'ages 3-5', 'early learning', 'sensory activities'],
+  'prelude-i': {
+    title: 'Prelude I™ - Age 3',
+    description: 'At Prelude I™, our youngest explorers discover the world through guided play, creativity, and movement. Building confidence, communication, and early problem-solving skills.',
+    path: '/programs/prelude-i',
+    keywords: ['preschool STEM', 'age 3', 'early learning', 'guided play', 'Pre-K 3'],
+  },
+  'prelude-ii': {
+    title: 'Prelude II™ - Age 4',
+    description: 'At Prelude II™, children build confidence, communication, and early problem-solving skills through hands-on activities, guided play, and creative exploration.',
+    path: '/programs/prelude-ii',
+    keywords: ['preschool STEM', 'age 4', 'early learning', 'guided play', 'Pre-K 4'],
   },
   'first-flight': {
     title: 'First Flight - Ages 5-7',

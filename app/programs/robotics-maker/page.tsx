@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getProgramById } from "@/lib/programs-data";
+import { ReckoningBanner } from "@/components/programs/ReckoningBanner";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function RoboticsMakerPage() {
@@ -259,6 +260,8 @@ export default function RoboticsMakerPage() {
           </div>
         </div>
       </section>
+
+      <ReckoningBanner program={program} />
 
       {/* Accordion Sections */}
       <section id="schedule" className="bg-white py-20">

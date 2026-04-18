@@ -4,7 +4,7 @@ import { MissionControlProvider } from "@/components/home/MissionControlSection"
 import { MissionControlContent } from "@/components/home/MissionControlSection";
 import { ProgramCubesSection } from "@/components/home/ProgramCubesSection";
 import { RecommendedMissionSection } from "@/components/home/RecommendedMissionSection";
-import { GrandPrixSection } from "@/components/home/GrandPrixSection";
+import { ReckoningSection } from "@/components/home/ReckoningSection";
 import { SummerInMotionSection } from "@/components/home/SummerInMotionSection";
 import { CTASection } from "@/components/home/CTASection";
 import { StructuredData } from "@/components/StructuredData";
@@ -16,33 +16,25 @@ export default function Home() {
       <StructuredData />
       <HomeWelcomePopup />
       
-      {/* Hero - Clean video background */}
       <HeroSection
         videoSrc="/videos/homepage-header.mp4"
         posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
       />
 
-      {/* Welcome Section - Cyan card overlay with "Welcome to Kid Explorer Camp" */}
       <WelcomeSection />
 
-      {/* Mission Control - Age, schedule & interest selection with matching logic */}
       <MissionControlProvider>
         <MissionControlContent />
         
-        {/* Recommended Mission - Dynamic based on selections (MOVED ABOVE CUBES) */}
         <RecommendedMissionSection />
 
-        {/* Program Cubes - 3x3 grid with images and action buttons */}
         <ProgramCubesSection />
 
-        {/* Ascension — CTA & imagery follow Mission Control match (default: Mechanica™) */}
-        <GrandPrixSection />
+        <ReckoningSection />
       </MissionControlProvider>
 
-      {/* A Summer in Motion */}
       <SummerInMotionSection />
 
-      {/* Call to Action */}
       <CTASection />
     </>
   );

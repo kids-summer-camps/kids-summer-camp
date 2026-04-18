@@ -7,10 +7,8 @@ import { getProgramById } from "@/lib/programs-data";
 import { ReckoningBanner } from "@/components/programs/ReckoningBanner";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const dynamic = "force-static";
-
-export default function ESportsGamingPage() {
-  const program = getProgramById("esports-gaming");
+export default function PreludeIIPage() {
+  const program = getProgramById("prelude-ii");
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
 
   if (!program) {
@@ -34,31 +32,31 @@ export default function ESportsGamingPage() {
       {/* Hero Section */}
       <section className="relative w-full">
         <Image
-          src="/images/programs/esports-hero.png"
+          src="/images/programs/prelude-hero.png"
           alt={program.title}
           width={1440}
-          height={850}
+          height={600}
           className="w-full h-auto"
           priority
         />
       </section>
 
       {/* Program Snapshot Bar */}
-      <section className="bg-[#01325D] py-6 sm:py-8">
+      <section className="bg-[#1493E8] py-6 sm:py-8">
         <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-[24px] sm:gap-[40px]">
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Lab</p>
-            <p className="font-mono font-bold text-white text-[18px]">Esports Lab™</p>
+            <p className="font-mono font-bold text-white text-[18px]">Prelude II™</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Orbit Level</p>
-            <p className="font-mono font-bold text-white text-[18px]">Orbit IV</p>
+            <p className="font-mono font-bold text-white text-[18px]">Orbit I</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Ages</p>
-            <p className="font-mono font-bold text-white text-[18px]">8–14</p>
+            <p className="font-mono font-bold text-white text-[18px]">4</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
@@ -68,12 +66,12 @@ export default function ESportsGamingPage() {
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Aquatics</p>
-            <p className="font-mono font-bold text-white text-[18px]">Swimming</p>
+            <p className="font-mono font-bold text-white text-[18px]">Swim Development</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">CoreIQ</p>
-            <p className="font-mono font-medium text-white text-[16px] text-center">Strategy analysis</p>
+            <p className="font-mono font-medium text-white text-[16px] text-center">Build foundation</p>
           </div>
         </div>
       </section>
@@ -124,7 +122,7 @@ export default function ESportsGamingPage() {
                   Rising Grades:
                 </p>
                 <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
-                  4-8
+                  Pre-K 4
                 </p>
               </div>
 
@@ -150,11 +148,11 @@ export default function ESportsGamingPage() {
                 className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase leading-tight mb-8"
                 style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
               >
-                Esports Lab™
+                Prelude II™
               </h2>
 
               <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
-                Esports Lab™ is where young minds take control of the digital world—building, creating, and leading with confidence in a future powered by technology.
+                At Prelude II™, children build confidence, communication, and early problem-solving skills through hands-on activities, guided play, and creative exploration. Each day blends discovery labs, outdoor play, water experiences, and early academic foundations.
               </p>
 
               {/* Video */}
@@ -166,21 +164,21 @@ export default function ESportsGamingPage() {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/videos/Esport.mp4" type="video/mp4" />
+                  <source src="/videos/Prelude2.mp4" type="video/mp4" />
                 </video>
               </div>
 
               <p className="font-mono font-bold text-black text-[16px] mb-4">
                 <span>Learn about the Kid Explorer Camp Philosophy </span>
                 <Link href="/experience#dreme-9" className="text-[#0FD3C6] hover:underline">
-                  (CLICK HERE)
+                  (click here)
                 </Link>
               </p>
 
               {/* WHY WE'RE DIFFERENT */}
               <div className="mt-12 mb-12">
                 <p className="font-mono font-bold text-black text-[16px] mb-4">
-                  Limitless By Nature —Kid Explorer Camp 2026
+                  Limitless By Nature — Kid Explorer Camp 2026
                 </p>
 
                 <h3
@@ -192,16 +190,10 @@ export default function ESportsGamingPage() {
 
                 <div className="font-mono font-normal text-black text-[16px] sm:text-[18px] leading-relaxed space-y-6">
                   <p>
-                    At Kid Explorer Esports Lab™, students go beyond playing games—they learn how games are built, designed, and mastered.
+                    At Prelude II™, children build confidence, communication, and early problem-solving skills through hands-on activities, guided play, and creative exploration.
                   </p>
                   <p>
-                    Campers create their own game concepts, develop digital story worlds, and learn the strategies behind competitive esports.
-                  </p>
-                  <p>
-                    Through team-based challenges and tournaments, students build communication, leadership, and critical thinking skills in a structured and balanced environment.
-                  </p>
-                  <p>
-                    Each day combines digital labs, physical activity, and academic sessions to create a focused and engaging experience.
+                    Each day blends discovery labs, outdoor play, water experiences, and early academic foundations—creating a joyful environment where learning feels natural and exciting.
                   </p>
                 </div>
               </div>
@@ -255,7 +247,7 @@ export default function ESportsGamingPage() {
         </div>
       </section>
 
-      <ReckoningBanner program={program} />
+      {program && <ReckoningBanner program={program} />}
 
       {/* Bordered Dropdown Sections */}
       <section className="bg-white py-20">
@@ -286,34 +278,59 @@ export default function ESportsGamingPage() {
               isOpen={openSections.has("skills")}
               onToggle={() => toggleSection("skills")}
             >
-              <ul className="list-disc pl-6 font-mono text-[#01325D] text-[16px] leading-[26px]">
-                <li><span className="font-bold">Strategic Thinking</span> <span className="font-normal">— decision-making, game sense, situational awareness, and adaptive play</span></li>
-                <li><span className="font-bold">Team Coordination</span> <span className="font-normal">— communication, defined roles, collaboration, and shared objectives</span></li>
-                <li><span className="font-bold">Game Design Foundations</span> <span className="font-normal">— mechanics, level design, systems thinking, and user experience</span></li>
-                <li><span className="font-bold">Story Development &amp; Narrative Writing</span> <span className="font-normal">— character creation, world-building, plot structure, dialogue, and storytelling through games</span></li>
-                <li><span className="font-bold">Creative Writing Skills</span> <span className="font-normal">— scripting scenes, descriptive language, sequencing ideas, and translating imagination into written form</span></li>
-                <li><span className="font-bold">Digital Literacy</span> <span className="font-normal">— responsible tech use, platform navigation, and technical fluency</span></li>
-                <li><span className="font-bold">Reaction &amp; Focus</span> <span className="font-normal">— hand-eye coordination, timing, attention control, and sustained concentration</span></li>
-                <li><span className="font-bold">Problem-Solving</span> <span className="font-normal">— analyzing gameplay, debugging designs, and improving performance</span></li>
-                <li><span className="font-bold">Content Creation</span> <span className="font-normal">— designing games, building concepts, and expressing ideas digitally</span></li>
-                <li><span className="font-bold">Sportsmanship &amp; Discipline</span> <span className="font-normal">— composure, accountability, respect, and competitive integrity</span></li>
-              </ul>
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[26px]">
+                <ul className="list-disc space-y-1">
+                  <li className="ms-[24px]">
+                    Early Literacy Mastery —<span className="font-normal"> letter recognition, phonemic awareness, vocabulary building, storytelling, and early reading readiness</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Numeracy Foundations — <span className="font-normal">counting, number sense, pattern recognition, sorting, sequencing, and basic problem-solving</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Language &amp; Communication — <span className="font-normal">expressive speaking, listening comprehension, sentence formation, and confidence in communication</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Executive Function Skills — <span className="font-normal">focus, memory, self-regulation, following directions, and multi-step thinking</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Cognitive Development — <span className="font-normal">critical thinking, reasoning, curiosity, and pattern identification</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Fine Motor Precision — <span className="font-normal">writing readiness, pencil grip, tracing, cutting, and hand-eye coordination</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Social Intelligence — <span className="font-normal">collaboration, turn-taking, emotional awareness, and respectful interaction</span>
+                  </li>
+                  <li className="ms-[24px]">
+                    Independence &amp; Confidence — <span className="font-normal">task initiation, persistence, responsibility, and self-guided learning habits</span>
+                  </li>
+                </ul>
+              </div>
             </AccordionSection>
 
             <AccordionSection
-              title="The Discipline"
-              isOpen={openSections.has("discipline")}
-              onToggle={() => toggleSection("discipline")}
+              title="The Simulation"
+              isOpen={openSections.has("simulation")}
+              onToggle={() => toggleSection("simulation")}
             >
-              <div className="font-mono text-[#01325D] leading-[24px]">
-                <p className="font-bold text-[18px] mb-4">Focus, Control &amp; Creative Execution</p>
-                <p className="font-normal text-[16px] mb-6">
-                  Students learn to manage reactions, think strategically, and bring ideas to life with intention, balancing performance, creativity, and discipline.
-                </p>
-                <p className="font-bold text-[18px] mb-2">Outcome</p>
-                <p className="font-normal text-[16px]">
-                  Students develop high-level focus, strategic thinking, and creative expression while gaining real exposure to both competitive gaming and game creation. They leave with the ability to design, write, and present original game concepts, combining technical skill with storytelling and communication.
-                </p>
+              <div className="font-mono font-bold text-[#01325D] text-[16px] leading-[24px]">
+                <p className="text-[18px] mb-4">Patience &amp; Self-Regulation</p>
+                <ul className="list-disc mb-6">
+                  <li className="ms-[24px] font-medium">The Power of Patience</li>
+                  <li className="ms-[24px] font-medium">Learning to Wait</li>
+                  <li className="ms-[24px] font-medium">Self-Control in Action</li>
+                  <li className="ms-[24px] font-medium">Calm, Focus, Wait</li>
+                  <li className="ms-[24px] font-medium">Growing Patience</li>
+                  <li className="ms-[24px] font-medium">Ready, Set… Wait</li>
+                  <li className="ms-[24px] font-medium">Self Regulation</li>
+                  <li className="ms-[24px] font-medium">Pause &amp; Think</li>
+                </ul>
+
+                <p className="text-[18px] mb-2">Outcome</p>
+                <p className="font-medium text-[16px] leading-[24px]">Self-Regulation</p>
+                <p className="font-medium text-[16px] leading-[24px]">Impulse Control</p>
+                <p className="font-medium text-[16px] leading-[24px]">Turn-Taking Discipline</p>
+                <p className="font-medium text-[16px] leading-[24px]">Executive Control</p>
               </div>
             </AccordionSection>
 
@@ -322,13 +339,13 @@ export default function ESportsGamingPage() {
               isOpen={openSections.has("continuum")}
               onToggle={() => toggleSection("continuum")}
             >
-              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[842px]">
+              <div className="font-mono font-normal text-[#01325D] text-[16px] leading-[24px] max-w-[686px]">
                 <p className="mb-6">
-                  E-Sports &amp; Game Creation™ evolves into a year-round competitive and creative pathway within Launchpad™, where students continue to compete, design games, develop narratives, and refine both technical and storytelling skills. What begins as play becomes creation, strategy, and mastery over time.
+                  Camp is just the launch. The Continuum is Kid Explorer Club&apos;s year-round system of academic acceleration, skill development, and enrichment, delivered through after-school programs, CoreIQ™, and specialized labs—so progress never pauses and potential keeps expanding.
                 </p>
                 <p className="font-medium text-[#0FD3C6] underline">
                   <Link href="/enroll" className="text-[#0FD3C6] hover:brightness-110">
-                    Join Now  Learn More!
+                    Join Now — Learn More!
                   </Link>
                 </p>
               </div>
@@ -340,25 +357,47 @@ export default function ESportsGamingPage() {
               onToggle={() => toggleSection("faq")}
               isLast={true}
             >
-              <div className="font-mono text-[#01325D] leading-normal">
-                <p className="font-bold text-[16px] mb-1">What is the E-Sports &amp; Game Creation™ Summer Camp?</p>
-                <p className="font-normal text-[12px] mb-4">It&apos;s a structured program combining competitive gaming, game design, and storytelling, where students learn strategy, teamwork, and how games—and the stories behind them—are created.</p>
+              <div className="font-mono text-[#01325D] leading-[24px] space-y-4">
+                <p className="font-bold text-[16px] mb-4">Prelude II™ After-School (Pre-K 4) — Parent FAQs</p>
 
-                <p className="font-bold text-[16px] mb-1">Is this just playing video games all day?</p>
-                <p className="font-normal text-[12px] mb-4">No. Students engage in guided gameplay, strategy sessions, writing and story development, and hands-on game creation, ensuring a balanced and purposeful experience.</p>
+                <div>
+                  <p className="font-bold text-[16px]">What is Prelude II™ After-School?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    Prelude II™ After-School is a structured early learning extension of the school day for age 4, blending COREIQ™ foundations with guided play, social development, and routine-building. It supports children in developing confidence, independence, and school readiness in a nurturing, high-quality environment.
+                  </p>
+                </div>
 
-                <p className="font-bold text-[16px] mb-1">Will my child learn how to create and write their own games?</p>
-                <p className="font-normal text-[12px] mb-4">Yes. Students explore game design, character development, story writing, and basic development concepts, giving them the tools to create and express original ideas.</p>
+                <div>
+                  <p className="font-bold text-[16px]">What will my child be learning after school?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    Children participate in COREIQ™ early learning activities, including letters, sounds, numbers, communication, and structured play, along with movement, creative exploration, and social interaction—all designed for this age group.
+                  </p>
+                </div>
 
-                <p className="font-bold text-[16px] mb-1">What makes this program valuable beyond gaming?</p>
-                <p className="font-normal text-[12px]">Students develop focus, strategy, teamwork, and writing skills</p>
+                <div>
+                  <p className="font-bold text-[16px]">Is this too much for a 4-year-old after a school day?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    No. The program is intentionally designed with a balanced rhythm of learning, play, and rest, ensuring children stay engaged without feeling overwhelmed.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-bold text-[16px]">How do you support young children emotionally and socially?</p>
+                  <p className="font-normal text-[12px] sm:text-[14px]">
+                    We focus on patience, routine, and positive reinforcement, helping children develop self-regulation, turn-taking, and confidence in a supportive environment.
+                  </p>
+                </div>
+
+                <p className="font-bold text-[16px]">
+                  Parent Takeaway: A smooth day from school to after-school—safe, structured, and designed for your child to grow.
+                </p>
               </div>
             </AccordionSection>
           </div>
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -367,7 +406,7 @@ export default function ESportsGamingPage() {
           className="max-w-[1360px] mx-auto bg-[#0FD3C6] rounded-tl-[48px] rounded-tr-[48px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] lg:rounded-tl-[72px] lg:rounded-tr-[72px] px-6 py-10 sm:px-12 sm:py-16 lg:px-28 lg:py-20"
         >
           <div className="max-w-[1128px] mx-auto flex flex-col gap-4 sm:gap-5 lg:gap-6 items-center text-center">
-            <h2
+            <h2 
               className="font-serif font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-tight tracking-widest"
               style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
             >

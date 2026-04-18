@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getProgramById } from "@/lib/programs-data";
+import { ReckoningBanner } from "@/components/programs/ReckoningBanner";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CosmicCuriosityPage() {
+  const program = getProgramById("cosmic-curiosity");
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
 
   const toggleSection = (section: string) => {
@@ -238,6 +241,8 @@ export default function CosmicCuriosityPage() {
           </div>
         </div>
       </section>
+
+      {program && <ReckoningBanner program={program} />}
 
       {/* Accordion Sections */}
       <section className="bg-white py-20">

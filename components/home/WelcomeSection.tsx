@@ -61,27 +61,51 @@ export function WelcomeSection() {
             <span className="inline-block w-[0.08em] h-[1em] ml-0.5 align-[-0.15em] border-l-2 border-current animate-pulse" />
           </span>
         </h1>
-        <p className="font-mono font-normal text-black text-sm sm:text-base lg:text-[20px] leading-relaxed max-w-[981px]">
-          A place where children build machines, race ideas, explore science, move with purpose, and discover what they're capable of.
-          <br /><br />
-          This is Kid Explorer Camps — a summer built for action.
-        </p>
+
+        <div className="max-w-[981px] flex flex-col gap-4 sm:gap-5">
+          <h2 className="font-mono font-bold text-black text-[16px] sm:text-[18px] lg:text-[20px]">
+            A Year-Long Advantage Starts Here
+          </h2>
+          <p className="font-mono font-normal text-black text-sm sm:text-base lg:text-[17px] leading-relaxed">
+            Kid Explorer Camp includes access to a college readiness pathway through our partnership with Zenith Prep Academy — an advanced program designed to help students build academic discipline, strategy, leadership, and long-term readiness early. The earlier students begin, the stronger the outcomes. Summer is the entry point.
+          </p>
+
+          <div className="mt-2">
+            <h3 className="font-mono font-bold text-black text-[15px] sm:text-[16px] mb-2">
+              What this unlocks for selected students:
+            </h3>
+            <ul className="font-mono font-normal text-black text-sm sm:text-base leading-relaxed space-y-1">
+              <li>• Early college-readiness exposure</li>
+              <li>• Academic strategy and skill development</li>
+              <li>• Long-term planning and performance habits</li>
+              <li>• A stronger path into competitive high school and college preparation</li>
+            </ul>
+          </div>
+
+          <p className="font-mono font-bold text-black text-sm sm:text-base mt-2">
+            Limited scholarship-backed seats available.
+          </p>
+          <p className="font-mono font-normal text-black text-sm sm:text-base">
+            Enrollment in Kid Explorer Camp is the first step toward activation.
+          </p>
+        </div>
+
         <div className="flex w-full max-w-[520px] flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 mt-2 sm:mt-1">
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+            <Link
+              href="/enroll"
+              className="inline-flex h-12 w-full min-h-[48px] items-center justify-center rounded-[12px] bg-[#1493E8] px-8 font-mono text-base font-medium text-white shadow-sm transition hover:bg-[#1180d0] sm:min-w-[180px]"
+            >
+              Enroll Now
+            </Link>
+          </motion.div>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
             <a
               href="#mission-control"
               className="inline-flex h-12 w-full min-h-[48px] items-center justify-center rounded-[12px] border-2 border-[#1493E8] bg-transparent px-8 font-mono text-base font-medium text-[#1493E8] transition hover:bg-[#1493E8]/10 sm:min-w-[180px]"
             >
-              Learn more
+              Learn More
             </a>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-            <Link
-              href="/enroll"
-              className="inline-flex h-12 w-full min-h-[48px] items-center justify-center rounded-[12px] bg-[#0fd3c6] px-8 font-mono text-base font-medium text-white shadow-sm transition hover:bg-[#0cc0b4] sm:min-w-[180px]"
-            >
-              Enroll
-            </Link>
           </motion.div>
         </div>
       </motion.div>

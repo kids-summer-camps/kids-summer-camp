@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import { generateMetadata as generateMeta, programMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = generateMeta(programMetadata['lil-launchers'])
+export const metadata: Metadata = generateMeta(programMetadata['prelude-ii'])
 
-export default function LilLaunchersLayout({
+export default function PreludeIILayout({
   children,
 }: {
   children: React.ReactNode

@@ -40,9 +40,6 @@
 }
 
 /* Base styles */
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   background: var(--background);

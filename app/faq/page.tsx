@@ -1,98 +1,337 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeroSection } from "@/components/home/HeroSection";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
-const faqData = [
+interface FAQAnswer {
+  type: "text" | "list" | "nested-list" | "bold-section";
+  content?: string;
+  highlight?: boolean;
+  items?: string[];
+  nestedItems?: string[];
+  boldTitle?: string;
+  boldContent?: FAQAnswer[];
+}
+
+interface FAQItem {
+  question: string;
+  answers: FAQAnswer[];
+}
+
+const faqData: FAQItem[] = [
   {
     question: "WHAT IS YOUR REFUND & CANCELLATION POLICY FOR SUMMER 2026 PROGRAMMING?",
-    answer: "Please refer to our SUMMER CANCELLATION POLICY for full details at (https://kidexplorerclubs.com/policies/). Cancellations, transfers, and requests.",
-  },
-  {
-    question: "WHERE ARE YOUR CAMP LOCATIONS?",
-    answer: "For Summer 2026, our primary Chicago boutique campus is:\n• Address: 10330 S Elizabeth Ave\n• Chicago, IL 60628\n\nAdditional Chicago locations will be announced throughout Spring 2025.",
+    answers: [
+      {
+        type: "text",
+        content: "Please refer to our ",
+      },
+      {
+        type: "text",
+        content: "2026 Enrollment Policies",
+        highlight: true,
+      },
+      {
+        type: "text",
+        content: " for information on refunds and cancellations.",
+      },
+      {
+        type: "text",
+        content: "If you have any further questions regarding on-site camp, please contact our Customer Experience team at (800) 553-2070",
+      },
+      {
+        type: "text",
+        content: "or email us at Customercare@kidexplorercamp.com.",
+      },
+    ],
   },
   {
     question: "WHAT ARE THE CAMP HOURS?",
-    answer: "Drop-Off Window: 8:30 AM – 9:00 AM\nCamp Programming: 9:00 AM – 3:00 PM\n\nExtended Day Options:\n• Aftercare: 3:00 PM – 6:00 PM\n• Full Day: 8:30 AM – 6:00 PM\n• Please inquire at info@kidexplorerclubs.com",
+    answers: [
+      {
+        type: "text",
+        content: "9:00am–3:00pm, with optional Extended Day available before and after camp from 7:30am–9:00am and from 3:00pm–6:00pm.",
+      },
+    ],
   },
   {
     question: "ARE YOUR CAMPS OPEN ON HOLIDAYS?",
-    answer: "NO. Summer camps are closed on the following dates:\n• Juneteenth – Closed\n• July 4th Week – Closed (refer to individual camp session dates)\n\nCamp will operate on all other weekdays during the summer session.",
+    answers: [
+      { type: "text", content: "KEC Summer Camp observes the following closures:" },
+      { type: "list", items: ["Juneteenth — Closed", "July 4th — Closed"] },
+      { type: "text", content: "Camp will operate on all other weekdays during the summer session." },
+    ],
   },
   {
     question: "WHAT DOES MY CHILD NEED TO BRING TO CAMP?",
-    answer: "Every child should bring:\n• Lunch (nut-free)\n• Reusable water bottle (refillable)\n• Swimwear (include a slip-on shoe like swim shoe or water slipper)\n• Sunscreen\n• Comfortable, weather-appropriate clothing\n• Any required medication (submitted to our Safety Coordinator)\n• A curious mind and adventurous spirit!",
+    answers: [
+      { type: "text", content: "Please send your camper with:" },
+      {
+        type: "list",
+        items: [
+          "Lunch (nut-free)",
+          "Water bottle (refill stations available)",
+          "Sunscreen (labeled; we also have backup sunscreen on-site)",
+          "Swimwear + towel (see swimming section)",
+          "Extra change of clothes (especially younger campers)",
+          "Any required medication (submitted to our Safety Coordinator)",
+        ],
+      },
+      { type: "text", content: "Label all items with your child's full name." },
+    ],
   },
   {
     question: "WILL MY CHILD SWIM AT CAMP?",
-    answer: "At Percy L. Julian High School:\n• All campers participate in daily water play (for fun!) water motor, water confidence)\n• Instructional swim lessons 2x per week\n• Friday Fun Days will rotate (FIELD TRIPS, WATER IMMERSION)\n• It is offered to enhance water confidence under a 3:1 child-to-staff\n\nIn the pool, every child will receive swimming lessons for all programs.",
+    answers: [
+      {
+        type: "list",
+        items: [
+          "All campers participate in daily water play (sprinklers, splash pads, water activities).",
+          "Swimming availability depends on pool access.",
+        ],
+      },
+      { type: "text", content: "If the pool is available for Summer 2026:" },
+      {
+        type: "list",
+        items: [
+          "Younger campers will receive instructional swim",
+          "Older campers will participate in recreational swim",
+          "A trained aquatics team and lifeguards supervise swimmers with a 3:1 child-to-staff ratio",
+        ],
+      },
+      { type: "text", content: "If the pool is unavailable, water play will replace swimming for all programs." },
+    ],
   },
   {
     question: "IS KID EXPLORER CLUB A GOOD FIT FOR A CHILD WHO HAS ADDITIONAL SUPPORT NEEDS?",
-    answer: "Yes. Kid Explorer Club is proud to support campers with additional needs, and we welcome children who require extra support from time to time.\n\nDevelopment of an Inclusion Plan may include:\n• Buddy or peer mentorship\n• Participation of support specialist\n• Communication with parents\n\nIf your child requires 1:1 support at School of Kid, we require additional insurance.\nPlease reach out directly to our Inclusion team at hello@kidexplorerclubs.com.\n\nFor our School age programming (Ages 5-14), buddies must complete our counselor team and background check prior to attendance.",
+    answers: [
+      {
+        type: "text",
+        content: "Our program is a structured group-learning environment, and we welcome children with mild support needs who are able to:",
+      },
+      {
+        type: "list",
+        items: [
+          "Make safe choices",
+          "Follow directions (with age-appropriate reminders)",
+          "Participate in group activities",
+        ],
+      },
+      { type: "text", content: "KEC cannot provide continuous 1:1 support." },
+      {
+        type: "text",
+        content: "If your child receives 1:1 support at school or may require additional assistance, please notify us during registration so we can prepare accommodations where possible.",
+      },
+      {
+        type: "text",
+        content: "Families requesting to bring a personal aide/paraprofessional must complete the required forms and background check prior to attendance.",
+      },
+    ],
   },
   {
     question: "DOES MY CHILD NEED TO BE POTTY TRAINED?",
-    answer: "Yes. Campers must be:\n• Bathroom independent\n• No pull-ups\n• At least 5 years old by their first day of camp\n\nIf your child is not yet potty trained, please contact our Program Support for suggestions.",
+    answers: [
+      { type: "text", content: "Yes. Campers must:" },
+      {
+        type: "list",
+        items: [
+          "Be fully potty trained,",
+          "Independently handle toileting needs,",
+          "Be at least 3 years old by their first day of camp.",
+        ],
+      },
+      { type: "text", content: "Accidents may occur—please pack an extra outfit for younger campers." },
+    ],
   },
   {
-    question: "CAN WE REQUEST THAT MY CAMPERS BE PLACED WITH ANOTHER CAMPER (BUDDY REQUEST)?",
-    answer: "Buddy requests are encouraged as long as both campers:\n• Register together 2-3 WKS in advance (with approval)\n• Both are 7 years or older\n• Both campers must be within ONE grade level of each other like 1-1 buddy request\n• We do everything possible to honor requests.",
+    question: "CAN WE REQUEST THAT MY CAMPER BE PLACED WITH ANOTHER CAMPER (BUDDY REQUESTS)?",
+    answers: [
+      { type: "text", content: "Yes! Buddy requests can be submitted during registration until June 1." },
+      { type: "text", content: "Guarantees:" },
+      {
+        type: "list",
+        items: [
+          "Prelude™ (ages 3–5) – Up to 2 buddy requests",
+          "Launchpad™, ZERO™, Esports™, IdeaForge™, Mechanica™, Robox™ or Apex Athletics™ — 1 buddy request",
+        ],
+      },
+      { type: "text", content: "We do everything possible to honor requests." },
+    ],
   },
   {
     question: "WHAT IS THE COUNSELOR-TO-CAMPER RATIO?",
-    answer: "Ages 3-4: 1:4\nAges 5-7: 1:6\nAges 8-10: 1:8\n\nKids and Crew Day have enhanced staffing. (Lifeguards, and safety supervision).",
+    answers: [
+      {
+        type: "list",
+        items: [
+          "Ages 3–5: 6:1",
+          "Rising K–1st graders: 8:1",
+          "Older programs: 10:1",
+        ],
+      },
+      { type: "text", content: "Pools and water play have enhanced staffing, lifeguards, and safety supervision." },
+    ],
   },
   {
-    question: "HOW DO YOU HANDLE SEVERE WEATHER?",
-    answer: "If extreme weather or safety conditions occur:\n• Campers transition to indoor classrooms and gym space\n• Parents notified via email and text message for safety, rain, and outages\n• Pickup protocols may be adjusted",
+    question: "HOW DO YOU HANDLE INCLEMENT WEATHER?",
+    answers: [
+      {
+        type: "list",
+        items: ["If storms, lightning, or unsafe conditions appear:"],
+        nestedItems: [
+          "All outdoor activities move indoors immediately",
+          "Campers transition to indoor classrooms and gym spaces",
+          "Activities adjust to keep campers active, safe, and engaged",
+        ],
+      },
+    ],
   },
   {
     question: "WHAT PRECAUTIONS DO YOU TAKE TO HANDLE THE SUMMER HEAT?",
-    answer: "• Water activities every hour for hydration\n• Shaded rest + indoor AC breaks daily\n• Sunscreen applied daily (parents provide and label)\n• Water intake tracked during extreme temperature days\n• Kid Explorer Club advises drop-off reminders",
+    answers: [
+      {
+        type: "list",
+        items: [
+          "Mandatory water breaks every 15–20 minutes",
+          "Shade + indoor rotation during peak heat",
+          "Sunscreen reapplication several times daily (tracked in Sunscreen Logs)",
+          "Lower-impact activities during extreme heat",
+        ],
+      },
+    ],
   },
   {
     question: "CAN KID EXPLORER CLUB ACCOMMODATE CHILDREN WITH PEANUT OR LIFE-THREATENING ALLERGIES?",
-    answer: "Yes. Our camps are peanut and tree-nut free.\n• No tree nuts products on site.\n• EpiPens carried by Counselors + storage available\n• All staff trained in EpiPen use and signs of anaphylaxis\n• Medication checked in on Mondays and returned Fridays\n• Medical emergencies to onsite coordinator\n• Anaphylaxis plan for all protocols",
+    answers: [
+      {
+        type: "list",
+        items: [
+          "Yes. KEC camps are peanut and tree-nut free.",
+          "Our allergy procedure includes:",
+        ],
+        nestedItems: [
+          "Morning identification + allergy wristband",
+          "EpiPens stored in a secured Safety Office",
+          "Medication checked in on Mondays and returned Fridays",
+          "Mandatory handwashing after meals",
+          "No food sharing",
+          "Lunches checked for nut products",
+        ],
+      },
+    ],
   },
   {
     question: "WHAT IS THE ILLNESS & LICE POLICY?",
-    answer: "ILLNESS\n• Please notify us if your child is ill. Campers may return when:\n– Fever-free (without meds) for 24 hours\n– 48 Hours Must Pass – Vomit + 72 hours communicable illness\n• Head lice: Must be treated\n• 24 hours without symptoms\n\nLICE\n– Routine lice checks for treatment\n– Campers must nit + lice-free with no active infestation",
+    answers: [
+      {
+        type: "bold-section",
+        boldTitle: "Illness",
+        boldContent: [
+          { type: "text", content: "Please notify us if your child is ill. Campers may return when:" },
+          {
+            type: "list",
+            items: [
+              "Symptoms have resolved",
+              "They have been fever-free for 24 hours",
+              "They have completed necessary treatment for communicable illness",
+            ],
+          },
+        ],
+      },
+      {
+        type: "bold-section",
+        boldTitle: "Lice",
+        boldContent: [
+          {
+            type: "list",
+            items: ["If lice are suspected:"],
+            nestedItems: [
+              "Camper will be sent home for treatment",
+              "Children must return lice-free with no active infestation",
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
-function FAQItem({
+function renderAnswer(answer: FAQAnswer, idx: number) {
+  switch (answer.type) {
+    case "text":
+      if (answer.highlight) {
+        return (
+          <Link key={idx} href="/enrollment-policies" className="text-[#0FD3C6] hover:underline">
+            {answer.content}
+          </Link>
+        );
+      }
+      return (
+        <p key={idx} className="font-sans text-black text-base sm:text-lg leading-8">
+          {answer.content}
+        </p>
+      );
+    case "list":
+      return (
+        <div key={idx}>
+          <ul className="list-disc pl-7 space-y-0.5">
+            {answer.items?.map((item, i) => (
+              <li key={i} className="font-sans text-black text-base sm:text-lg leading-8">
+                {item}
+              </li>
+            ))}
+          </ul>
+          {answer.nestedItems && (
+            <ul className="list-disc pl-14 space-y-0.5">
+              {answer.nestedItems.map((item, i) => (
+                <li key={i} className="font-sans text-black text-base sm:text-lg leading-8">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    case "bold-section":
+      return (
+        <div key={idx} className="space-y-1">
+          <p className="font-sans font-bold text-black text-lg sm:text-xl leading-6">
+            {answer.boldTitle}
+          </p>
+          {answer.boldContent?.map((sub, i) => renderAnswer(sub, i))}
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
+function FAQItemComponent({
   faq,
-  index,
   isOpen,
   onToggle,
 }: {
-  faq: typeof faqData[0];
-  index: number;
+  faq: FAQItem;
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const isFirstQuestion = faq.question === "WHAT IS YOUR REFUND & CANCELLATION POLICY FOR SUMMER 2026 PROGRAMMING?";
+
   return (
-    <div className="border-b border-[#d9d9d9] last:border-b-0">
+    <div className="space-y-2.5">
       <motion.button
         onClick={onToggle}
-        className="w-full py-6 flex items-start justify-between text-left hover:bg-gray-50 transition-colors"
-        whileHover={{ x: 4 }}
+        className="w-full flex items-start text-left gap-3 group cursor-pointer"
+        whileHover={{ x: 2 }}
         transition={{ duration: 0.2 }}
       >
-        <span className="font-serif font-bold text-[#01325D] text-base sm:text-lg lg:text-[20px] pr-4">
+        <span className="text-[#1493E8] text-2xl leading-none mt-2.5 shrink-0">•</span>
+        <span className="font-sans font-bold text-[#1493E8] text-lg sm:text-xl lg:text-2xl leading-[48px]">
           {faq.question}
         </span>
-        <motion.span
-          className="text-[#0FD3C6] text-2xl shrink-0"
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {isOpen ? "−" : "+"}
-        </motion.span>
       </motion.button>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -103,10 +342,30 @@ function FAQItem({
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <div className="pb-6 pr-8">
-              <p className="font-mono font-normal text-black text-sm sm:text-base lg:text-[18px] leading-relaxed whitespace-pre-line">
-                {faq.answer}
-              </p>
+            <div className="pl-6 space-y-1 max-w-[1000px]">
+              {isFirstQuestion ? (
+                <div className="space-y-1">
+                  <p className="font-sans text-black text-base sm:text-lg leading-8">
+                    Please refer to our{" "}
+                    <Link href="/enrollment-policies" className="text-[#0FD3C6] hover:underline">
+                      2026 Enrollment Policies
+                    </Link>{" "}
+                    for information on refunds and cancellations.
+                  </p>
+                  <p className="font-sans text-black text-base sm:text-lg leading-8">
+                    If you have any further questions regarding on-site camp, please contact our Customer Experience team at{" "}
+                    <span className="text-[#0FD3C6]">(800) 553-2070</span>
+                  </p>
+                  <p className="font-sans text-black text-base sm:text-lg leading-8">
+                    or email us at{" "}
+                    <a href="mailto:Customercare@kidexplorercamp.com" className="text-[#0FD3C6] hover:underline">
+                      Customercare@kidexplorercamp.com.
+                    </a>
+                  </p>
+                </div>
+              ) : (
+                faq.answers.map((answer, idx) => renderAnswer(answer, idx))
+              )}
             </div>
           </motion.div>
         )}
@@ -124,29 +383,38 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Video Hero Section */}
-      <HeroSection
-        videoSrc="/videos/ZERO1.mp4"
-        posterSrc="/images/posters/white-kid-space-poster.jpg"
-      />
+      {/* Hero Banner */}
+      <section className="w-full flex justify-center pt-4 sm:pt-6">
+        <div className="relative w-full max-w-[1400px] mx-auto h-[280px] sm:h-[353px] rounded-tl-[40px] rounded-tr-[40px] sm:rounded-tl-[60px] sm:rounded-tr-[60px] overflow-hidden">
+          <Image
+            src="/images/faq-hero.png"
+            alt="Parent and child smiling"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0FD3C6]/80" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-12 sm:pb-16 px-8 sm:px-16 lg:px-24">
+            <FadeIn direction="up" delay={0}>
+              <p className="font-sans font-bold text-white text-lg sm:text-2xl leading-[50px] uppercase">
+                About
+              </p>
+              <h1 className="font-sans font-bold text-white text-4xl sm:text-[48px] leading-[50px]">
+                FAQs
+              </h1>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 sm:py-16 lg:py-20">
-        <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%]">
-          {/* Title */}
-          <FadeIn direction="up" delay={0}>
-            <h1 className="font-serif font-bold text-[#01325D] text-3xl sm:text-4xl lg:text-[40px] uppercase leading-tight mb-12">
-              FAQ
-            </h1>
-          </FadeIn>
-
-          {/* FAQ Items */}
-          <StaggerContainer staggerDelay={0.05} className="space-y-0">
+        <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%] max-w-[1200px]">
+          <StaggerContainer staggerDelay={0.05} className="space-y-10 sm:space-y-12">
             {faqData.map((faq, index) => (
               <StaggerItem key={index}>
-                <FAQItem
+                <FAQItemComponent
                   faq={faq}
-                  index={index}
                   isOpen={openIndex === index}
                   onToggle={() => toggleFAQ(index)}
                 />

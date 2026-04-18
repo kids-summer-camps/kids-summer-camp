@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getProgramById } from "@/lib/programs-data";
+import { ReckoningBanner } from "@/components/programs/ReckoningBanner";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function LilLaunchersPage() {
-  const program = getProgramById("lil-launchers");
+export default function PreludeIPage() {
+  const program = getProgramById("prelude-i");
   const [openSections, setOpenSections] = useState<Set<string>>(new Set(["schedule"]));
 
   if (!program) {
@@ -31,7 +32,7 @@ export default function LilLaunchersPage() {
       {/* Hero Section */}
       <section className="relative w-full">
         <Image
-          src="/images/programs/prelude-hero.png"
+          src="/images/programs/prelude-i-hero.png"
           alt={program.title}
           width={1440}
           height={600}
@@ -45,7 +46,7 @@ export default function LilLaunchersPage() {
         <div className="max-w-[1344px] mx-auto px-6 flex flex-wrap justify-center gap-[24px] sm:gap-[40px]">
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Lab</p>
-            <p className="font-mono font-bold text-white text-[18px]">Prelude™</p>
+            <p className="font-mono font-bold text-white text-[18px]">Prelude I™</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
@@ -55,7 +56,7 @@ export default function LilLaunchersPage() {
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
             <p className="font-mono font-medium text-white text-[14px]">Ages</p>
-            <p className="font-mono font-bold text-white text-[18px]">3–4</p>
+            <p className="font-mono font-bold text-white text-[18px]">3</p>
           </div>
           <div className="hidden sm:block w-px h-[60px] bg-white/30 self-center" />
           <div className="flex flex-col items-center gap-[6px] p-[10px]">
@@ -121,7 +122,7 @@ export default function LilLaunchersPage() {
                   Rising Grades:
                 </p>
                 <p className="font-mono font-normal text-black text-[16px] leading-[24px]">
-                  Pre-K 3 &amp; Pre-K 4
+                  Pre-K 3
                 </p>
               </div>
 
@@ -147,11 +148,11 @@ export default function LilLaunchersPage() {
                 className="font-serif font-bold text-[#01325D] text-[32px] sm:text-[40px] uppercase leading-tight mb-8"
                 style={{ fontVariationSettings: "'GRAD' 0, 'wdth' 100" }}
               >
-                Prelude™
+                Prelude I™
               </h2>
 
               <p className="font-mono font-normal text-black text-[16px] leading-relaxed mb-8">
-                The journey doesn&apos;t end at summer. Kid Explorer Club continues with after-school, academic CoreIQ™, enrichment labs, and advanced pathways throughout the school year—ensuring students build momentum, deepen skills, and stay ahead. From daily academic support to STEM, sports, and entrepreneurship labs, your child continues developing with purpose, structure, and consistency.
+                At Prelude I™, our youngest explorers discover the world through guided play, creativity, and movement. Children build confidence, communication, and early problem-solving skills through hands-on activities, storytelling, and exploration.
               </p>
 
               {/* Video */}
@@ -189,7 +190,7 @@ export default function LilLaunchersPage() {
 
                 <div className="font-mono font-normal text-black text-[16px] sm:text-[18px] leading-relaxed space-y-6">
                   <p>
-                    At Prelude™, our youngest explorers discover the world through guided play, creativity, and movement.
+                    At Prelude I™, our youngest explorers discover the world through guided play, creativity, and movement.
                   </p>
                   <p>
                     Children build confidence, communication, and early problem-solving skills through hands-on activities, storytelling, and exploration.
@@ -248,6 +249,8 @@ export default function LilLaunchersPage() {
           </div>
         </div>
       </section>
+
+      {program && <ReckoningBanner program={program} />}
 
       {/* Bordered Dropdown Sections */}
       <section className="bg-white py-20">
@@ -358,12 +361,12 @@ export default function LilLaunchersPage() {
               isLast={true}
             >
               <div className="font-mono text-[#01325D] leading-[24px] space-y-4">
-                <p className="font-bold text-[16px] mb-4">Prelude™ After-School (Pre-K 3–4) — Parent FAQs</p>
+                <p className="font-bold text-[16px] mb-4">Prelude I™ After-School (Pre-K 3) — Parent FAQs</p>
 
                 <div>
-                  <p className="font-bold text-[16px]">What is Prelude™ After-School?</p>
+                  <p className="font-bold text-[16px]">What is Prelude I™ After-School?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
-                    Prelude™ After-School is a structured early learning extension of the school day for ages 3–4, blending COREIQ™ foundations with guided play, social development, and routine-building. It supports children in developing confidence, independence, and school readiness in a nurturing, high-quality environment.
+                    Prelude I™ After-School is a structured early learning extension of the school day for age 3, blending COREIQ™ foundations with guided play, social development, and routine-building. It supports children in developing confidence, independence, and school readiness in a nurturing, high-quality environment.
                   </p>
                 </div>
 
@@ -375,7 +378,7 @@ export default function LilLaunchersPage() {
                 </div>
 
                 <div>
-                  <p className="font-bold text-[16px]">Is this too much for a 3–4-year-old after a school day?</p>
+                  <p className="font-bold text-[16px]">Is this too much for a 3-year-old after a school day?</p>
                   <p className="font-normal text-[12px] sm:text-[14px]">
                     No. The program is intentionally designed with a balanced rhythm of learning, play, and rest, ensuring children stay engaged without feeling overwhelmed.
                   </p>
@@ -397,7 +400,7 @@ export default function LilLaunchersPage() {
         </div>
       </section>
 
-      {/* Call to Action - Matching Home Page CTA */}
+      {/* Call to Action */}
       <section className="w-full lg:pt-16 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

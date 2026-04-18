@@ -8,7 +8,9 @@ import {
   CAREER_QUIZ_QUESTIONS,
   QUIZ_AGE_OPTIONS,
   computeCareerPathInsight,
+  quizLetterTag,
   recommendProgramFromQuiz,
+  type ArchetypeLetter,
   type CareerPathInsight,
 } from "@/lib/career-quiz";
 import { submitSummerPlanLead, type SummerPlanLead } from "@/lib/summer-plan-lead";
@@ -99,8 +101,8 @@ export function SummerPlanFlow() {
     setQuizStep(1);
   };
 
-  const selectPersonalityOption = (interests: string[]) => {
-    const nextPicks = [...personalityPicks, interests];
+  const selectPersonalityOption = (interests: string[], letter: ArchetypeLetter) => {
+    const nextPicks = [...personalityPicks, [...interests, quizLetterTag(letter)]];
     setPersonalityPicks(nextPicks);
     if (nextPicks.length === CAREER_QUIZ_QUESTIONS.length) {
       finishQuiz([...ageInterests, ...nextPicks.flat()]);
@@ -111,9 +113,21 @@ export function SummerPlanFlow() {
 
   const quizHeadline = useMemo(() => {
     if (phase !== "quiz") return "";
-    if (quizStep === 0) return "A few questions about your child";
-    return "Discover their path";
+    if (quizStep === 0) return "Natural identity quiz";
+    return "Kid Explorer Club™";
   }, [phase, quizStep]);
+
+  const currentSectionLabel = useMemo(() => {
+    if (phase !== "quiz" || quizStep === 0) return null;
+    return CAREER_QUIZ_QUESTIONS[quizStep - 1]?.section ?? null;
+  }, [phase, quizStep]);
+
+  const prevSectionLabel = useMemo(() => {
+    if (phase !== "quiz" || quizStep <= 1) return null;
+    return CAREER_QUIZ_QUESTIONS[quizStep - 2]?.section ?? null;
+  }, [phase, quizStep]);
+
+  const showSectionHeading = currentSectionLabel != null && currentSectionLabel !== prevSectionLabel;
 
   return (
     <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden sm:min-h-[calc(100vh-5rem)]">
@@ -290,6 +304,24 @@ export function SummerPlanFlow() {
                 </div>
               </div>
 
+              {quizStep === 0 && (
+                <div className="mb-8 rounded-2xl border border-[#1493E8]/10 bg-[#f7fbff] px-4 py-4 sm:px-5 sm:py-5">
+                  <p className="font-serif text-lg font-medium text-[#01325D] sm:text-xl">
+                    🧠 Kid Explorer Club™ — Natural Identity Quiz
+                  </p>
+                  <p className="mt-2 font-mono text-sm italic text-[#01325D]/80">
+                    “Who is your child becoming—before the world tells them who to be?”
+                  </p>
+                  <p className="mt-3 font-mono text-xs font-medium uppercase tracking-wider text-[#01325D]/55">
+                    Instructions for parents
+                  </p>
+                  <p className="mt-1 font-mono text-sm leading-relaxed text-[#01325D]/75">
+                    Choose the answer that <span className="font-semibold text-[#01325D]">most consistently</span>{" "}
+                    reflects your child’s natural behavior.
+                  </p>
+                </div>
+              )}
+
               {/* No nested AnimatePresence here — exit+enter stacking was duplicating option text in Chrome */}
               <div
                 key={quizStep === 0 ? "quiz-step-age" : `quiz-step-${currentQuestion?.id ?? "q"}`}
@@ -320,8 +352,13 @@ export function SummerPlanFlow() {
                 ) : (
                   currentQuestion && (
                     <>
-                      <h2 className="font-serif text-[24px] font-medium text-[#01325D] sm:text-[28px]">
-                        {currentQuestion.question}
+                      {showSectionHeading && currentSectionLabel && (
+                        <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#1493E8]">
+                          {currentSectionLabel}
+                        </p>
+                      )}
+                      <h2 className="mt-2 font-serif text-[24px] font-medium text-[#01325D] sm:text-[28px]">
+                        <span className="text-[#0fd3c6]">{quizStep}.</span> {currentQuestion.question}
                       </h2>
                       {currentQuestion.subtitle && (
                         <p className="mt-2 font-mono text-sm text-[#01325D]/70">{currentQuestion.subtitle}</p>
@@ -331,9 +368,12 @@ export function SummerPlanFlow() {
                           <li key={`${currentQuestion.id}-${idx}`}>
                             <button
                               type="button"
-                              onClick={() => selectPersonalityOption(opt.interests)}
+                              onClick={() => selectPersonalityOption(opt.interests, opt.letter)}
                               className="w-full rounded-xl border border-[#01325D]/10 bg-[#f7fbff] px-4 py-4 text-left font-mono text-[15px] leading-snug text-[#01325D] transition hover:border-[#1493E8]/35 hover:bg-white hover:shadow-md"
                             >
+                              <span className="font-semibold text-[#1493E8]">
+                                {String.fromCharCode(65 + idx)}.
+                              </span>{" "}
                               {opt.label}
                             </button>
                           </li>
@@ -374,7 +414,7 @@ export function SummerPlanFlow() {
             >
               <div className="border-b border-[#1493E8]/10 bg-[#f7fbff] px-6 py-8 sm:px-10 sm:py-10">
                 <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[#0fd3c6]">
-                  Career path snapshot
+                  Results: career alignment archetypes
                 </p>
                 <h2
                   className="mt-2 font-serif text-2xl font-medium leading-tight text-[#01325D] sm:text-[28px]"
@@ -386,7 +426,29 @@ export function SummerPlanFlow() {
                   {pathInsight.pathSummary}
                 </p>
                 <p className="mt-5 font-mono text-xs font-medium uppercase tracking-wider text-[#01325D]/50">
-                  Top strengths from their answers
+                  Natural traits
+                </p>
+                <ul className="mt-2 list-inside list-disc font-mono text-sm leading-relaxed text-[#01325D]/85">
+                  {pathInsight.naturalTraits.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+                <p className="mt-5 font-mono text-xs font-medium uppercase tracking-wider text-[#01325D]/50">
+                  Early signals
+                </p>
+                <ul className="mt-2 list-inside list-disc font-mono text-sm leading-relaxed text-[#01325D]/85">
+                  {pathInsight.earlySignals.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+                <p className="mt-5 font-mono text-xs font-medium uppercase tracking-wider text-[#01325D]/50">
+                  Future pathways
+                </p>
+                <p className="mt-2 font-mono text-sm leading-relaxed text-[#01325D]/85">
+                  👉 {pathInsight.futurePathways.join(" · ")}
+                </p>
+                <p className="mt-5 font-mono text-xs font-medium uppercase tracking-wider text-[#01325D]/50">
+                  Camp match — top strengths from their answers
                 </p>
                 <ul className="mt-2 flex flex-wrap gap-2">
                   {pathInsight.strengthLabels.map((label) => (
@@ -398,6 +460,16 @@ export function SummerPlanFlow() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-8 rounded-2xl border border-[#1493E8]/15 bg-white/80 px-4 py-5 sm:px-6">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-wider text-[#01325D]/55">
+                    A message for parents
+                  </p>
+                  <div className="mt-3 space-y-2 font-mono text-sm leading-relaxed text-[#01325D]/85">
+                    {pathInsight.finalMessageLines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="relative aspect-video w-full sm:aspect-2/1">

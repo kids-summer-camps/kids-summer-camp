@@ -8,19 +8,23 @@ export interface Program {
   id: string;
   title: string;
   ages: string;
-  ageRanges: string[]; // For matching logic (e.g., ["Age 6-8", "Age 8-11"])
-  gradeRange?: string; // e.g., "Rising Grades 4-7"
+  ageRanges: string[];
+  gradeRange?: string;
   subtitle: string;
   description: string;
   focus: string[];
   tagline: string;
   href: string;
   color: string;
-  image: string; // Hero image for detail pages
-  cardImage: string; // Card image for grid/carousel views
-  interests: string[]; // For matching with selected interests
-  schedule: string[]; // Available schedules (e.g., ["Full Day", "Half Day"])
-  category: string; // Program category
+  image: string;
+  cardImage: string;
+  interests: string[];
+  schedule: string[];
+  category: string;
+  reckoningName: string;
+  reckoningTagline: string;
+  reckoningDescription: string;
+  reckoningOverlay: string; // CSS color for the Reckoning banner overlay
 }
 
 export const ageGroups = [
@@ -59,22 +63,48 @@ export const schedules = [
 
 export const programs: Program[] = [
   {
-    id: "lil-launchers",
-    title: "Prelude™",
-    ages: "3 – 4 years",
+    id: "prelude-i",
+    title: "Prelude I™",
+    ages: "3 years",
     ageRanges: ["Pre-K"],
-    gradeRange: "Rising Pre-K 3 & Pre-K 4",
+    gradeRange: "Rising Pre-K 3",
     subtitle: "Welcome to Kid Explorer Camp — where the future isn't just imagined, it's built.",
-    description: "At Prelude™, our youngest explorers discover the world through guided play, creativity, and movement. Children build confidence, communication, and early problem-solving skills through hands-on activities, storytelling, and exploration.",
+    description: "At Prelude I™, our youngest explorers discover the world through guided play, creativity, and movement. Children build confidence, communication, and early problem-solving skills through hands-on activities, storytelling, and exploration.",
     focus: ["Guided play", "Discovery labs", "Swim development", "Early academics", "Creative exploration"],
     tagline: "This is where future visionaries take their first step.",
-    href: "/programs/lil-launchers",
+    href: "/programs/prelude-i",
+    color: "#1493E8",
+    image: "/images/programs/prelude-i-hero.png",
+    cardImage: "/images/programs/prelude-i-hero.png",
+    interests: ["Exploration", "STEM"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (8 AM - 5 PM)"],
+    category: "Early Childhood",
+    reckoningName: "The Reveal™",
+    reckoningTagline: "Watch it unfold.",
+    reckoningDescription: "Our youngest explorers take their very first step into expression. Through guided moments of speaking, sorting, movement, and creation, students reveal emerging language, coordination, and confidence. This is where parents witness the beginning — when curiosity turns into communication, and independence quietly takes shape.",
+    reckoningOverlay: "rgba(20,147,232,0.8)",
+  },
+  {
+    id: "prelude-ii",
+    title: "Prelude II™",
+    ages: "4 years",
+    ageRanges: ["Pre-K"],
+    gradeRange: "Rising Pre-K 4",
+    subtitle: "Welcome to Kid Explorer Camp — where the future isn't just imagined, it's built.",
+    description: "At Prelude II™, children build confidence, communication, and early problem-solving skills through hands-on activities, guided play, and creative exploration. Each day blends discovery labs, outdoor play, water experiences, and early academic foundations.",
+    focus: ["Guided play", "Discovery labs", "Swim development", "Early academics", "Creative exploration"],
+    tagline: "This is where future visionaries take their first step.",
+    href: "/programs/prelude-ii",
     color: "#1493E8",
     image: "/images/programs/prelude-hero.png",
     cardImage: "/images/programs/prelude-card.png",
     interests: ["Exploration", "STEM"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Early Childhood",
+    reckoningName: "Ascension™",
+    reckoningTagline: "Rise above. Show what you've become.",
+    reckoningDescription: "Students demonstrate measurable growth through early reading, writing, counting, and structured thinking. With before-and-after moments, families see real progress in focus, confidence, and skill. The Reckoning Day™ at this level marks a clear transition from exploration to readiness.",
+    reckoningOverlay: "rgba(20,147,232,0.8)",
   },
   {
     id: "first-flight",
@@ -91,8 +121,12 @@ export const programs: Program[] = [
     image: "/images/programs/launchpad-hero.png",
     cardImage: "/images/programs/launchpad-card.png",
     interests: ["Exploration", "STEM", "Sports"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Early Elementary",
+    reckoningName: "Launch Day™",
+    reckoningTagline: "From idea to ignition.",
+    reckoningDescription: "Students activate foundational academic skills in real time — reading with clarity, solving problems, and explaining ideas with confidence. This is where learning moves beyond practice and becomes usable. Students don't just know — they demonstrate that they can apply.",
+    reckoningOverlay: "rgba(15,211,198,0.8)",
   },
   {
     id: "cosmic-curiosity",
@@ -109,8 +143,12 @@ export const programs: Program[] = [
     image: "/images/programs/zero-hero.png",
     cardImage: "/images/programs/zero-card.png",
     interests: ["Science", "Exploration", "STEM"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Elementary",
+    reckoningName: "Zero → One™ Showcase",
+    reckoningTagline: "From nothing… to everything.",
+    reckoningDescription: "Students present creations that began as pure ideas — stories, designs, inventions, or concepts brought to life through focus and intention. This is the core of Kid Explorer Club: the ability to create something meaningful from nothing, and to understand that possibility starts within.",
+    reckoningOverlay: "rgba(1,50,93,0.8)",
   },
   {
     id: "the-blueprint",
@@ -127,8 +165,12 @@ export const programs: Program[] = [
     image: "/images/programs/ideaforge-hero.png",
     cardImage: "/images/programs/ideaforge-card.png",
     interests: ["Building & Engineering", "STEM", "Entrepreneurship"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Innovation & Entrepreneurship",
+    reckoningName: "Axiom Reveal™",
+    reckoningTagline: "Where ideas become truth.",
+    reckoningDescription: "Students present original products, concepts, and solutions developed through research, design, and collaboration. Through structured pitches, they communicate ideas with clarity and purpose. The Reckoning Day™ reveals young innovators thinking critically, building intentionally, and presenting with confidence.",
+    reckoningOverlay: "rgba(1,50,93,0.8)",
   },
   {
     id: "power-play",
@@ -145,8 +187,12 @@ export const programs: Program[] = [
     image: "/images/programs/apex-hero.png",
     cardImage: "/images/programs/apex-card.png",
     interests: ["Sports", "Leadership"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Sports",
+    reckoningName: "Show & Prove™",
+    reckoningTagline: "No talk. Just results.",
+    reckoningDescription: "Students demonstrate athletic skill through precision, agility, and performance challenges. Whether through archery, speed drills, or coordinated movement, results are visible and measurable. This is where discipline becomes performance and effort becomes undeniable.",
+    reckoningOverlay: "rgba(20,147,232,0.8)",
   },
   {
     id: "robotics-maker",
@@ -163,8 +209,12 @@ export const programs: Program[] = [
     image: "/images/programs/robox-hero.png",
     cardImage: "/images/programs/robox-card.png",
     interests: ["Robots & Technology", "Building & Engineering", "STEM"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "STEM & Technology",
+    reckoningName: "Mission Reveal™",
+    reckoningTagline: "This is what they created.",
+    reckoningDescription: "Students showcase robots and systems they have programmed to perform real tasks. Through live demonstrations and explanations, they reveal how logic, coding, and problem-solving come together. The Reckoning Day™ becomes a window into how students think, adapt, and build with technology.",
+    reckoningOverlay: "rgba(1,50,93,0.8)",
   },
   {
     id: "engineering-maker",
@@ -181,8 +231,12 @@ export const programs: Program[] = [
     image: "/images/programs/mechanica-hero.png",
     cardImage: "/images/programs/mechanica-card.png",
     interests: ["Building & Engineering", "STEM", "Science"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "STEM & Engineering",
+    reckoningName: "Systems Go™",
+    reckoningTagline: "All engines. No hesitation.",
+    reckoningDescription: "Students present engineered builds — machines, moving systems, and functional designs tested live for performance. This is where ideas meet physics. Students demonstrate how they design, construct, and refine systems that move, respond, and perform under pressure.",
+    reckoningOverlay: "rgba(15,211,198,0.8)",
   },
   {
     id: "esports-gaming",
@@ -199,8 +253,12 @@ export const programs: Program[] = [
     image: "/images/programs/esports-hero.png",
     cardImage: "/images/programs/esports-card.png",
     interests: ["Video Games", "Gaming & Esports", "Leadership"],
-    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (9 AM - 6 PM)"],
+    schedule: ["Full Day (9 AM - 3 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Gaming & Technology",
+    reckoningName: "The Drop™",
+    reckoningTagline: "They've been building… now it hits.",
+    reckoningDescription: "Students compete in live gameplay, showcasing strategy, communication, and focus. Teams demonstrate how they think, adapt, and execute under pressure. The Reckoning Day™ reveals esports as more than play — it is discipline, teamwork, and real-time decision-making.",
+    reckoningOverlay: "rgba(1,50,93,0.8)",
   },
 ];
 
