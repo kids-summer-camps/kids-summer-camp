@@ -50,13 +50,6 @@ const campPrograms: CampProgram[] = [
     bgColor: "bg-[#1493E8]",
   },
   {
-    id: "vision",
-    title: "VISION ARCHITECT",
-    subtitle: "The Plug Club — Rising 4th–7th",
-    icon: "/images/icons/token-space.svg",
-    bgColor: "bg-[#0FD3C6]",
-  },
-  {
     id: "vanguard",
     title: "THE VANGUARD",
     subtitle: "Leadership — Rising 8th",
@@ -116,7 +109,7 @@ export function CampProgramGrid() {
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-[10%]">
-        {/* Grid of 8 camp programs - 4 columns on desktop, 2 on tablet, 2 on mobile */}
+        {/* Grid of camp programs - 4 columns on desktop, 2 on tablet, 2 on mobile */}
         <StaggerContainer
           staggerDelay={0.08}
           className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 sm:gap-x-8 lg:gap-x-12"
