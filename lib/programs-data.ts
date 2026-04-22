@@ -75,7 +75,7 @@ export const programs: Program[] = [
     href: "/programs/prelude-i",
     color: "#1493E8",
     image: "/images/programs/prelude-i-hero.png",
-    cardImage: "/images/programs/prelude-i-hero.png",
+    cardImage: "/images/programs/prelude-i-card.png",
     interests: ["Exploration", "STEM"],
     schedule: ["Full Day (9 AM - 3 PM)", "Half Day Morning (9 AM - 12 PM)", "Extended Day (8 AM - 5 PM)"],
     category: "Early Childhood",
