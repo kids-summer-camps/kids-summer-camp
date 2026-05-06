@@ -4,7 +4,7 @@
 
 A modern, SEO-optimized website for Kid Explorer Camps - Chicago's premier summer program for kids ages 3-14, featuring STEM innovation, creative arts, sports, and outdoor exploration.
 
-🌐 **Live Site:** [kids-summer-camp.vercel.app](https://kids-summer-camp.vercel.app)
+🌐 **Live Site:** [kids-summer-camps.netlify.app](https://kids-summer-camps.netlify.app)
 
 ## Features
 

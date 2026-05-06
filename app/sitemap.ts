@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kids-summer-camp.vercel.app'
+  const baseUrl = 'https://kids-summer-camps.netlify.app'
 
   const programs = [
     'prelude-i',

@@ -34,10 +34,9 @@ Vercel will automatically deploy your changes.
 ## Post-Deployment (Within 24 Hours)
 
 ### Verify Deployment
-- [ ] Visit your live site: https://kids-summer-camp.vercel.app
-- [ ] Check that OG image loads: https://kids-summer-camp.vercel.app/og-image.png
-- [ ] Check sitemap: https://kids-summer-camp.vercel.app/sitemap.xml
-- [ ] Check robots.txt: https://kids-summer-camp.vercel.app/robots.txt
+- [ ] Visit your live site: https://kids-summer-camps.netlify.app- [ ] Check that OG image loads: https://kids-summer-camps.netlify.app/og-image.png
+- [ ] Check sitemap: https://kids-summer-camps.netlify.app/sitemap.xml
+- [ ] Check robots.txt: https://kids-summer-camps.netlify.app/robots.txt
 
 ### Test Social Media Previews
 - [ ] [Facebook Debugger](https://developers.facebook.com/tools/debug/)

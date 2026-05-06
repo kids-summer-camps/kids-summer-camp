@@ -4,8 +4,8 @@ export function StructuredData() {
     "@type": "EducationalOrganization",
     "name": "Kid Explorer Camps",
     "alternateName": "KEC",
-    "url": "https://kids-summer-camp.vercel.app",
-    "logo": "https://kids-summer-camp.vercel.app/icon-512.png",
+    "url": "https://kids-summer-camps.netlify.app",
+    "logo": "https://kids-summer-camps.netlify.app/icon-512.png",
     "description": "Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14.",
     "address": {
       "@type": "PostalAddress",
@@ -59,7 +59,7 @@ export function StructuredData() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://kids-summer-camp.vercel.app"
+        "item": "https://kids-summer-camps.netlify.app"
       }
     ]
   };

@@ -35,7 +35,7 @@ const cinzelDecorative = Cinzel_Decorative({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kids-summer-camp.vercel.app'),
+  metadataBase: new URL('https://kids-summer-camps.netlify.app'),
   title: {
     default: "Kid Explorer Camps | Summer Programs in Chicago",
     template: "%s | Kid Explorer Camps"
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://kids-summer-camp.vercel.app',
+    url: 'https://kids-summer-camps.netlify.app',
     siteName: 'Kid Explorer Camps',
     title: 'Kid Explorer Camps | Summer Programs in Chicago',
     description: 'Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14. Transportation across Chicago.',

@@ -248,7 +248,7 @@ NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 ### Step 2: Verify with Google
 
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property: `kids-summer-camp.vercel.app`
+2. Add property: `kids-summer-camps.netlify.app`
 3. Choose HTML tag verification
 4. Copy verification code
 5. Add to `app/layout.tsx` in the `verification` section
@@ -308,9 +308,9 @@ In Google Search Console:
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 
 **3. Technical Checks**
-- Sitemap: `kids-summer-camp.vercel.app/sitemap.xml`
-- Robots: `kids-summer-camp.vercel.app/robots.txt`
-- OG Image: `kids-summer-camp.vercel.app/og-image.png`
+- Sitemap: `kids-summer-camps.netlify.app/sitemap.xml`
+- Robots: `kids-summer-camps.netlify.app/robots.txt`
+- OG Image: `kids-summer-camps.netlify.app/og-image.png`
 
 ---
 

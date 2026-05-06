@@ -15,7 +15,7 @@ export function generateMetadata({
   image = '/og-image.jpg',
   keywords = [],
 }: PageMetadata): Metadata {
-  const url = `https://kids-summer-camp.vercel.app${path}`
+  const url = `https://kids-summer-camps.netlify.app${path}`
 
   return {
     title,

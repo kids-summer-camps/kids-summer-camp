@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://kids-summer-camp.vercel.app/sitemap.xml',
+    sitemap: 'https://kids-summer-camps.netlify.app/sitemap.xml',
   }
 }

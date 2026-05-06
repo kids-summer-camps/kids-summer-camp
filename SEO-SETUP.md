@@ -91,7 +91,7 @@ NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX          # Your Google Tag Manager ID
 ### 2. Verify Google Search Console
 
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add your property: `https://kids-summer-camp.vercel.app`
+2. Add your property: `https://kids-summer-camps.netlify.app`
 3. Copy your verification code
 4. Update `app/layout.tsx` with your verification code:
 
@@ -106,7 +106,7 @@ verification: {
 After deploying:
 1. Go to Google Search Console
 2. Navigate to Sitemaps
-3. Submit: `https://kids-summer-camp.vercel.app/sitemap.xml`
+3. Submit: `https://kids-summer-camps.netlify.app/sitemap.xml`
 
 ### 4. Set Up Google Analytics
 

@@ -44,7 +44,7 @@ NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX          # Get from tagmanager.google.com
 ### 2. Verify Your Site with Google (Important!)
 
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Click **Add Property** → Enter `https://kids-summer-camp.vercel.app`
+2. Click **Add Property** → Enter `https://kids-summer-camps.netlify.app`
 3. Choose **HTML tag** verification method
 4. Copy the verification code (looks like: `abc123xyz...`)
 5. Open `app/layout.tsx` and find this section:
@@ -74,7 +74,7 @@ Done! Google will start indexing your pages.
 
 **Facebook Preview:**
 https://developers.facebook.com/tools/debug/
-- Enter: `kids-summer-camp.vercel.app`
+- Enter: `kids-summer-camps.netlify.app`
 - Click **Debug** - you'll see your beautiful OG image!
 
 **Twitter Preview:**
