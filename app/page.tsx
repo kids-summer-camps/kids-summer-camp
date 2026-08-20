@@ -1,11 +1,9 @@
-import { HeroSection } from "@/components/home/HeroSection";
-import { WelcomeSection } from "@/components/home/WelcomeSection";
-import { MissionControlProvider } from "@/components/home/MissionControlSection";
-import { MissionControlContent } from "@/components/home/MissionControlSection";
-import { ProgramCubesSection } from "@/components/home/ProgramCubesSection";
-import { RecommendedMissionSection } from "@/components/home/RecommendedMissionSection";
-import { ReckoningSection } from "@/components/home/ReckoningSection";
-import { SummerInMotionSection } from "@/components/home/SummerInMotionSection";
+import { ClubsHomeHero } from "@/components/home/ClubsHomeHero";
+import { HomeJourneySection } from "@/components/home/HomeJourneySection";
+import { HomeProgramsSection } from "@/components/home/HomeProgramsSection";
+import { HomeLabsSection } from "@/components/home/HomeLabsSection";
+import { HomeExperienceSection } from "@/components/home/HomeExperienceSection";
+import { HomeTestimonialsSection } from "@/components/home/HomeTestimonialsSection";
 import { CTASection } from "@/components/home/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 import { HomeWelcomePopup } from "@/components/home/HomeWelcomePopup";
@@ -15,25 +13,18 @@ export default function Home() {
     <>
       <StructuredData />
       <HomeWelcomePopup />
-      
-      <HeroSection
-        videoSrc="/videos/homepage-header.mp4"
-        posterSrc="/images/posters/lack-woman-astronaut-poster.jpg"
-      />
 
-      <WelcomeSection />
+      <ClubsHomeHero />
 
-      <MissionControlProvider>
-        <MissionControlContent />
-        
-        <RecommendedMissionSection />
+      <HomeJourneySection />
 
-        <ProgramCubesSection />
+      <HomeProgramsSection />
 
-        <ReckoningSection />
-      </MissionControlProvider>
+      <HomeLabsSection />
 
-      <SummerInMotionSection />
+      <HomeExperienceSection />
+
+      <HomeTestimonialsSection />
 
       <CTASection />
     </>
