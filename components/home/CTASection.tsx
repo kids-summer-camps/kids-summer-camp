@@ -44,11 +44,11 @@ export function CTASection() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/programs"
+                  href="/summer-camps"
                   className="bg-white/10 border border-white h-[47px] w-full sm:w-[200px] lg:w-[232px] rounded-[10px] px-6 flex items-center justify-center"
                 >
                   <span className="font-mono font-medium text-white text-base whitespace-nowrap">
-                    Explore Camps
+                    Explore Programs
                   </span>
                 </Link>
               </motion.div>

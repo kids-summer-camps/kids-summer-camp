@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { LightBulbIcon } from "@heroicons/react/24/outline";
 import {
   CAREER_QUIZ_QUESTIONS,
   QUIZ_AGE_OPTIONS,
@@ -307,7 +308,8 @@ export function SummerPlanFlow() {
               {quizStep === 0 && (
                 <div className="mb-8 rounded-2xl border border-[#1493E8]/10 bg-[#f7fbff] px-4 py-4 sm:px-5 sm:py-5">
                   <p className="font-serif text-lg font-medium text-[#01325D] sm:text-xl">
-                    🧠 Kid Explorer Club™ — Natural Identity Quiz
+                    <LightBulbIcon className="mb-0.5 mr-1.5 inline h-6 w-6 text-[#1493E8]" />
+                    Kid Explorer Club Natural Identity Quiz
                   </p>
                   <p className="mt-2 font-mono text-sm italic text-[#01325D]/80">
                     “Who is your child becoming—before the world tells them who to be?”
@@ -522,7 +524,7 @@ export function SummerPlanFlow() {
                 </div>
                 <p className="mt-8 text-center font-mono text-xs text-[#01325D]/45">
                   Prefer to browse everything?{" "}
-                  <Link href="/programs" className="text-[#1493E8] hover:underline">
+                  <Link href="/summer-camps" className="text-[#1493E8] hover:underline">
                     All programs
                   </Link>
                 </p>

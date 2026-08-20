@@ -407,7 +407,7 @@ function Cube3D({ program }: { program: Program }) {
 
 export function ProgramCubesSection() {
   return (
-    <section className="w-full py-16 sm:py-20 lg:py-24 bg-linear-to-b from-[#f7fbff] to-white">
+    <section id="programs" className="w-full py-16 sm:py-20 lg:py-24 bg-linear-to-b from-[#f7fbff] to-white scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         <FadeIn direction="up" delay={0}>
           <div className="text-center mb-12 lg:mb-16">

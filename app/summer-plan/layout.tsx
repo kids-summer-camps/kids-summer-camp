@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Share your details for Summer 2026 updates, then take the Kid Explorer Club Natural Identity Quiz to see camp paths that fit your child.",
   openGraph: {
-    title: "Start your summer plan | Kid Explorer Camps",
+    title: "Start your summer plan | Kid Explorer Clubs",
     description:
       "Plan Summer 2026 and discover a camp match with the Natural Identity Quiz.",
   },

@@ -5,7 +5,7 @@ import { generateMetadata as generateMeta } from "@/lib/metadata";
 export const metadata: Metadata = generateMeta({
   title: "Enrollment Policies",
   description:
-    "Kid Explorer Camps enrollment policies including cancellation, transfer, absence, and age requirements for Summer 2026.",
+    "Kid Explorer Clubs enrollment policies including cancellation, transfer, absence, and age requirements.",
   path: "/enrollment-policies",
   keywords: [
     "enrollment policies",
