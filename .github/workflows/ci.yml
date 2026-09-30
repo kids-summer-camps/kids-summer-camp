@@ -1,0 +1,57 @@
+name: ci
+
+# Push-only (deliberately NOT pull_request): a push always runs against the real
+# HEAD commit, so the gate fires even when a PR is conflicted or mergeability is
+# still computing — the silent-skip failure mode the Trimfitt repos hit.
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-configs:
+    name: Build-config clean-file guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # No deps — pure Node, read-only, and it never executes the files it scans.
+      # `next build` imports postcss.config.mjs, so an injected payload there is a
+      # build-time RCE that ESLint and tsc never see. This repo shipped exactly
+      # that from 6b48826 (2026-08-20) until it was removed on 2026-09-30.
+      - run: npm run check:build-configs
+
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+
+  build:
+    name: next build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # The build script runs the guard first, so a reinfected config fails here
+      # before next build can execute it.
+      - run: npm run build

@@ -4,18 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:build-configs && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:build-configs": "node scripts/check-build-configs.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.34.5",
-    "next": "16.2.4",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "^16.3.7",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
