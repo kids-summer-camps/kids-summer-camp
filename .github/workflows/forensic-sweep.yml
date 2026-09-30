@@ -1,0 +1,82 @@
+name: Forensic sweep (build-config injection)
+
+# Daily re-scan of main + every branch tip for the obfuscated build-time RCE
+# loader that was appended to postcss.config.mjs (see the 2026-09-30 KEC
+# incident: camps commit 6b48826, `global.o='7-v2215'`).
+#
+# ADDITIVE to the push-time gate in ci.yml: that one only fires when a branch is
+# pushed, so it cannot see a dormant or newly-restored branch tip. This one
+# re-scans everything on a schedule and opens an issue on a hit.
+#
+# Ported from the Trimfitt repos' forensic-sweep.yml, minus their CRM recording.
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # daily 12:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan main + all branch tips for the injection signature
+        id: scan
+        run: |
+          set -euo pipefail
+          # Fetch EVERY remote head explicitly: `git fetch --all` inherits the
+          # checkout's narrow refspec, which would silently under-cover branches.
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune --quiet
+          HITS='[]'
+          COUNT=0
+          BRANCHES=$(git for-each-ref --format='%(refname:short)' refs/remotes/origin | grep -v 'origin/HEAD' | sed 's#^origin/##' | sort -u)
+          for br in $BRANCHES; do
+            COUNT=$((COUNT+1))
+            for f in postcss.config.mjs postcss.config.js next.config.mjs next.config.js eslint.config.mjs eslint.config.js; do
+              content=$(git show "origin/$br:$f" 2>/dev/null || true)
+              [ -z "$content" ] && continue
+              size=$(printf '%s' "$content" | wc -c | tr -d ' ')
+              hash=$(printf '%s' "$content" | md5sum | cut -d' ' -f1)
+              # Hit criteria: a signature token, or an anomalous size (the clean
+              # postcss config is 94 bytes; the infected one was 5616). A
+              # differently-formatted but small clean file is NOT flagged.
+              sig=$(printf '%s' "$content" | grep -cE 'global\s*\.\s*o\s*=|createRequire\s*\(|_\$_|fromCharCode\s*\(\s*127' || true)
+              if [ "$sig" -gt 0 ] || [ "$size" -gt 2000 ]; then
+                HITS=$(printf '%s' "$HITS" | jq --arg b "$br" --arg f "$f" --argjson s "$size" --arg h "$hash" \
+                  '. + [{branch:$b,file:$f,match_type:"infection",size:$s,hash:$h}]')
+              fi
+            done
+          done
+          # Also run the repo's own guard against the checked-out (main) tree.
+          node scripts/check-build-configs.mjs || echo "check-build-configs flagged the checked-out tree"
+          RESULT=$([ "$(printf '%s' "$HITS" | jq 'length')" -gt 0 ] && echo hit || echo clean)
+          echo "result=$RESULT" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          { echo "hits<<EOF"; printf '%s' "$HITS"; echo; echo "EOF"; } >> "$GITHUB_OUTPUT"
+          echo "Scanned $COUNT branches → $RESULT"
+          printf '%s\n' "$HITS" | jq .
+
+      - name: Open an issue on a hit
+        if: steps.scan.outputs.result == 'hit'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HITS: ${{ steps.scan.outputs.hits }}
+        run: |
+          body="🚨 Daily forensic sweep HIT — an obfuscated build-time RCE payload is present in a build-executed config.
+
+          Findings:
+          \`\`\`json
+          $HITS
+          \`\`\`
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          Remediation: restore the clean config (\`git checkout origin/main -- postcss.config.mjs\`), then find how it was reintroduced. \`next build\` imports these files, so the payload runs with full Node privileges on every build — local, CI and Netlify."
+          gh issue create --title "🚨 Forensic sweep HIT — build-config injection" --body "$body" 2>&1 || \
+            gh issue create --title "🚨 Forensic sweep HIT — build-config injection" --body "$body" --label security 2>&1
