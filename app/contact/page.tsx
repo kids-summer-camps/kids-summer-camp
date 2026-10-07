@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Kid Explorer Clubs for general questions.",
+  description: "Get in touch with Kid Explorer Camps for general questions.",
 };
 
 export default function ContactPage() {

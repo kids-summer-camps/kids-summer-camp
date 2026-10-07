@@ -2,11 +2,11 @@ export function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "name": "Kid Explorer Clubs",
+    "name": "Kid Explorer Camps",
     "alternateName": "KEC",
-    "url": "https://kidexplorerclubs.com",
-    "logo": "https://kidexplorerclubs.com/icon-512.png",
-    "description": "Where the Future Starts. A year-round launch system for young minds. After-school, summer camps, and seasonal programs across Chicago.",
+    "url": "https://kids-summer-camps.netlify.app",
+    "logo": "https://kids-summer-camps.netlify.app/icon-512.png",
+    "description": "Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Chicago",
@@ -14,10 +14,10 @@ export function StructuredData() {
       "addressCountry": "US"
     },
     "sameAs": [
-      "https://facebook.com/kidexplorerclubs",
-      "https://twitter.com/kidexplorerclubs",
-      "https://instagram.com/kidexplorerclubs",
-      "https://linkedin.com/company/kidexplorerclubs"
+      "https://facebook.com/kidexplorercamps",
+      "https://twitter.com/kidexplorercamps",
+      "https://instagram.com/kidexplorercamps",
+      "https://linkedin.com/company/kidexplorercamps"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -33,7 +33,7 @@ export function StructuredData() {
     "serviceType": "Summer Camp",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "Kid Explorer Clubs"
+      "name": "Kid Explorer Camps"
     },
     "areaServed": {
       "@type": "City",
@@ -59,7 +59,7 @@ export function StructuredData() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://kidexplorerclubs.com"
+        "item": "https://kids-summer-camps.netlify.app"
       }
     ]
   };

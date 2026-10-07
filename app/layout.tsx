@@ -35,30 +35,30 @@ const cinzelDecorative = Cinzel_Decorative({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kidexplorerclubs.com'),
+  metadataBase: new URL('https://kids-summer-camps.netlify.app'),
   title: {
-    default: "Kid Explorer Clubs | After-School & Summer Programs in Chicago",
-    template: "%s | Kid Explorer Clubs"
+    default: "Kid Explorer Camps | Summer Programs in Chicago",
+    template: "%s | Kid Explorer Camps"
   },
-  description: "Where the Future Starts. Kid Explorer Clubs is a year-round launch system for young minds ,  after-school, summer camps, and seasonal programs building coders, creators, and problem-solvers across Chicago.",
+  description: "Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14. Transportation across Chicago.",
   keywords: [
-    "kid explorer clubs",
-    "after school program Chicago",
+    "kids summer camp",
     "summer camp Chicago",
-    "STEM program Chicago",
+    "STEM summer camp",
     "kids programs Chicago",
-    "youth programs Chicago",
-    "Chicago after school",
-    "kid explorer camp",
+    "summer activities for kids",
+    "youth summer programs",
+    "Chicago summer camp",
+    "kids explorer camp",
     "STEM education",
-    "creative arts program",
-    "sports program Chicago",
-    "kids enrichment Chicago",
-    "children programs Chicago"
+    "creative arts camp",
+    "sports camp Chicago",
+    "ages 3-14 summer camp",
+    "children summer programs"
   ],
-  authors: [{ name: "Kid Explorer Clubs" }],
-  creator: "Kid Explorer Clubs",
-  publisher: "Kid Explorer Clubs",
+  authors: [{ name: "Kid Explorer Camps" }],
+  creator: "Kid Explorer Camps",
+  publisher: "Kid Explorer Camps",
   formatDetection: {
     email: false,
     address: false,
@@ -67,25 +67,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://kidexplorerclubs.com',
-    siteName: 'Kid Explorer Clubs',
-    title: 'Kid Explorer Clubs | After-School & Summer Programs in Chicago',
-    description: 'Where the Future Starts. After-school, summer camps, and seasonal programs building coders, creators, and problem-solvers across Chicago.',
+    url: 'https://kids-summer-camps.netlify.app',
+    siteName: 'Kid Explorer Camps',
+    title: 'Kid Explorer Camps | Summer Programs in Chicago',
+    description: 'Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14. Transportation across Chicago.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kid Explorer Clubs - Where the Future Starts',
+        alt: 'Kid Explorer Camps - Where the Future Starts in the Summer',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kid Explorer Clubs | After-School & Summer Programs in Chicago',
-    description: 'Where the Future Starts. After-school, summer camps, and seasonal programs for kids across Chicago.',
+    title: 'Kid Explorer Camps | Summer Programs in Chicago',
+    description: 'Where the Future Starts in the Summer. STEM innovation, creative arts, sports, and outdoor exploration for kids ages 3-14.',
     images: ['/og-image.jpg'],
-    creator: '@kidexplorerclubs',
+    creator: '@kidexplorercamps',
   },
   robots: {
     index: true,

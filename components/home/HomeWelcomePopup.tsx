@@ -39,7 +39,7 @@ function PlanningGuidePanel({ titleId, onDismiss }: PlanningGuidePanelProps) {
       <div className="relative aspect-1436/667 w-full">
         <Image
           src="/images/summer-planning-popup-hero.jpg"
-          alt="Kid Explorer Clubs ,  ReThink Possibility. Summer planning guide promotion."
+          alt="Kid Explorer Clubs — ReThink Possibility. Summer planning guide promotion."
           fill
           className="object-cover object-center"
           sizes="(max-width: 896px) 100vw, 896px"

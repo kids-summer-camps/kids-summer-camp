@@ -15,16 +15,15 @@ export function generateMetadata({
   image = '/og-image.jpg',
   keywords = [],
 }: PageMetadata): Metadata {
-  const url = `https://kidexplorerclubs.com${path}`
+  const url = `https://kids-summer-camps.netlify.app${path}`
 
   return {
     title,
     description,
     keywords: [
-      'kid explorer clubs',
-      'after school Chicago',
+      'kids summer camp',
       'summer camp Chicago',
-      'STEM program',
+      'STEM summer camp',
       ...keywords,
     ],
     openGraph: {
@@ -57,55 +56,55 @@ export const programMetadata: Record<string, PageMetadata> = {
   'prelude-i': {
     title: 'Prelude I™ - Age 3',
     description: 'At Prelude I™, our youngest explorers discover the world through guided play, creativity, and movement. Building confidence, communication, and early problem-solving skills.',
-    path: '/summer-camps/prelude-i',
+    path: '/programs/prelude-i',
     keywords: ['preschool STEM', 'age 3', 'early learning', 'guided play', 'Pre-K 3'],
   },
   'prelude-ii': {
     title: 'Prelude II™ - Age 4',
     description: 'At Prelude II™, children build confidence, communication, and early problem-solving skills through hands-on activities, guided play, and creative exploration.',
-    path: '/summer-camps/prelude-ii',
+    path: '/programs/prelude-ii',
     keywords: ['preschool STEM', 'age 4', 'early learning', 'guided play', 'Pre-K 4'],
   },
   'first-flight': {
     title: 'First Flight - Ages 5-7',
     description: 'Introduction to STEM concepts through interactive play and creative projects for young learners.',
-    path: '/summer-camps/first-flight',
+    path: '/programs/first-flight',
     keywords: ['elementary STEM', 'ages 5-7', 'interactive learning', 'creative projects'],
   },
   'cosmic-curiosity': {
     title: 'Cosmic Curiosity - Ages 7-9',
     description: 'Dive deeper into STEM with experiments, coding basics, and space exploration for curious minds.',
-    path: '/summer-camps/cosmic-curiosity',
+    path: '/programs/cosmic-curiosity',
     keywords: ['STEM experiments', 'ages 7-9', 'coding for kids', 'space exploration'],
   },
   'robotics-maker': {
     title: 'Robotics Maker Camp - Ages 8-13',
     description: 'Build bots, code dreams, and engineer the future. Hands-on robotics, automation, and coding for young innovators.',
-    path: '/summer-camps/robotics-maker',
+    path: '/programs/robotics-maker',
     keywords: ['robotics', 'coding', 'engineering', 'STEM', 'automation', 'ages 8-13'],
   },
   'engineering-maker': {
     title: 'Engineering Maker Camp - Ages 8-13',
     description: 'Design, build, test, repeat. Mechanical, electrical, and civil engineering through hands-on projects and 3D modeling.',
-    path: '/summer-camps/engineering-maker',
+    path: '/programs/engineering-maker',
     keywords: ['engineering', 'maker', '3D printing', 'circuits', 'STEM', 'ages 8-13'],
   },
   'esports-gaming': {
     title: 'Esports Lab™ - Ages 8-14',
     description: 'Where young minds take control of the digital world—building, creating, and leading with confidence in a future powered by technology.',
-    path: '/summer-camps/esports-gaming',
+    path: '/programs/esports-gaming',
     keywords: ['esports', 'gaming', 'game design', 'strategy', 'teamwork', 'digital literacy', 'ages 8-14'],
   },
   'the-blueprint': {
     title: 'The Blueprint - Ages 13-14',
     description: 'Advanced project-based learning, entrepreneurship, and real-world application of STEM skills.',
-    path: '/summer-camps/the-blueprint',
+    path: '/programs/the-blueprint',
     keywords: ['entrepreneurship', 'ages 13-14', 'project-based learning', 'advanced STEM'],
   },
   'power-play': {
     title: 'Power Play - Sports & Athletics',
     description: 'Dynamic sports programs combining physical fitness, teamwork, and character development.',
-    path: '/summer-camps/power-play',
+    path: '/programs/power-play',
     keywords: ['sports camp', 'athletics', 'teamwork', 'fitness'],
   },
 }

@@ -7,21 +7,15 @@ import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const programLinks = [
-  { label: "Afterschool", href: "/afterschool" },
-  { label: "Summer Camps", href: "/summer-camps" },
-  { label: "Winter Camps", href: "/winter-camps" },
-  { label: "Spring Camps", href: "/spring-camps" },
-  { label: "College Readiness", href: "/college-readiness" },
-];
-
-const exploreLinks = [
-  { label: "About", href: "/about" },
-  { label: "Core Labs", href: "/core-labs" },
-  { label: "Membership", href: "/membership" },
-  { label: "Field Trips", href: "/field-trips" },
-  { label: "Transportation", href: "/transportation" },
-  { label: "Careers", href: "/careers" },
-  { label: "Experience", href: "/experience" },
+  { label: "Prelude I ™", href: "/programs/prelude-i" },
+  { label: "Prelude II™", href: "/programs/prelude-ii" },
+  { label: "Launchpad™", href: "/programs/first-flight" },
+  { label: "Idealforge™", href: "/programs/the-blueprint" },
+  { label: "Robox™", href: "/programs/robotics-maker" },
+  { label: "Apex Athletics™", href: "/programs/power-play" },
+  { label: "Zero™", href: "/programs/cosmic-curiosity" },
+  { label: "Mechanica™", href: "/programs/engineering-maker" },
+  { label: "Esport™", href: "/programs/esports-gaming" },
 ];
 
 const socialLinks = [
@@ -36,14 +30,14 @@ export function Footer() {
     <footer className="bg-[#1493E8] w-full">
       <div className="w-full mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         {/* Main Footer Content - 4 Column Layout */}
-        <div className="pt-14 sm:pt-20 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="pt-14 sm:pt-20 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Column 1: Logo & Tagline */}
           <FadeIn direction="up" delay={0}>
             <div className="flex flex-col items-start gap-9">
               <div className="w-[110px] h-[110px] relative">
                 <Image
                   src="/images/footer-logo.svg"
-                  alt="Kid Explorer Clubs"
+                  alt="Kid Explorer Camps"
                   fill
                   className="object-contain"
                 />
@@ -82,30 +76,7 @@ export function Footer() {
             </div>
           </FadeIn>
 
-          {/* Column 3: Explore */}
-          <FadeIn direction="up" delay={0.15}>
-            <div className="flex flex-col items-start">
-              <h3 className="font-sans font-semibold text-[#B4FFFA] text-xl sm:text-2xl leading-[22px] mb-6">
-                EXPLORE
-              </h3>
-              <StaggerContainer staggerDelay={0.03} className="flex flex-col gap-2">
-                {exploreLinks.map((link) => (
-                  <StaggerItem key={link.label}>
-                    <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                      <Link
-                        href={link.href}
-                        className="text-white font-sans font-semibold text-sm sm:text-base leading-[22px] hover:text-[#B4FFFA] transition-colors inline-block"
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-          </FadeIn>
-
-          {/* Column 4: Contact Us */}
+          {/* Column 3: Contact Us */}
           <FadeIn direction="up" delay={0.2}>
             <div className="flex flex-col items-start">
               <h3 className="font-sans font-semibold text-[#B4FFFA] text-xl sm:text-2xl leading-[22px] mb-6">
@@ -113,12 +84,12 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-5">
                 <motion.a
-                  href="mailto:Customercare@kidexplorerclubs.com"
-                  className="flex items-start gap-1.5 text-white font-sans text-base sm:text-lg leading-5 hover:text-[#B4FFFA] transition-colors min-w-0"
+                  href="mailto:Customercare@kidexplorercamp.com"
+                  className="flex items-center gap-1.5 text-white font-sans text-base sm:text-lg leading-5 hover:text-[#B4FFFA] transition-colors"
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-5 h-5 relative shrink-0 mt-0.5">
+                  <div className="w-5 h-5 relative shrink-0">
                     <Image
                       src="/images/icons/footer-email.svg"
                       alt="Email"
@@ -126,7 +97,7 @@ export function Footer() {
                       className="object-contain"
                     />
                   </div>
-                  <span className="break-all">Customercare@kidexplorerclubs.com</span>
+                  <span>Customercare@kidexplorercamp.com</span>
                 </motion.a>
 
                 <motion.a

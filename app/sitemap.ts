@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kidexplorerclubs.com'
+  const baseUrl = 'https://kids-summer-camps.netlify.app'
 
   const programs = [
     'prelude-i',
@@ -23,52 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/afterschool`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/programs`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/summer-camps`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/core-labs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/membership`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/field-trips`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/transportation`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
     },
     {
       url: `${baseUrl}/experience`,
@@ -83,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/summer-plan`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/enrollment-policies`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -90,19 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const gradeBandPages = ['launch-sequence', 'innogenius', 'nextgen-legends'].map((band) => ({
-    url: `${baseUrl}/programs/${band}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
-
   const programPages = programs.map((program) => ({
-    url: `${baseUrl}/summer-camps/${program}`,
+    url: `${baseUrl}/programs/${program}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
 
-  return [...staticPages, ...gradeBandPages, ...programPages]
+  return [...staticPages, ...programPages]
 }

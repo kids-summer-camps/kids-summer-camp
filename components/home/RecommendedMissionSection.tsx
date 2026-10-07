@@ -136,7 +136,7 @@ export function RecommendedMissionSection() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link
-                    href="/summer-camps"
+                    href="/programs"
                     className="bg-[#1493E8] rounded-[10px] px-6 py-3 h-11 flex items-center justify-center cursor-pointer w-full"
                   >
                     <span className="font-mono font-medium text-white text-[15px] whitespace-nowrap">
@@ -162,7 +162,7 @@ export function RecommendedMissionSection() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/summer-camps"
+                  href="/programs"
                   className="inline-block bg-[#1493E8] rounded-[10px] px-8 py-3 font-mono font-medium text-white text-[15px]"
                 >
                   Browse All Programs →

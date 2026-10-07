@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 import { generateMetadata as generateMeta } from '@/lib/metadata'
 
 export const metadata: Metadata = generateMeta({
-  title: 'About Kid Explorer Clubs - Why We Move Different',
-  description: 'Kid Explorer Clubs is a launch system for young minds. Pre-K through 8th grade, building identity, mastery, and mindset - not just for school, but for life.',
+  title: 'About Us - Our Story',
+  description: 'Discover the story behind Kid Explorer Camp - born from one mother\'s vision to create a space where curiosity is unleashed and the future is built.',
   path: '/about',
-  keywords: ['kid explorer clubs', 'Chicago education', 'after school', 'educational innovation', 'year round program'],
+  keywords: ['summer camp story', 'Chicago education', 'camp founder', 'educational innovation'],
 })
 
 export default function AboutLayout({
