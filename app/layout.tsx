@@ -1,37 +1,82 @@
 import type { Metadata } from "next";
-import { DM_Sans, Roboto_Serif, Roboto_Mono, Poppins, Cinzel_Decorative } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
 import { Analytics } from "@/components/Analytics";
 
-const dmSans = DM_Sans({
+// Fonts are self-hosted from /fonts (latin subsets only) instead of fetched from
+// next/font/google at build time.
+//
+// Why: next/font/google fetches its stylesheet from fonts.googleapis.com during
+// every build. Google intermittently answers with extensionless
+// `fonts.gstatic.com/l/font?kit=...&skey=...` URLs, and Turbopack's font
+// resolver parses the `&` as extra query entries, so the build dies with
+// "Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'"
+// plus "next/font/google queries have exactly one entry" (vercel/next.js#99114,
+// same family as the 16.3.0 regression #97344). It is response dependent, so it
+// hits some builds and not others (it failed Netlify builds twice while passing
+// locally and in CI on the same commit). Self-hosting removes the network fetch
+// from the build entirely.
+//
+// The woff2 files are the exact latin subsets the previous next/font/google
+// build emitted, so rendering is unchanged. DM Sans, Roboto Serif and Roboto
+// Mono are variable fonts: one file serves every weight. The latin-ext and
+// other subsets Google used to download are not shipped; the site copy is
+// basic latin, and anything outside it already falls back to the emoji/symbol
+// fonts.
+const dmSans = localFont({
   variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  display: "swap",
+  src: [
+    { path: "../fonts/dm-sans-latin.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/dm-sans-latin.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/dm-sans-latin.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const robotoSerif = Roboto_Serif({
+const robotoSerif = localFont({
   variable: "--font-roboto-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  src: [
+    { path: "../fonts/roboto-serif-latin.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/roboto-serif-latin.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/roboto-serif-latin.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/roboto-serif-latin.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const robotoMono = Roboto_Mono({
+const robotoMono = localFont({
   variable: "--font-roboto-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  src: [
+    { path: "../fonts/roboto-mono-latin.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/roboto-mono-latin.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/roboto-mono-latin.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/roboto-mono-latin.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const poppins = Poppins({
+const poppins = localFont({
   variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  src: [
+    { path: "../fonts/poppins-latin-300.woff2", weight: "300", style: "normal" },
+    { path: "../fonts/poppins-latin-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/poppins-latin-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/poppins-latin-600.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/poppins-latin-700.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/poppins-latin-800.woff2", weight: "800", style: "normal" },
+  ],
 });
 
-const cinzelDecorative = Cinzel_Decorative({
+const cinzelDecorative = localFont({
   variable: "--font-cinzel-decorative",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  display: "swap",
+  src: [
+    { path: "../fonts/cinzel-decorative-latin-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/cinzel-decorative-latin-700.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/cinzel-decorative-latin-900.woff2", weight: "900", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {
